@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore personal, business and home loans, compare interest rates, calculate EMIs and check loan eligibility in one place with Finora.">
+  <title>Finora | Loans Made Clear - Compare, Calculate & Apply</title>
+  
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  
+  <!-- Humanoid & Luxury Fonts: Space Grotesk, Plus Jakarta Sans, Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span class="topbar-badge">VERIFIED RATES</span>
+        <span>Simple finance. Clear next steps.</span>
+      </div>
+      <div class="top-secondary">
+        <span>Need help? <a href="#contact">Talk to our support team ↗</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Finora home">
+        <img src="images/finora-logo-trimmed.png" alt="Finora - Financing a Brighter Tomorrow" class="brand-logo" width="168" height="48">
+      </a>
+      
+      <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+        <a href="#loans">Loans</a>
+        <a href="#investment">Investment</a>
+        <a href="#calculators">Calculators</a>
+        <a href="#rates">Interest rates</a>
+        <a href="#locations">Locations</a>
+        <a href="#guides">Guides</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-small" href="#eligibility">
+          Check eligibility <span>↗</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Rates Ticker Bar -->
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Finance that fits your plans</span>
+          <h1>Your next step,<br>made <span class="gradient-text">more possible.</span></h1>
+          <p>Compare loan options, estimate your monthly EMI and understand your next steps with clear, straightforward information.</p>
+          
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#loans">
+              Explore loan options <span>→</span>
+            </a>
+            <a class="btn btn-outline" href="#calculators">
+              Calculate my EMI
+            </a>
+          </div>
+
+          <div class="trust-row">
+            <span><i class="check">✓</i> Clear information</span>
+            <span><i class="check">✓</i> Easy-to-use tools</span>
+            <span><i class="check">✓</i> Informed decisions</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Interactive Loan Calculator">
+          <div class="visual-blob"></div>
+          <!-- Hero Interactive Loan Calculator Card (Architectural Floating Panel) -->
+          <div class="hero-calculator-card">
+            <div class="card-top">
+              <div>
+                <small class="hero-calc-badge">YOUR LOAN SNAPSHOT</small>
+                <h3 style="margin:5px 0 0; font-size:1.25rem;">Plan with clarity</h3>
+              </div>
+              <div class="card-icon">₹</div>
+            </div>
+
+            <!-- Amount Field -->
+            <div class="hero-calc-field">
+              <div class="hero-calc-head">
+                <label for="heroAmount">Loan amount</label>
+                <output id="heroAmountOut">₹5,00,000</output>
+              </div>
+              <input id="heroAmount" type="range" min="50000" max="5000000" step="25000" value="500000" aria-label="Hero loan amount slider">
+              <div class="hero-calc-presets">
+                <button type="button" class="hero-preset-btn" data-val="100000">₹1L</button>
+                <button type="button" class="hero-preset-btn active" data-val="500000">₹5L</button>
+                <button type="button" class="hero-preset-btn" data-val="1000000">₹10L</button>
+                <button type="button" class="hero-preset-btn" data-val="2500000">₹25L</button>
+                <button type="button" class="hero-preset-btn" data-val="5000000">₹50L</button>
+              </div>
+            </div>
+
+            <!-- Tenure & Rate Sliders -->
+            <div class="hero-calc-row">
+              <div class="hero-calc-field-half">
+                <div class="hero-calc-head-sm">
+                  <label for="heroTenure">Tenure</label>
+                  <output id="heroTenureOut">5 years</output>
+                </div>
+                <input id="heroTenure" type="range" min="1" max="30" step="1" value="5" aria-label="Hero tenure slider">
+              </div>
+              <div class="hero-calc-field-half">
+                <div class="hero-calc-head-sm">
+                  <label for="heroRate">Interest</label>
+                  <output id="heroRateOut">12%</output>
+                </div>
+                <input id="heroRate" type="range" min="7" max="24" step="0.25" value="12" aria-label="Hero interest slider">
+              </div>
+            </div>
+
+            <!-- Dynamic Result Card -->
+            <div class="hero-calc-result">
+              <div class="hero-result-main">
+                <small>Estimated monthly EMI</small>
+                <div class="hero-emi-val" id="heroEmiOut">₹11,122</div>
+              </div>
+              <div class="hero-result-sub">
+                <div>
+                  <small>Total interest</small>
+                  <strong id="heroTotalInterest">₹1,67,320</strong>
+                </div>
+                <div>
+                  <small>Total repayment</small>
+                  <strong id="heroTotalPayment">₹6,67,320</strong>
+                </div>
+              </div>
+            </div>
+
+            <p class="hero-calc-note">
+              Illustrative figures only. Actual terms depend on lender assessment.
+            </p>
+          </div>
+
+          <!-- Floating Note from Original Finora -->
+          <div class="floating-note">
+            <strong>Plan before you apply</strong>
+            <span>Compare. Calculate. Decide.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Strip Links -->
+    <section class="quick-strip" aria-label="Quick links">
+      <div class="container quick-grid">
+        <a class="quick-item" href="#calculators">
+          <span class="quick-icon">⌗</span>
+          <span>
+            <strong>Calculate your EMI</strong>
+            <small>Estimate monthly payments</small>
+          </span>
+        </a>
+        <a class="quick-item" href="#eligibility">
+          <span class="quick-icon">✓</span>
+          <span>
+            <strong>Check eligibility</strong>
+            <small>Understand what matters</small>
+          </span>
+        </a>
+        <a class="quick-item" href="#rates">
+          <span class="quick-icon">％</span>
+          <span>
+            <strong>View interest rates</strong>
+            <small>Review key charges</small>
+          </span>
+        </a>
+        <a class="quick-item" href="#investment">
+          <span class="quick-icon">↗</span>
+          <span>
+            <strong>Explore investments</strong>
+            <small>Review savings options</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Loans Section -->
+    <section class="section" id="loans">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Borrow with purpose</span>
+          <h2>Find a loan for what comes next</h2>
+          <p>Start with the goal you have in mind. Review the loan type, check the details and compare options before making a decision.</p>
+        </div>
+
+        <!-- Interactive Category Filter -->
+        <div class="filter-bar" role="tablist" aria-label="Filter loans by category">
+          <button class="filter-btn active" data-filter="all">All Loans (12)</button>
+          <button class="filter-btn" data-filter="personal">Personal & Instant</button>
+          <button class="filter-btn" data-filter="property">Home & Property</button>
+          <button class="filter-btn" data-filter="business">Business & Wealth</button>
+        </div>
+
+        <div class="product-grid">
+          <!-- 1. Personal Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-personal.jpg" alt="Personal Loan finance planning" loading="lazy">
+              <span class="product-card-badge">Instant Disbursal</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">👤</div>
+              <h3>Personal Loan</h3>
+              <p>For planned expenses, unexpected costs or a financial need that calls for flexibility.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore personal loans →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Insta Personal Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-insta.jpg" alt="Insta Personal Loan mobile app" loading="lazy">
+              <span class="product-card-badge">100% Paperless</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">⚡</div>
+              <h3>Insta Personal Loan</h3>
+              <p>Review digital application steps and the information you may need to provide.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">See how it works →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Business Loan -->
+          <article class="product-card" data-category="business">
+            <div class="product-card-img">
+              <img src="images/loan-business.jpg" alt="Business Loan corporate building" loading="lazy">
+              <span class="product-card-badge">High Capital</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🏢</div>
+              <h3>Business Loan</h3>
+              <p>Funding options to review for working capital, equipment or business plans.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore business loans →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Home Loan -->
+          <article class="product-card" data-category="property">
+            <div class="product-card-img">
+              <img src="images/loan-home.jpg" alt="Modern Home Loan architecture" loading="lazy">
+              <span class="product-card-badge">Lowest APR</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🏡</div>
+              <h3>Home Loan</h3>
+              <p>Understand home financing, estimated EMIs and repayment considerations.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#calculators">Plan your home loan →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Loan Against Property -->
+          <article class="product-card" data-category="property">
+            <div class="product-card-img">
+              <img src="images/loan-property.jpg" alt="Property deed and keys" loading="lazy">
+              <span class="product-card-badge">Secured Value</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🔑</div>
+              <h3>Loan Against Property</h3>
+              <p>Learn how property-backed borrowing works and what risks to consider.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">View loan details →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Gold Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-gold.jpg" alt="Gold Loan bullion" loading="lazy">
+              <span class="product-card-badge">Quick Approval</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">💛</div>
+              <h3>Gold Loan</h3>
+              <p>Review secured borrowing basics, valuation and repayment requirements.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore gold loans →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Education Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-education.jpg" alt="Education Loan campus students" loading="lazy">
+              <span class="product-card-badge">Moratorium Benefit</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🎓</div>
+              <h3>Education Loan</h3>
+              <p>Plan education costs with a closer look at funding and repayment options.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore education loans →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Car & Two-Wheeler Loans -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-vehicle.jpg" alt="Car & Two-Wheeler vehicle loan" loading="lazy">
+              <span class="product-card-badge">Up to 100% On-Road</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🚘</div>
+              <h3>Car & Two-Wheeler Loans</h3>
+              <p>Estimate payments and compare financing for your next vehicle.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#calculators">Calculate a vehicle EMI →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Medical Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-medical.jpg" alt="Medical health expense finance" loading="lazy">
+              <span class="product-card-badge">Emergency Care</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🩺</div>
+              <h3>Medical Loan</h3>
+              <p>Consider financing options for eligible healthcare-related expenses.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">View medical loan details →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. Loan Against Securities -->
+          <article class="product-card" data-category="business">
+            <div class="product-card-img">
+              <img src="images/loan-securities.jpg" alt="Stock market portfolio growth" loading="lazy">
+              <span class="product-card-badge">Retain Returns</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">📈</div>
+              <h3>Loan Against Securities</h3>
+              <p>Understand secured borrowing against eligible financial assets and associated risks.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Learn the basics →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11. Debt Consolidation Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-consolidation.jpg" alt="Consolidation debt calculator" loading="lazy">
+              <span class="product-card-badge">Single Monthly EMI</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🔄</div>
+              <h3>Debt Consolidation Loan</h3>
+              <p>Compare the total cost and repayment impact before combining existing debts.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#calculators">Review repayment →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12. Easy EMI Loan -->
+          <article class="product-card" data-category="personal">
+            <div class="product-card-img">
+              <img src="images/loan-easyemi.jpg" alt="Instalment retail payment" loading="lazy">
+              <span class="product-card-badge">Flexible Tenures</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-icon-wrap">🧾</div>
+              <h3>Easy EMI Loan</h3>
+              <p>Explore instalment-based borrowing and check the full cost before applying.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#calculators">Estimate your EMI →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMI Calculators Section -->
+    <section class="section soft-section" id="calculators">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Plan your repayments</span>
+            <h2>Calculate your EMI in seconds</h2>
+            <p>Adjust the amount, interest rate and repayment period to estimate a monthly payment. Use this as a starting point for comparing loan offers.</p>
+          </div>
+
+          <div class="calc-features">
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <strong>See the monthly estimate</strong>
+                <p>Understand how loan size and tenure affect your monthly budget.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <strong>Compare different scenarios</strong>
+                <p>Change one value at a time to see how your estimated EMI changes.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <strong>Review total repayment</strong>
+                <p>Consider interest cost alongside the monthly amount.</p>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:0.86rem; color:var(--muted); line-height:1.6;">
+            Also available: Personal Loan EMI Calculator, Home Loan EMI Calculator, Business Loan EMI Calculator, Loan Eligibility Calculator, Interest Rate Calculator and Loan Repayment Calculator.
+          </p>
+        </div>
+
+        <div class="calculator-card">
+          <h3>EMI calculator</h3>
+          <p style="font-size:0.9rem; color:var(--muted); margin-bottom: 24px;">Move the sliders to estimate your repayment.</p>
+
+          <!-- Field 1: Amount -->
+          <div class="field">
+            <div class="field-head">
+              <label for="loanAmount">Loan amount</label>
+              <output id="amountOut">₹5,00,000</output>
+            </div>
+            <input id="loanAmount" type="range" min="50000" max="5000000" step="25000" value="500000" aria-label="Loan Amount Slider">
+            <div class="range-labels">
+              <span>₹50,000</span>
+              <span>₹50 lakh</span>
+            </div>
+            <div class="presets">
+              <span class="preset-chip" data-value="100000">₹1 Lakh</span>
+              <span class="preset-chip" data-value="500000">₹5 Lakh</span>
+              <span class="preset-chip" data-value="1000000">₹10 Lakh</span>
+              <span class="preset-chip" data-value="2500000">₹25 Lakh</span>
+              <span class="preset-chip" data-value="5000000">₹50 Lakh</span>
+            </div>
+          </div>
+
+          <!-- Field 2: Interest -->
+          <div class="field">
+            <div class="field-head">
+              <label for="interest">Annual interest rate</label>
+              <output id="interestOut">12%</output>
+            </div>
+            <input id="interest" type="range" min="5" max="24" step="0.25" value="12" aria-label="Interest Rate Slider">
+            <div class="range-labels">
+              <span>5%</span>
+              <span>24%</span>
+            </div>
+          </div>
+
+          <!-- Field 3: Tenure -->
+          <div class="field">
+            <div class="field-head">
+              <label for="tenure">Loan tenure</label>
+              <output id="tenureOut">5 years</output>
+            </div>
+            <input id="tenure" type="range" min="1" max="30" step="1" value="5" aria-label="Loan Tenure Slider">
+            <div class="range-labels">
+              <span>1 year</span>
+              <span>30 years</span>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="results" aria-live="polite">
+            <p>Estimated monthly EMI</p>
+            <div class="emi-value" id="emiOut">₹11,122</div>
+
+
+
+            <!-- Visual Breakdown Bar -->
+            <div class="breakdown-bar">
+              <div class="breakdown-labels">
+                <span id="principalRatio">Principal: 75%</span>
+                <span id="interestRatio">Interest: 25%</span>
+              </div>
+              <div class="breakdown-track">
+                <div class="principal-fill" id="principalFill" style="width: 75%;"></div>
+                <div class="interest-fill" id="interestFill" style="width: 25%;"></div>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <div>
+                <small>Total interest</small>
+                <strong id="totalInterest">₹1,67,320</strong>
+              </div>
+              <div>
+                <small>Total repayment</small>
+                <strong id="totalPayment">₹6,67,320</strong>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:0.75rem; color:#64748b; margin:14px 0 0; line-height: 1.4;">
+            Estimate only. Fees, taxes, lender terms and actual rates may change the final repayment amount.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eligibility Section -->
+    <section class="section" id="eligibility">
+      <div class="container">
+        <div class="eligibility-band">
+          <div>
+            <span class="eyebrow" style="background: rgba(255,255,255,0.15); color: #ffd18a; border-color: rgba(255,255,255,0.2);">
+              Your next step
+            </span>
+            <h2>Understand your loan eligibility</h2>
+            <p>Eligibility may depend on income, existing obligations, credit history, employment or business profile, loan amount and lender policy.</p>
+          </div>
+          <a class="btn btn-primary" href="#contact">Start an eligibility enquiry ↗</a>
+        </div>
+
+        <div style="margin-top: 50px;" class="section-head">
+          <h2 style="font-size: 1.85rem;">Explore eligibility by loan type</h2>
+          <p>Use these starting points to understand the factors lenders may assess. They are not approval decisions.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-card-body" style="padding-top: 26px;">
+              <div class="product-icon-wrap" style="margin-top: 0;">👤</div>
+              <h3>Personal Loan Eligibility</h3>
+              <p>Review income, employment, credit profile and current monthly commitments.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">Check requirements →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-body" style="padding-top: 26px;">
+              <div class="product-icon-wrap" style="margin-top: 0;">🏢</div>
+              <h3>Business Loan Eligibility</h3>
+              <p>Review business vintage, turnover, cash flow, documents and credit profile.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">Check requirements →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-body" style="padding-top: 26px;">
+              <div class="product-icon-wrap" style="margin-top: 0;">🏡</div>
+              <h3>Home Loan Eligibility</h3>
+              <p>Consider income, down payment, existing EMIs, tenure and property details.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">Check requirements →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card-body" style="padding-top: 26px;">
+              <div class="product-icon-wrap" style="margin-top: 0;">💳</div>
+              <h3>Eligibility by Credit Score</h3>
+              <p>Learn how credit history may influence lender assessment and offered terms.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#guides">Read credit score guides →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+            </div>
+    </section>
+
+    <!-- Interest Rates Section -->
+    <section class="section soft-section" id="rates">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Know the cost</span>
+          <h2>Loan interest rates and charges</h2>
+          <p>Compare the full borrowing cost, not only the headline interest rate. The example figures below are placeholders, not live offers.</p>
+        </div>
+
+        <div class="rate-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Loan product</th>
+                <th>Illustrative rate range</th>
+                <th>What to review</th>
+                <th>Next step</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Personal loan</strong></td>
+                <td><span class="rate-badge">10%–24% p.a.</span></td>
+                <td>Processing fee, APR and tenure</td>
+                <td><a class="text-link" href="#calculators">Calculate →</a></td>
+              </tr>
+              <tr>
+                <td><strong>Business loan</strong></td>
+                <td><span class="rate-badge">12%–26% p.a.</span></td>
+                <td>Turnover, security and fees</td>
+                <td><a class="text-link" href="#eligibility">Check eligibility →</a></td>
+              </tr>
+              <tr>
+                <td><strong>Home loan</strong></td>
+                <td><span class="rate-badge">8%–12% p.a.</span></td>
+                <td>Floating/fixed rate and charges</td>
+                <td><a class="text-link" href="#calculators">Calculate →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="rate-note">
+          <strong>Important:</strong> These ranges are illustrative design content only. Replace them with verified, current lender rates and processing fees before publishing. Actual rates depend on the lender and applicant profile.
+        </p>
+
+        <div style="margin-top: 26px;">
+          <a class="btn btn-outline" href="#contact">Ask about processing fees and charges</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section class="section" id="investment">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Plan beyond borrowing</span>
+          <h2>Explore investment and savings options</h2>
+          <p>Compare product features, risk, liquidity, time horizon and applicable terms before choosing an investment.</p>
+        </div>
+
+        <div class="investment-grid">
+          <!-- 1. Fixed Deposit -->
+          <article class="investment-card">
+            <div class="investment-card-img">
+              <img src="images/invest-fd.jpg" alt="Fixed Deposit savings investment" loading="lazy">
+            </div>
+            <div class="investment-card-body">
+              <div class="product-icon-wrap">🏦</div>
+              <h3>Fixed Deposit</h3>
+              <p>Review tenure, payout choices, premature withdrawal terms and applicable tax.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">View fixed deposits →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Recurring Deposit -->
+          <article class="investment-card">
+            <div class="investment-card-img">
+              <img src="images/invest-rd.jpg" alt="Recurring deposit steady savings" loading="lazy">
+            </div>
+            <div class="investment-card-body">
+              <div class="product-icon-wrap">🗓️</div>
+              <h3>Recurring Deposit</h3>
+              <p>Explore regular saving contributions and maturity value based on product terms.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">View recurring deposits →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Saving Scheme -->
+          <article class="investment-card">
+            <div class="investment-card-img">
+              <img src="images/invest-scheme.jpg" alt="Government saving scheme growth" loading="lazy">
+            </div>
+            <div class="investment-card-body">
+              <div class="product-icon-wrap">🌱</div>
+              <h3>Saving Scheme</h3>
+              <p>Compare eligibility, returns, access rules and any government-backed scheme terms.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">Compare saving schemes →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Mutual Funds -->
+          <article class="investment-card">
+            <div class="investment-card-img">
+              <img src="images/invest-mutual.jpg" alt="Mutual funds market analytics" loading="lazy">
+            </div>
+            <div class="investment-card-body">
+              <div class="product-icon-wrap">📊</div>
+              <h3>Mutual Funds</h3>
+              <p>Understand market risk, expense ratios, investment goals and time horizon.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">Learn about mutual funds →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p style="font-size:0.82rem; margin-top:22px; color:var(--muted); line-height: 1.5;">
+          Investment products carry different risks. Returns may be variable and are not guaranteed unless product terms explicitly state otherwise.
+        </p>
+      </div>
+    </section>
+
+    <!-- Loans by Purpose Section -->
+    <section class="section soft-section" id="purpose">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Loans by purpose</span>
+          <h2>What are you planning for?</h2>
+          <p>Browse common reasons people consider borrowing and review the total cost before choosing a loan.</p>
+        </div>
+
+        <div class="purpose-grid">
+          <!-- 1. Wedding Expenses -->
+          <article class="purpose-card">
+            <div class="purpose-card-img">
+              <img src="images/purpose-wedding.jpg" alt="Wedding celebration rings" loading="lazy">
+            </div>
+            <div class="purpose-card-body">
+              <div class="product-icon-wrap">💍</div>
+              <h3>Wedding expenses</h3>
+              <p>Plan a budget for venue, travel and other eligible costs.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore options →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Medical Emergencies -->
+          <article class="purpose-card">
+            <div class="purpose-card-img">
+              <img src="images/purpose-medical.jpg" alt="Healthcare medical emergency care" loading="lazy">
+            </div>
+            <div class="purpose-card-body">
+              <div class="product-icon-wrap">🩺</div>
+              <h3>Medical emergencies</h3>
+              <p>Review financing choices for unexpected healthcare expenses.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore options →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Home Renovation -->
+          <article class="purpose-card">
+            <div class="purpose-card-img">
+              <img src="images/purpose-renovation.jpg" alt="Home interior renovation architecture" loading="lazy">
+            </div>
+            <div class="purpose-card-body">
+              <div class="product-icon-wrap">🛠️</div>
+              <h3>Home renovation</h3>
+              <p>Estimate the cost of repairs, upgrades or essential improvements.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore options →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Business Expansion -->
+          <article class="purpose-card">
+            <div class="purpose-card-img">
+              <img src="images/purpose-business.jpg" alt="Business team in modern conference expansion" loading="lazy">
+            </div>
+            <div class="purpose-card-body">
+              <div class="product-icon-wrap">📦</div>
+              <h3>Business expansion</h3>
+              <p>Consider equipment, stock, premises or other business investment needs.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Explore options →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn btn-outline" href="#eligibility">Education expense loans</a>
+          <a class="btn btn-outline" href="#eligibility">Loans for other needs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loans by Applicant Profile Section -->
+    <section class="section" id="applicants">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Loans by applicant profile</span>
+          <h2>Options for different working lives</h2>
+          <p>Documentation and eligibility criteria can vary by applicant and lender.</p>
+        </div>
+
+        <div class="audience-grid">
+          <a class="audience-card" href="#eligibility">
+            <div class="audience-avatar">
+              <img src="images/profile-salaried.jpg" alt="Salaried employee portrait" loading="lazy">
+            </div>
+            <strong>Salaried employees</strong>
+          </a>
+
+          <a class="audience-card" href="#eligibility">
+            <div class="audience-avatar">
+              <img src="images/profile-selfemployed.jpg" alt="Self-employed professional" loading="lazy">
+            </div>
+            <strong>Self-employed</strong>
+          </a>
+
+          <a class="audience-card" href="#eligibility">
+            <div class="audience-avatar">
+              <img src="images/profile-business.jpg" alt="Business owner executive" loading="lazy">
+            </div>
+            <strong>Business owners</strong>
+          </a>
+
+          <a class="audience-card" href="#eligibility">
+            <div class="audience-avatar">
+              <img src="images/profile-doctor.jpg" alt="Medical Doctor profile" loading="lazy">
+            </div>
+            <strong>Doctors</strong>
+          </a>
+
+          <a class="audience-card" href="#eligibility">
+            <div class="audience-avatar">
+              <img src="images/profile-shop.jpg" alt="Small business owner storefront" loading="lazy">
+            </div>
+            <strong>Small businesses</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section soft-section" id="locations">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Local loan information</span>
+          <h2>Explore loans by city</h2>
+          <p>Check product availability, service areas and applicable terms for your location. City pages should be updated with verified local information before launch.</p>
+        </div>
+
+        <div class="location-grid">
+          <a class="location-link" href="#contact">
+            <span>Personal Loan in Delhi</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact">
+            <span>Personal Loan in Mumbai</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact">
+            <span>Personal Loan in Bangalore</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact">
+            <span>Personal Loan in Hyderabad</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact">
+            <span>Business Loan in Delhi</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact">
+            <span>Business Loan in Mumbai</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact">
+            <span>Home Loan in Delhi</span>
+            <span>↗</span>
+          </a>
+          <a class="location-link" href="#contact" style="background: var(--federal-blue-soft); border-color: var(--federal-blue); color: var(--federal-blue);">
+            <span>View all locations</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section class="section" id="guides">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The finance library</span>
+          <h2>Helpful guides before you decide</h2>
+          <p>Understand key terms, compare the numbers and prepare the right questions for a lender.</p>
+        </div>
+
+        <div class="guide-grid">
+          <!-- Guide 1 -->
+          <article class="guide-card">
+            <div class="guide-art">
+              <img src="images/guide-emi.jpg" alt="EMI calculation analysis with calculator" loading="lazy">
+            </div>
+            <div class="guide-content">
+              <span class="tag">EMI & interest rates</span>
+              <h3>How does an EMI work?</h3>
+              <p>Learn how principal, interest and tenure shape a monthly repayment.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#calculators">Use the EMI calculator →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Guide 2 -->
+          <article class="guide-card">
+            <div class="guide-art">
+              <img src="images/guide-score.jpg" alt="Credit score chart report on tablet" loading="lazy">
+            </div>
+            <div class="guide-content">
+              <span class="tag">Credit score</span>
+              <h3>What lenders may check</h3>
+              <p>Understand how credit history, existing debt and repayment patterns may matter.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#eligibility">Review eligibility →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Guide 3 -->
+          <article class="guide-card">
+            <div class="guide-art">
+              <img src="images/guide-docs.jpg" alt="Checklist of verified loan documentation" loading="lazy">
+            </div>
+            <div class="guide-content">
+              <span class="tag">Loan eligibility</span>
+              <h3>Documents to prepare</h3>
+              <p>Get familiar with common identity, income and financial documents.</p>
+              <div class="product-card-footer">
+                <a class="text-link" href="#contact">Ask a question →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn btn-outline" href="#guides">Personal loan guides</a>
+          <a class="btn btn-outline" href="#guides">Business loan guides</a>
+          <a class="btn btn-outline" href="#guides">Home loan guides</a>
+          <a class="btn btn-outline" href="#guides">Credit score guides</a>
+          <a class="btn btn-outline" href="#guides">Loan eligibility guides</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="section soft-section" id="faqs">
+      <div class="container faq-grid">
+        <div>
+          <span class="eyebrow">Common questions</span>
+          <h2>Clear answers, before you apply</h2>
+          <p>Every lender has its own policies. Always review the latest offer documents and ask for clarification on anything you do not understand.</p>
+          <a class="btn btn-outline" href="#contact">More questions? Contact us</a>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>How do I estimate my monthly EMI?</summary>
+            <p>Enter a loan amount, annual interest rate and tenure in the EMI calculator. The result is an estimate based on a standard reducing-balance calculation and may differ from a lender's final schedule.</p>
+          </details>
+
+          <details>
+            <summary>What affects loan eligibility?</summary>
+            <p>Lenders may assess income, employment or business stability, credit history, existing monthly obligations, requested amount, tenure and their own lending policies.</p>
+          </details>
+
+          <details>
+            <summary>Does checking eligibility guarantee approval?</summary>
+            <p>No. An eligibility check is only an initial indication, if offered. Final approval, interest rate and terms depend on lender verification and underwriting.</p>
+          </details>
+
+          <details>
+            <summary>What charges should I check besides interest?</summary>
+            <p>Review processing fees, applicable taxes, late-payment charges, prepayment or foreclosure terms, insurance if applicable, and the total annualised cost of borrowing.</p>
+          </details>
+
+          <details>
+            <summary>Can I repay a loan early?</summary>
+            <p>It depends on the lender, loan type and agreement. Check whether part-prepayment or foreclosure is permitted and whether any charges or conditions apply.</p>
+          </details>
+
+          <details>
+            <summary>Are investment returns guaranteed?</summary>
+            <p>Not always. Mutual funds and many other investments carry market risk. Read the product documents and understand the risks, fees and withdrawal conditions before investing.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Enquiry Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="split" style="align-items:center;">
+          <div>
+            <span class="eyebrow">We're here to help</span>
+            <h2>Have a question about your next step?</h2>
+            <p>Send a sample enquiry and a member of the team can follow up. This demo form does not transmit or store your details.</p>
+            <p style="font-size:0.9rem; color:var(--muted);">For this prototype, replace the sample brand and contact details with your approved business information.</p>
+
+            <!-- Dedicated Advisor Profile Card -->
+            <div class="advisor-card">
+              <div class="advisor-thumb">
+                <img src="images/advisor-priya.jpg" alt="Priya Sharma Senior Financial Advisor" loading="lazy">
+              </div>
+              <div class="advisor-info">
+                <strong>Priya Sharma</strong>
+                <small>Senior Financial Advisor • Finora Advisory Desk</small>
+                <span class="advisor-status">Available now • Avg reply 15 mins</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-wrap">
+            <h3 style="margin-bottom: 6px;">Send an enquiry</h3>
+            <p style="font-size:0.88rem; color:var(--muted); margin-bottom: 20px;">Get transparent advice tailored to your goals.</p>
+
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="fullName">Full name</label>
+                <input class="form-control" id="fullName" name="fullName" required placeholder="Enter your name">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input class="form-control" id="email" name="email" type="email" required placeholder="you@example.com">
+              </div>
+
+              <div class="form-group">
+                <label for="loanType">What are you interested in?</label>
+                <select class="form-control" id="loanType" name="loanType">
+                  <option>Personal loan</option>
+                  <option>Business loan</option>
+                  <option>Home loan</option>
+                  <option>Investment options</option>
+                  <option>Other enquiry</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary" type="submit" style="width:100%; margin-top: 10px;">
+                Submit demo enquiry ↗
+              </button>
+
+              <div id="formMessage" class="toast-msg" role="status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand brand-footer" href="#home" aria-label="Finora home">
+            <img src="images/finora-logo-light.png" alt="Finora - Financing a Brighter Tomorrow" class="footer-logo" width="180" height="52">
+          </a>
+          <p>Clear information for more considered financial decisions. Compare, calculate and understand your options with complete transparency.</p>
+          <div style="margin-top: 14px;">
+            <a class="text-link" style="color:#ffd18a;" href="#contact">Talk to our team →</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Loans</h4>
+          <div class="footer-links">
+            <a href="#loans">Personal loan</a>
+            <a href="#loans">Business loan</a>
+            <a href="#loans">Home loan</a>
+            <a href="#loans">Gold loan</a>
+            <a href="#purpose">Loans by purpose</a>
+            <a href="#applicants">Loans by profile</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Tools & rates</h4>
+          <div class="footer-links">
+            <a href="#calculators">EMI calculators</a>
+            <a href="#eligibility">Loan eligibility</a>
+            <a href="#rates">Interest rates</a>
+            <a href="#rates">Processing fees</a>
+            <a href="#investment">Investment</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="#guides">Personal loan guides</a>
+            <a href="#guides">Business loan guides</a>
+            <a href="#guides">Home loan guides</a>
+            <a href="#guides">Credit score guides</a>
+            <a href="#faqs">FAQs</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="#home">About us</a>
+            <a href="#locations">Locations</a>
+            <a href="#contact">Contact us</a>
+            <a href="#privacy">Privacy policy</a>
+            <a href="#terms">Terms and conditions</a>
+            <a href="#disclaimer">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Finora. Sample website concept.</span>
+        <span>
+          <a id="privacy" href="#disclaimer">Privacy</a> · 
+          <a id="terms" href="#disclaimer">Terms</a> · 
+          <a href="#disclaimer">Disclaimer</a>
+        </span>
+      </div>
+
+      <p class="disclaimer" id="disclaimer">
+        Prototype disclaimer: Finora is a fictional sample brand. This page is for design demonstration only and is not a lender, investment recommendation, loan offer or financial advice. Product details, rates, fees, eligibility criteria, disclosures, regulatory information, privacy terms and contact details must be verified and replaced before a real website is published.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Mobile Fixed Quick CTA -->
+  <div class="mobile-cta">
+    <a class="btn btn-outline" href="#calculators">Calculate EMI</a>
+    <a class="btn btn-primary" href="#eligibility">Check eligibility</a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
