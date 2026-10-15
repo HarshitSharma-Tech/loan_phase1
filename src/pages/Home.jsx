@@ -641,11 +641,11 @@ export default function Home({ onOpenApplyModal }) {
           <div className="purpose-grid">
             <article className="purpose-card">
               <div className="purpose-card-img">
-                <img src="/images/purpose-wedding.jpg" alt="Wedding celebration rings" loading="lazy" />
+                <img src="/images/purpose-wedding.jpg?v=2" alt="Indian wedding celebration" loading="lazy" />
               </div>
               <div className="purpose-card-body">
                 <h3>Wedding expenses</h3>
-                <p>Plan a budget for venue, travel and other eligible costs.</p>
+                <p>Plan a budget for venue, attire, jewellery and festive celebrations.</p>
                 <div className="product-card-footer">
                   <Link className="text-link" to="/personal-loan">Explore options →</Link>
                 </div>
@@ -654,7 +654,7 @@ export default function Home({ onOpenApplyModal }) {
 
             <article className="purpose-card">
               <div className="purpose-card-img">
-                <img src="/images/purpose-medical.jpg" alt="Healthcare medical emergency care" loading="lazy" />
+                <img src="/images/purpose-medical.jpg?v=2" alt="Healthcare medical emergency care" loading="lazy" />
               </div>
               <div className="purpose-card-body">
                 <h3>Medical emergencies</h3>
@@ -667,7 +667,7 @@ export default function Home({ onOpenApplyModal }) {
 
             <article className="purpose-card">
               <div className="purpose-card-img">
-                <img src="/images/purpose-renovation.jpg" alt="Home interior renovation architecture" loading="lazy" />
+                <img src="/images/purpose-renovation.jpg?v=2" alt="Modern Indian home interior makeover" loading="lazy" />
               </div>
               <div className="purpose-card-body">
                 <h3>Home renovation</h3>
@@ -680,7 +680,7 @@ export default function Home({ onOpenApplyModal }) {
 
             <article className="purpose-card">
               <div className="purpose-card-img">
-                <img src="/images/purpose-business.jpg" alt="Business team in modern conference expansion" loading="lazy" />
+                <img src="/images/purpose-business.jpg?v=2" alt="Business team in modern conference expansion" loading="lazy" />
               </div>
               <div className="purpose-card-body">
                 <h3>Business expansion</h3>
@@ -711,35 +711,35 @@ export default function Home({ onOpenApplyModal }) {
           <div className="audience-grid">
             <a className="audience-card" href="#eligibility">
               <div className="audience-avatar">
-                <img src="/images/profile-salaried.jpg" alt="Salaried employee portrait" loading="lazy" />
+                <img src="/images/profile-salaried.jpg?v=2" alt="Indian salaried corporate professional" loading="lazy" />
               </div>
               <strong>Salaried employees</strong>
             </a>
 
             <a className="audience-card" href="#eligibility">
               <div className="audience-avatar">
-                <img src="/images/profile-selfemployed.jpg" alt="Self-employed professional" loading="lazy" />
+                <img src="/images/profile-selfemployed.jpg?v=2" alt="Indian self-employed creative professional" loading="lazy" />
               </div>
               <strong>Self-employed</strong>
             </a>
 
             <a className="audience-card" href="#eligibility">
               <div className="audience-avatar">
-                <img src="/images/profile-business.jpg" alt="Business owner executive" loading="lazy" />
+                <img src="/images/profile-business.jpg?v=2" alt="Indian business owner executive" loading="lazy" />
               </div>
               <strong>Business owners</strong>
             </a>
 
             <a className="audience-card" href="#eligibility">
               <div className="audience-avatar">
-                <img src="/images/profile-doctor.jpg" alt="Medical Doctor profile" loading="lazy" />
+                <img src="/images/profile-doctor.jpg?v=2" alt="Indian medical doctor physician" loading="lazy" />
               </div>
               <strong>Doctors</strong>
             </a>
 
             <a className="audience-card" href="#eligibility">
               <div className="audience-avatar">
-                <img src="/images/profile-shop.jpg" alt="Small business owner storefront" loading="lazy" />
+                <img src="/images/profile-shop.jpg?v=2" alt="Indian small business store owner" loading="lazy" />
               </div>
               <strong>Small businesses</strong>
             </a>

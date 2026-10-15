@@ -331,12 +331,12 @@ export default function LoanDetail({ onOpenApplyModal }) {
 
             <div className="purpose-grid">
               {[
-                { title: 'Wedding & Celebrations', badge: 'Up to ₹40 Lakhs', img: '/images/purpose-wedding.jpg', desc: 'Cover luxury banquet bookings, designer attire, gold jewellery, catering, and guest accommodation without exhausting long-term investments.' },
-                { title: 'Home Makeover & Interiors', badge: 'Instant Transfer', img: '/images/purpose-renovation.jpg', desc: 'Redesign your modular kitchen, upgrade luxury living room furniture, install smart electronics, or fund home expansion projects with ease.' },
-                { title: 'Dream Vacations & Travel', badge: 'Flexible EMIs', img: '/images/hero-couple.jpg', desc: 'Explore international travel destinations in Europe or Southeast Asia, book luxury flights and hotels with pocket-friendly repayment schedules.' },
-                { title: 'Medical & Family Health', badge: '2-Hour Disbursal', img: '/images/purpose-medical.jpg', desc: 'Handle unexpected surgeries, specialized therapies, and family hospital bills immediately with fast-track digital approval.' },
-                { title: 'Debt & Card Consolidation', badge: 'Save up to 40% EMI', img: '/images/loan-consolidation.jpg', desc: 'Merge multiple high-interest credit card balances and scattered micro-loans into one consolidated low-rate monthly installment.' },
-                { title: 'Higher Education & Upskilling', badge: 'Zero Collateral', img: '/images/loan-education.jpg', desc: 'Finance executive MBA programs, international certifications, technical bootcamps, and professional career transitions.' }
+                { title: 'Wedding & Celebrations', badge: 'Up to ₹40 Lakhs', img: '/images/purpose-wedding.jpg?v=2', desc: 'Cover luxury banquet bookings, designer attire, gold jewellery, catering, and guest accommodation without exhausting long-term investments.' },
+                { title: 'Home Makeover & Interiors', badge: 'Instant Transfer', img: '/images/purpose-renovation.jpg?v=2', desc: 'Redesign your modular kitchen, upgrade luxury living room furniture, install smart electronics, or fund home expansion projects with ease.' },
+                { title: 'Dream Vacations & Travel', badge: 'Flexible EMIs', img: '/images/purpose-travel.jpg?v=2', desc: 'Explore international travel destinations in Europe or Southeast Asia, book luxury flights and hotels with pocket-friendly repayment schedules.' },
+                { title: 'Medical & Family Health', badge: '2-Hour Disbursal', img: '/images/purpose-medical.jpg?v=2', desc: 'Handle unexpected surgeries, specialized therapies, and family hospital bills immediately with fast-track digital approval.' },
+                { title: 'Debt & Card Consolidation', badge: 'Save up to 40% EMI', img: '/images/loan-consolidation.jpg?v=2', desc: 'Merge multiple high-interest credit card balances and scattered micro-loans into one consolidated low-rate monthly installment.' },
+                { title: 'Higher Education & Upskilling', badge: 'Zero Collateral', img: '/images/loan-education.jpg?v=2', desc: 'Finance executive MBA programs, international certifications, technical bootcamps, and professional career transitions.' }
               ].map((p, idx) => (
                 <div key={idx} className="purpose-card">
                   <div className="purpose-img-wrap">
@@ -395,7 +395,7 @@ export default function LoanDetail({ onOpenApplyModal }) {
           <div className="eligibility-split">
             <div className="eligibility-profile-card">
               <div className="profile-card-head">
-                <img src="/images/profile-salaried.jpg" alt="Salaried Professional" className="eligibility-avatar" />
+                <img src="/images/profile-salaried.jpg?v=2" alt="Salaried Professional" className="eligibility-avatar" />
                 <div>
                   <h3>Salaried Applicants</h3>
                   <small>MNC, Private Ltd, PSU & Govt Employees</small>
@@ -410,7 +410,7 @@ export default function LoanDetail({ onOpenApplyModal }) {
 
             <div className="eligibility-profile-card">
               <div className="profile-card-head">
-                <img src="/images/profile-doctor.jpg" alt="Self-Employed Professional" className="eligibility-avatar" />
+                <img src="/images/profile-doctor.jpg?v=2" alt="Self-Employed Professional" className="eligibility-avatar" />
                 <div>
                   <h3>Self-Employed Individuals</h3>
                   <small>Doctors, CAs, Entrepreneurs & Consultants</small>
@@ -435,24 +435,55 @@ export default function LoanDetail({ onOpenApplyModal }) {
             <p>Get answers to common queries about {product.name} processing, tenures and terms.</p>
           </div>
 
-          <div className="faq-grid" style={{ maxWidth: '840px', margin: '0 auto' }}>
-            {(product.faqs || []).map((faq, idx) => (
-              <div key={idx} className={`faq-item ${activeFaq === idx ? 'active' : ''}`} style={{ marginBottom: '14px' }}>
-                <button 
-                  type="button" 
-                  className="faq-question"
-                  onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                >
-                  <span>{faq[0]}</span>
-                  <span className="faq-icon">{activeFaq === idx ? '−' : '+'}</span>
-                </button>
-                {activeFaq === idx && (
-                  <div className="faq-answer" style={{ padding: '16px 20px', color: '#475569', lineHeight: '1.6' }}>
-                    <p>{faq[1]}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="faq-accordion-container">
+            <div className="faq-accordion-list">
+              {(product.faqs || []).map((faq, idx) => (
+                <div key={idx} className={`faq-card ${activeFaq === idx ? 'active' : ''}`}>
+                  <button 
+                    type="button" 
+                    className="faq-card-header"
+                    onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                    aria-expanded={activeFaq === idx}
+                  >
+                    <span className="faq-card-title">{faq[0]}</span>
+                    <span className="faq-card-toggle">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        {activeFaq === idx ? (
+                          <line x1="2" y1="7" x2="12" y2="7" />
+                        ) : (
+                          <>
+                            <line x1="7" y1="2" x2="7" y2="12" />
+                            <line x1="2" y1="7" x2="12" y2="7" />
+                          </>
+                        )}
+                      </svg>
+                    </span>
+                  </button>
+                  {activeFaq === idx && (
+                    <div className="faq-card-body">
+                      <div className="faq-card-text">
+                        <p>{faq[1]}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="faq-help-box">
+            <div className="faq-help-content">
+              <h4>Still have questions regarding your application?</h4>
+              <p>Our dedicated loan advisors can walk you through personalized documentation and instant approval.</p>
+            </div>
+            <button 
+              type="button" 
+              className="btn btn-primary"
+              onClick={() => onOpenApplyModal(`${product.name} (FAQ Assistance)`)}
+              style={{ whiteSpace: 'nowrap' }}
+            >
+              Ask an Advisor →
+            </button>
           </div>
         </div>
       </section>

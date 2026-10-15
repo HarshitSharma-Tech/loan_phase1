@@ -1987,3 +1987,281 @@
     height: 170px;
   }
 }
+
+/* ==========================================================================
+   14. FINORA FAQ & ACCORDION SYSTEM - Premium Banking Editorial Style
+   ========================================================================== */
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(10, 28, 62, 0.04);
+}
+
+.faq-item:hover {
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(10, 28, 62, 0.08);
+}
+
+.faq-item.active {
+  border-color: #0052FF;
+  background: #FFFFFF;
+  box-shadow: 0 14px 32px -8px rgba(0, 82, 255, 0.16), 0 0 0 1px rgba(0, 82, 255, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  font-family: var(--font-display, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0A1C3E;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.faq-item.active .faq-question {
+  color: #0052FF;
+}
+
+.faq-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #0A1C3E;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item:hover .faq-icon-wrap {
+  background: rgba(0, 82, 255, 0.1);
+  color: #0052FF;
+}
+
+.faq-item.active .faq-icon-wrap {
+  background: #0052FF;
+  color: #FFFFFF;
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 26px 24px 26px;
+  animation: faqFadeSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer-inner {
+  padding-top: 16px;
+  border-top: 1px solid #EDF2F7;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.faq-answer-inner p {
+  margin: 0;
+  color: inherit;
+}
+
+@keyframes faqFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FAQ Help Box */
+.faq-help-box {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  border: 1.5px dashed #BFDBFE;
+  border-radius: 20px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.faq-help-content h4 {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: #0A1C3E;
+  margin-bottom: 4px;
+}
+
+.faq-help-content p {
+  font-size: 0.88rem;
+  color: #64748B;
+  margin: 0;
+}
+
+@media (max-width: 680px) {
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 0.98rem;
+  }
+  .faq-answer {
+    padding: 0 20px 20px 20px;
+  }
+  .faq-help-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+}
+
+/* Specific Scoped Product Accordion Styles */
+.faq-accordion-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-accordion-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+.faq-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 14px rgba(10, 28, 62, 0.04) !important;
+}
+
+.faq-card:hover {
+  border-color: #CBD5E1 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px -4px rgba(10, 28, 62, 0.08) !important;
+}
+
+.faq-card.active {
+  border-color: #0052FF !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 16px 36px -8px rgba(0, 82, 255, 0.16), 0 0 0 1px rgba(0, 82, 255, 0.1) !important;
+}
+
+.faq-card-header {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  padding: 22px 28px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  outline: none !important;
+  margin: 0 !important;
+  transition: background 0.2s ease !important;
+}
+
+.faq-card-header:hover {
+  background: rgba(248, 250, 252, 0.8) !important;
+}
+
+.faq-card-title {
+  font-family: var(--font-display, 'Manrope', -apple-system, sans-serif) !important;
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+  color: #0A1C3E !important;
+  line-height: 1.45 !important;
+  letter-spacing: -0.01em !important;
+  flex: 1 !important;
+  transition: color 0.2s ease !important;
+}
+
+.faq-card.active .faq-card-title {
+  color: #0052FF !important;
+}
+
+.faq-card-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  background: #F1F5F9 !important;
+  color: #0A1C3E !important;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.faq-card:hover .faq-card-toggle {
+  background: rgba(0, 82, 255, 0.1) !important;
+  color: #0052FF !important;
+}
+
+.faq-card.active .faq-card-toggle {
+  background: #0052FF !important;
+  color: #FFFFFF !important;
+  transform: rotate(180deg) !important;
+}
+
+.faq-card-body {
+  padding: 0 28px 24px 28px !important;
+  animation: faqFadeSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.faq-card-text {
+  padding-top: 16px !important;
+  border-top: 1px solid #EDF2F7 !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.7 !important;
+  color: #475569 !important;
+}
+
+.faq-card-text p {
+  margin: 0 !important;
+  color: inherit !important;
+}
+
+@media (max-width: 680px) {
+  .faq-card-header {
+    padding: 18px 20px !important;
+    gap: 14px !important;
+  }
+  .faq-card-title {
+    font-size: 1rem !important;
+  }
+  .faq-card-body {
+    padding: 0 20px 20px 20px !important;
+  }
+}
+
+
