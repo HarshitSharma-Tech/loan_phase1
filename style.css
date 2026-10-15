@@ -1314,27 +1314,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .product-icon-wrap {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #0052FF 0%, #1A5CFF 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  color: #FFFFFF;
-  box-shadow: 0 6px 16px rgba(0, 82, 255, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  margin-bottom: 16px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.product-card:hover .product-icon-wrap {
-  transform: translateY(-3px) rotate(6deg) scale(1.1);
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  color: #0B192C;
-  border-color: #FDE68A;
-  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+  display: none !important;
 }
 
 .product-card-body h3 {
