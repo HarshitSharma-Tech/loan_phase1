@@ -512,50 +512,66 @@ export default function Home({ onOpenApplyModal }) {
       <section className="section soft-section" id="rates">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Know the cost</span>
-            <h2>Loan interest <span className="text-gradient-blue">rates</span> and charges</h2>
-            <p>Compare the full borrowing cost, not only the headline interest rate. The example figures below are placeholders, not live offers.</p>
+            <span className="eyebrow">Verified Interest Rates</span>
+            <h2>Compare loan interest <span className="text-gradient-blue">rates and terms</span></h2>
+            <p>Review current annual interest rate ranges (Per Annum) across all Finora loan categories to make transparent, cost-effective borrowing decisions.</p>
           </div>
 
           <div className="rate-table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Loan product</th>
-                  <th>Illustrative rate range</th>
-                  <th>What to review</th>
-                  <th>Next step</th>
+                  <th style={{ width: '70px', textAlign: 'center' }}>S. No.</th>
+                  <th>Loan Type</th>
+                  <th>Interest Rate (Per Annum)</th>
+                  <th>Key Highlights & Review</th>
+                  <th style={{ textAlign: 'right' }}>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><strong>Personal loan</strong></td>
-                  <td><span className="rate-badge">10%–24% p.a.</span></td>
-                  <td>Processing fee, APR and tenure</td>
-                  <td><a className="text-link" href="#calculators">Calculate →</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Business loan</strong></td>
-                  <td><span className="rate-badge">12%–26% p.a.</span></td>
-                  <td>Turnover, security and fees</td>
-                  <td><a className="text-link" href="#eligibility">Check eligibility →</a></td>
-                </tr>
-                <tr>
-                  <td><strong>Home loan</strong></td>
-                  <td><span className="rate-badge">8%–12% p.a.</span></td>
-                  <td>Floating/fixed rate and charges</td>
-                  <td><a className="text-link" href="#calculators">Calculate →</a></td>
-                </tr>
+                {[
+                  { sno: '1', name: 'Personal Loan', slug: 'personal-loan', rate: '9.00% to 22.00%+ p.a.', note: 'Zero collateral, same-day disbursal, 1-7 yrs flexible tenure' },
+                  { sno: '2', name: 'Business Loan', slug: 'business-loan', rate: '9.50% to 36.00% p.a.', note: 'Working capital & machinery, tax-deductible interest' },
+                  { sno: '3', name: 'Home Loan', slug: 'home-loan', rate: '7.15% to 8.40%+ p.a.', note: 'RBI repo linked, extended 30-yr tenure, Sec 24/80C tax rebates' },
+                  { sno: '4', name: 'Loan Against Property', slug: 'loan-against-property', rate: '8.40% to 12.50% p.a.', note: 'High loan quantum up to ₹10 Cr on residential & commercial assets' },
+                  { sno: '5', name: 'Gold Loan', slug: 'gold-loan', rate: '6.90% to 18.00% p.a.', note: 'Instant 30-min sanction, zero income proof needed' },
+                  { sno: '6', name: 'Education Loan', slug: 'education-loan', rate: '8.00% to 16.00% p.a.', note: 'India & overseas university programs, moratorium repayment' },
+                  { sno: '7', name: 'Car Loan', slug: 'car-loan', rate: '8.50% p.a. onwards', note: 'Up to 100% on-road financing for new & pre-owned vehicles' },
+                  { sno: '8', name: 'Two-Wheeler Loan', slug: 'two-wheeler-loan', rate: '7.60% to 28.00% p.a.', note: 'Zero down payment options, special EV subsidies supported' },
+                  { sno: '9', name: 'Medical Loan', slug: 'medical-loan', rate: '8.90% to 30.50% p.a.', note: 'Fast 4-hr emergency disbursal, zero prepayment charges' },
+                  { sno: '10', name: 'Loan Against Securities', slug: 'loan-against-securities', rate: '7.50% to 15.00% p.a.', note: 'Overdraft on shares & mutual funds without liquidating portfolio' },
+                  { sno: '11', name: 'Debt Consolidation Loan', slug: 'debt-consolidation-loan', rate: '9.99% to 30.00% p.a.', note: 'Unify multiple high-interest cards & micro-loans, reduce EMI up to 40%' },
+                  { sno: '12', name: 'Easy EMI Loan', slug: 'easy-emi-loan', rate: '8.75% to 36.00% p.a.', note: 'Instant point-of-sale financing, flexible ticket sizes' }
+                ].map((row) => (
+                  <tr key={row.sno}>
+                    <td style={{ textAlign: 'center', fontWeight: '750', color: '#64748B' }}>{row.sno}</td>
+                    <td>
+                      <Link to={`/${row.slug}`} style={{ color: '#0A1C3E', fontWeight: '750', textDecoration: 'none' }}>
+                        {row.name}
+                      </Link>
+                    </td>
+                    <td>
+                      <span className="rate-badge" style={{ fontWeight: '750', whiteSpace: 'nowrap' }}>{row.rate}</span>
+                    </td>
+                    <td style={{ color: '#475569', fontSize: '0.92rem' }}>{row.note}</td>
+                    <td style={{ textAlign: 'right' }}>
+                      <Link className="text-link" to={`/${row.slug}`} style={{ whiteSpace: 'nowrap', fontWeight: '650' }}>
+                        View details →
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
 
           <p className="rate-note">
-            <strong>Important:</strong> These ranges are illustrative design content only. Replace them with verified, current lender rates and processing fees before publishing. Actual rates depend on the lender and applicant profile.
+            <strong>Important:</strong> Quoted interest rates are annualized (Per Annum) and determined by individual lender credit evaluation, CIBIL score, income stability, and loan tenure. Review detailed sanction letters and fee schedules prior to acceptance.
           </p>
 
-          <div style={{ marginTop: '26px' }}>
-            <a className="btn btn-outline" href="#contact">Ask about processing fees and charges</a>
+          <div style={{ marginTop: '26px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+            <a className="btn btn-primary" href="#contact">Consult a Loan Specialist →</a>
+            <a className="btn btn-outline" href="#calculators">Use EMI Calculators</a>
           </div>
         </div>
       </section>

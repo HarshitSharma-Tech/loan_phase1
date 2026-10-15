@@ -110,7 +110,7 @@ export const loanGalleries = {
   'home-loan': {
     eyebrow: 'Homeownership & Sanctuaries',
     heading: 'Step into the home you’ve always envisioned for your family',
-    description: 'Low interest rates starting from 8.40% p.a., extended 30-year tenures, and end-to-end legal title verification for residential properties across India.',
+    description: 'Low interest rates starting from 7.15% to 8.40%+ p.a., extended 30-year tenures, and end-to-end legal title verification for residential properties across India.',
     featured: {
       img: '/images/story-home-loan.jpg',
       tag: 'FAMILY MILESTONE',
@@ -366,7 +366,7 @@ export const loanGalleries = {
   'debt-consolidation-loan': {
     eyebrow: 'Financial Restructuring',
     heading: 'Unify multiple stressful loans into a single, low-interest EMI',
-    description: 'Eliminate 36%+ credit card dues and scattered peer loans. Consolidate your monthly obligations into one peaceful payment with interest rates from 10.49% p.a.',
+    description: 'Eliminate 36%+ credit card dues and scattered peer loans. Consolidate your monthly obligations into one peaceful payment with interest rates from 9.99% to 30.00% p.a.',
     featured: {
       img: '/images/loan-consolidation.jpg',
       tag: 'FINANCIAL RELIEF',

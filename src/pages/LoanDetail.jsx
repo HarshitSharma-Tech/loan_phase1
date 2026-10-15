@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import loanProducts from '../data/loanProducts.json';
 import { loanGalleries } from '../data/loanGalleries';
@@ -7,11 +7,23 @@ export default function LoanDetail({ onOpenApplyModal }) {
   const { slug } = useParams();
   const product = loanProducts.find(p => p.slug === slug || p.id === slug) || loanProducts[0];
 
+  const parseStartRate = (rangeStr) => {
+    if (!rangeStr) return 9.0;
+    const match = rangeStr.match(/(\d+\.?\d*)\s*%/);
+    return match ? parseFloat(match[1]) : 9.0;
+  };
+
   // Calculator State
   const [calcAmount, setCalcAmount] = useState(500000);
   const [calcTenure, setCalcTenure] = useState(5);
-  const [calcRate, setCalcRate] = useState(10.49);
+  const [calcRate, setCalcRate] = useState(() => parseStartRate(product.rate_range));
   const [activeFaq, setActiveFaq] = useState(null);
+
+  useEffect(() => {
+    setCalcRate(parseStartRate(product.rate_range));
+    setActiveFaq(null);
+    window.scrollTo(0, 0);
+  }, [slug, product.rate_range]);
 
   const formatINR = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
@@ -198,13 +210,13 @@ export default function LoanDetail({ onOpenApplyModal }) {
                     id="prodRate" 
                     className="calc-range" 
                     type="range" 
-                    min="8" 
-                    max="24" 
-                    step="0.25" 
+                    min="5" 
+                    max="36" 
+                    step="0.05" 
                     value={calcRate} 
                     onChange={e => setCalcRate(Number(e.target.value))}
                   />
-                  <div className="calc-range-limits"><span>8%</span><span>24%</span></div>
+                  <div className="calc-range-limits"><span>5%</span><span>36%</span></div>
                 </div>
               </div>
 

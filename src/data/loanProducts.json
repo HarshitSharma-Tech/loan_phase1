@@ -4,19 +4,19 @@
     "slug": "personal-loan",
     "name": "Personal Loan",
     "category": "Unsecured Personal Financing",
-    "headline": "Make Every Life Plan Possible with Instant Disbursal up to \u20b940 Lakhs",
-    "description": "Borrow up to \u20b940 Lakhs with attractive interest rates starting at 10.49% p.a., flexible repayment tenures up to 7 years, zero collateral, and same-day fund transfer.",
+    "headline": "Make Every Life Plan Possible with Instant Disbursal up to ₹40 Lakhs",
+    "description": "Borrow up to ₹40 Lakhs with attractive interest rates starting at 9.0% p.a., flexible repayment tenures up to 7 years, zero collateral, and same-day fund transfer.",
     "pills": [
-      "Interest from 10.49% p.a.",
-      "Up to \u20b940 Lakhs",
+      "Interest from 9.00% p.a.",
+      "Up to ₹40 Lakhs",
       "Tenure 1 to 7 Yrs",
       "Zero Collateral"
     ],
     "hero_img": "images/personal-loan-hero.jpg",
-    "badge1_icon": "\u26a1",
+    "badge1_icon": "⚡",
     "badge1_title": "Disbursal in 2 Hrs",
     "badge1_sub": "100% Digital Journey",
-    "badge2_icon": "\ud83d\udee1\ufe0f",
+    "badge2_icon": "🛡️",
     "badge2_title": "Zero Collateral",
     "badge2_sub": "No guarantor required",
     "caption_title": "Personal Loans tailored for life milestones",
@@ -27,77 +27,77 @@
     "calc_badge": "INSTANT ESTIMATE",
     "benefits": [
       [
-        "\u26a1",
+        "⚡",
         "Disbursal in 24 Hours",
         "Funds credited directly to your bank account post digital approval."
       ],
       [
-        "\ud83d\udccb",
+        "📋",
         "Zero Physical Docs",
         "Complete paperless journey via Aadhaar and DigiLocker verification."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "No Collateral Required",
         "100% unsecured loan based purely on your income and credit profile."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Flexible 1-7 Yrs Tenure",
         "Choose monthly installments that align seamlessly with your budget."
       ]
     ],
     "features": [
       [
-        "\ud83d\udcb0",
+        "💰",
         "High Loan Quantum",
-        "Borrow up to \u20b940 Lakhs to fund weddings, home improvements, medical emergencies, or global travel."
+        "Borrow up to ₹40 Lakhs to fund weddings, home improvements, medical emergencies, or global travel."
       ],
       [
-        "\ud83d\udcc9",
+        "📉",
         "Competitive Interest Rates",
         "Transparent rates starting at 10.49% p.a. calculated on a reducing balance schedule."
       ],
       [
-        "\ud83d\udd12",
+        "🔒",
         "Zero Hidden Charges",
         "No unannounced administrative fees. All processing and prepayment rules clearly declared upfront."
       ],
       [
-        "\ud83d\udcf1",
+        "📱",
         "100% Digital Journey",
         "Check eligibility, upload salary slips, complete video KYC, and e-sign your loan agreement online."
       ],
       [
-        "\ud83d\udcbc",
+        "💼",
         "Customised for Salaried & Self-Employed",
         "Tailored credit assessment criteria catering to private sector, PSU, MNC employees, and self-employed professionals."
       ],
       [
-        "\ud83d\udcb3",
+        "💳",
         "Part-Prepayment Facility",
         "Reduce your interest burden anytime by prepaying surplus funds without heavy penalties."
       ]
     ],
     "eligibility_salaried": [
       "Age: 21 to 60 years at loan maturity",
-      "Min. Net Monthly Income: \u20b925,000 in metro cities (\u20b920,000 non-metro)",
+      "Min. Net Monthly Income: ₹25,000 in metro cities (₹20,000 non-metro)",
       "Min. Work Experience: 1 year overall, 6 months with current employer",
       "CIBIL Score: 680 and above for optimal rates"
     ],
     "eligibility_self": [
       "Age: 23 to 65 years",
-      "Min. Annual Turnover / Net Income: \u20b93,00,000 as per latest ITR",
+      "Min. Annual Turnover / Net Income: ₹3,00,000 as per latest ITR",
       "Business Vintage: Minimum 2 consecutive years in current business/profession",
       "CIBIL Score: 700 and above with clean repayment track record"
     ],
-    "rate_range": "10.49% \u2013 22.00% p.a.",
-    "proc_fee": "1.00% \u2013 2.50% of loan amount + GST",
+    "rate_range": "9.00% to 22.00%+ p.a.",
+    "proc_fee": "1.00% – 2.50% of loan amount + GST",
     "foreclosure_fee": "Zero for floating rate; 2% to 4% after 12 months for fixed",
     "faqs": [
       [
         "How much personal loan can I borrow with Finora?",
-        "Finora partners offer unsecured personal loans ranging from \u20b950,000 up to \u20b940,00,000 depending on your monthly take-home salary, existing obligations (FOIR), and credit score."
+        "Finora partners offer unsecured personal loans ranging from ₹50,000 up to ₹40,00,000 depending on your monthly take-home salary, existing obligations (FOIR), and credit score."
       ],
       [
         "What is the minimum CIBIL score required for a personal loan?",
@@ -113,7 +113,7 @@
       ],
       [
         "Is there any restriction on how I spend the loan funds?",
-        "No. Finora personal loans have complete end-use flexibility\u2014use it for home renovations, weddings, medical expenses, travel, or debt clearance."
+        "No. Finora personal loans have complete end-use flexibility—use it for home renovations, weddings, medical expenses, travel, or debt clearance."
       ]
     ],
     "related": [
@@ -140,18 +140,18 @@
     "name": "Insta Personal Loan",
     "category": "Pre-Approved Digital Financing",
     "headline": "Get Funds Disbursed to Your Account in Under 15 Minutes",
-    "description": "Pre-approved digital loan offers up to \u20b910 Lakhs with instant video KYC, zero physical documentation, and 24x7 immediate disbursal into your bank account.",
+    "description": "Pre-approved digital loan offers up to ₹10 Lakhs with instant video KYC, zero physical documentation, and 24x7 immediate disbursal into your bank account.",
     "pills": [
-      "15-Minute Disbursal",
-      "Up to \u20b910 Lakhs",
+      "Interest from 9.00% p.a.",
+      "Up to ₹10 Lakhs",
       "100% Paperless",
       "24x7 Digital Access"
     ],
     "hero_img": "images/loan-insta.jpg",
-    "badge1_icon": "\u26a1",
+    "badge1_icon": "⚡",
     "badge1_title": "30-Min Disbursal",
     "badge1_sub": "Pre-approved instant funds",
-    "badge2_icon": "\ud83d\udcf2",
+    "badge2_icon": "📲",
     "badge2_title": "100% Paperless",
     "badge2_sub": "Zero physical paperwork",
     "caption_title": "Express liquidity when minutes matter",
@@ -162,61 +162,61 @@
     "calc_badge": "INSTANT DISBURSAL",
     "benefits": [
       [
-        "\u23f1\ufe0f",
+        "⏱️",
         "15-Min Disbursal",
         "Fastest digital credit pipeline with zero physical human intervention."
       ],
       [
-        "\ud83d\udcf2",
+        "📲",
         "Video KYC on Mobile",
         "Complete verification in 3 minutes using your smartphone camera."
       ],
       [
-        "\ud83c\udfe6",
+        "🏦",
         "Pre-Approved Offers",
         "Existing bank customers qualify with 1-click eligibility check."
       ],
       [
-        "\ud83d\udd10",
+        "🔐",
         "Safe DigiLocker Sync",
         "Fetch verified identity & income records securely through RBI-compliant gateway."
       ]
     ],
     "features": [
       [
-        "\u26a1",
+        "⚡",
         "Immediate Cash Flow",
         "Direct NEFT/IMPS transfer to your verified salary bank account within minutes."
       ],
       [
-        "\ud83d\udcc4",
+        "📄",
         "No Physical Document Upload",
         "Paperless verification via Aadhaar OTP and bank account net-banking statement reader."
       ],
       [
-        "\ud83c\udfaf",
+        "🎯",
         "Pre-Calculated EMIs",
         "Fixed, transparent monthly deduction with automatic e-mandate (NACH)."
       ],
       [
-        "\ud83c\udf19",
+        "🌙",
         "24/7 Availability",
-        "Apply on weekends, public holidays, or late nights\u2014our automated underwriting never sleeps."
+        "Apply on weekends, public holidays, or late nights—our automated underwriting never sleeps."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "Unsecured Convenience",
         "Zero hypothecation or guarantor required."
       ],
       [
-        "\ud83d\udca1",
+        "💡",
         "Short to Medium Tenures",
         "Flexible tenures from 6 months up to 48 months for manageable short-term requirements."
       ]
     ],
     "eligibility_salaried": [
       "Age: 21 to 58 years",
-      "Min. Net Monthly Income: \u20b920,000",
+      "Min. Net Monthly Income: ₹20,000",
       "Active Netbanking or UPI-linked bank account",
       "CIBIL Score: 670+"
     ],
@@ -226,8 +226,8 @@
       "Bank statements of latest 6 months",
       "CIBIL Score: 690+"
     ],
-    "rate_range": "11.49% \u2013 24.00% p.a.",
-    "proc_fee": "1.50% \u2013 2.00% of loan amount",
+    "rate_range": "9.00% to 22.00%+ p.a.",
+    "proc_fee": "1.50% – 2.00% of loan amount",
     "foreclosure_fee": "Standard 2% to 3% after 6 completed installments",
     "faqs": [
       [
@@ -247,7 +247,7 @@
       [
         "Personal Loan",
         "personal-loan",
-        "Higher limits up to \u20b940L"
+        "Higher limits up to ₹40L"
       ],
       [
         "Easy EMI Loan",
@@ -266,19 +266,19 @@
     "slug": "business-loan",
     "name": "Business Loan",
     "category": "Commercial & Enterprise Financing",
-    "headline": "Fuel Enterprise Growth with Collateral-Free Capital up to \u20b975 Lakhs",
-    "description": "Empower your business with unsecured working capital and machinery loans up to \u20b975 Lakhs, competitive interest rates, tax-deductible interest, and rapid 48-hour sanction.",
+    "headline": "Fuel Enterprise Growth with Collateral-Free Capital up to ₹75 Lakhs",
+    "description": "Empower your business with unsecured working capital and machinery loans up to ₹75 Lakhs, competitive interest rates, tax-deductible interest, and rapid 48-hour sanction.",
     "pills": [
-      "Up to \u20b975 Lakhs",
+      "Interest from 9.50% p.a.",
       "Zero Collateral",
       "Tenure 1 to 5 Yrs",
       "Tax-Deductible Interest"
     ],
     "hero_img": "images/loan-business.jpg",
-    "badge1_icon": "\ud83d\udcbc",
-    "badge1_title": "Up to \u20b975 Lakhs",
+    "badge1_icon": "💼",
+    "badge1_title": "Up to ₹75 Lakhs",
     "badge1_sub": "Working capital & capex",
-    "badge2_icon": "\ud83d\udcc8",
+    "badge2_icon": "📈",
     "badge2_title": "Zero Collateral",
     "badge2_sub": "Unsecured MSME financing",
     "caption_title": "Fuel your enterprise growth & cashflow",
@@ -289,54 +289,54 @@
     "calc_badge": "COMMERCIAL CREDIT",
     "benefits": [
       [
-        "\ud83c\udfe2",
+        "🏢",
         "Zero Asset Pledge",
         "Protect personal assets while raising capital purely against enterprise cash flow."
       ],
       [
-        "\ud83d\udcca",
+        "📊",
         "Higher Working Capital",
-        "Borrow up to \u20b975 Lakhs to bridge seasonal gaps and inventory cycles."
+        "Borrow up to ₹75 Lakhs to bridge seasonal gaps and inventory cycles."
       ],
       [
-        "\ud83d\udcd1",
+        "📑",
         "Tax Efficiency",
         "Interest paid on business loans is 100% tax-deductible as a valid business expense."
       ],
       [
-        "\ud83d\ude80",
+        "🚀",
         "Rapid 48-Hour Sanction",
         "Prompt review based on GST returns and current account banking velocity."
       ]
     ],
     "features": [
       [
-        "\ud83d\udcc8",
+        "📈",
         "Growth-Oriented Capital",
         "Use funds for machinery purchase, supplier bulk-discounts, technology upgrades, or hiring."
       ],
       [
-        "\ud83d\udcbc",
+        "💼",
         "Structured Cash-Flow Tenures",
         "Repayment horizons from 12 to 60 months tailored to your business operational cycle."
       ],
       [
-        "\ud83d\udcc9",
+        "📉",
         "Interest Rate starting 11.25% p.a.",
         "Attractive commercial borrowing rates for businesses with strong banking track record."
       ],
       [
-        "\ud83d\udd0d",
+        "🔍",
         "Transparent Processing",
         "Clearly declared charges with zero surprise audit or documentation levies."
       ],
       [
-        "\ud83c\udff7\ufe0f",
+        "🏷️",
         "Flexible Dropline / Term Options",
         "Choose between term loan with steady EMI or overdraft facility for revolving needs."
       ],
       [
-        "\ud83e\udd1d",
+        "🤝",
         "Dedicated Business Loan Specialist",
         "Personal relationship manager assigned to coordinate sanction and documentation."
       ]
@@ -346,17 +346,17 @@
     ],
     "eligibility_self": [
       "Business Vintage: Minimum 2 years of active continuous operations",
-      "Annual Turnover: \u20b920 Lakhs and above with positive net profit",
+      "Annual Turnover: ₹20 Lakhs and above with positive net profit",
       "GST Returns: Filed regularly for at least 12 months",
       "CIBIL / Commercial Credit Score: 680+"
     ],
-    "rate_range": "11.25% \u2013 21.00% p.a.",
-    "proc_fee": "1.50% \u2013 2.50% of sanctioned amount",
+    "rate_range": "9.50% to 36.00% p.a.",
+    "proc_fee": "1.50% – 2.50% of sanctioned amount",
     "foreclosure_fee": "2% to 4% after 6 months; NIL for Micro-enterprises as per RBI norms",
     "faqs": [
       [
         "Do I need to pledge collateral for a Finora business loan?",
-        "No. Finora offers collateral-free business loans up to \u20b975 Lakhs. Approval is based on your business turnover, banking track record, and operational cash flows."
+        "No. Finora offers collateral-free business loans up to ₹75 Lakhs. Approval is based on your business turnover, banking track record, and operational cash flows."
       ],
       [
         "What financial documents are required?",
@@ -371,7 +371,7 @@
       [
         "Loan Against Property",
         "loan-against-property",
-        "Larger capital up to \u20b910Cr"
+        "Larger capital up to ₹10Cr"
       ],
       [
         "Loan Against Securities",
@@ -391,18 +391,18 @@
     "name": "Home Loan",
     "category": "Residential Housing Credit",
     "headline": "Turn the Key to Your Dream Home with Rates Starting from 8.40% p.a.",
-    "description": "Affordable home loans up to \u20b95 Crore with long repayment tenures up to 30 years, zero prepayment penalties for floating rate borrowers, and tax savings under Section 24(b) & 80C.",
+    "description": "Affordable home loans up to ₹5 Crore with long repayment tenures up to 30 years, zero prepayment penalties for floating rate borrowers, and tax savings under Section 24(b) & 80C.",
     "pills": [
-      "Rates from 8.40% p.a.",
+      "Rates from 7.15% p.a.",
       "Tenure up to 30 Yrs",
       "Up to 90% Property Value",
-      "Tax Benefits up to \u20b93.5L"
+      "Tax Benefits up to ₹3.5L"
     ],
     "hero_img": "images/loan-home.jpg",
-    "badge1_icon": "\ud83c\udfe1",
+    "badge1_icon": "🏡",
     "badge1_title": "Lowest 8.40% p.a.",
-    "badge1_sub": "Save up to \u20b95L in interest",
-    "badge2_icon": "\ud83d\udd11",
+    "badge1_sub": "Save up to ₹5L in interest",
+    "badge2_icon": "🔑",
     "badge2_title": "Up to 90% LTV",
     "badge2_sub": "Tenure up to 30 years",
     "caption_title": "Your dream home with comfortable EMIs",
@@ -413,54 +413,54 @@
     "calc_badge": "LOWEST APR",
     "benefits": [
       [
-        "\ud83c\udfe1",
+        "🏡",
         "Lowest Rates from 8.40%",
         "Avail the most competitive housing interest rates linked directly to RBI Repo Rate."
       ],
       [
-        "\u23f3",
+        "⏳",
         "Tenures up to 30 Years",
         "Keep your monthly EMIs ultra-low with extended repayment options."
       ],
       [
-        "\ud83d\udcb8",
-        "Tax Savings up to \u20b93.5L",
-        "Save under Section 24(b) (up to \u20b92L interest) and Section 80C (up to \u20b91.5L principal)."
+        "💸",
+        "Tax Savings up to ₹3.5L",
+        "Save under Section 24(b) (up to ₹2L interest) and Section 80C (up to ₹1.5L principal)."
       ],
       [
-        "\ud83d\udd13",
+        "🔓",
         "Zero Prepayment Penalty",
         "Floating rate individual borrowers can prepay anytime with zero penalty as per RBI mandate."
       ]
     ],
     "features": [
       [
-        "\ud83c\udfd7\ufe0f",
+        "🏗️",
         "Purchase, Construction & Renovation",
         "Applicable for ready-to-move flats, under-construction apartments, plot purchase, or self-construction."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Home Loan Balance Transfer",
         "Switch your existing expensive housing loan to Finora for lower interest rates and additional top-up funds."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "Legal & Technical Assurance",
         "Partner lenders conduct thorough title due-diligence ensuring clean, dispute-free property ownership."
       ],
       [
-        "\ud83d\udc65",
+        "👥",
         "Co-Applicant Benefits",
         "Add your spouse or working parents as co-applicants to significantly boost eligible loan eligibility."
       ],
       [
-        "\ud83d\udcb0",
+        "💰",
         "High LTV Financing",
-        "Get up to 90% financing for loans up to \u20b930 Lakhs, and up to 80% for higher ticket sizes."
+        "Get up to 90% financing for loans up to ₹30 Lakhs, and up to 80% for higher ticket sizes."
       ],
       [
-        "\ud83d\udcdc",
+        "📜",
         "Pre-Approved Housing Loans",
         "Get loan sanction in principle before finalizing your dream property so you can negotiate with confidence."
       ]
@@ -468,7 +468,7 @@
     "eligibility_salaried": [
       "Age: 21 to 65 years at maturity",
       "Employment: Min 2 years total experience, 1 year in current firm",
-      "Min. Salary: \u20b930,000/month",
+      "Min. Salary: ₹30,000/month",
       "CIBIL Score: 700+ for best interest slab"
     ],
     "eligibility_self": [
@@ -477,13 +477,13 @@
       "Audited Financials / ITR with positive operational profit",
       "CIBIL Score: 720+"
     ],
-    "rate_range": "8.40% \u2013 10.75% p.a. (Floating)",
-    "proc_fee": "0.25% \u2013 0.50% (Max \u20b910,000 - \u20b915,000 + GST)",
+    "rate_range": "7.15% to 8.40%+ p.a.",
+    "proc_fee": "0.25% – 0.50% (Max ₹10,000 - ₹15,000 + GST)",
     "foreclosure_fee": "NIL for floating rate individual borrowers",
     "faqs": [
       [
         "What are the tax benefits of a Finora home loan?",
-        "Under Section 24(b), you can claim up to \u20b92,00,000 per financial year against interest paid on a self-occupied home. Under Section 80C, principal repayment up to \u20b91,50,000 is deductible."
+        "Under Section 24(b), you can claim up to ₹2,00,000 per financial year against interest paid on a self-occupied home. Under Section 80C, principal repayment up to ₹1,50,000 is deductible."
       ],
       [
         "Can I transfer my existing home loan to Finora?",
@@ -491,7 +491,7 @@
       ],
       [
         "What percentage of the property value can I borrow?",
-        "As per RBI guidelines: up to 90% for property value up to \u20b930 Lakhs; up to 80% for loans between \u20b930 Lakhs and \u20b975 Lakhs; and up to 75% for loans above \u20b975 Lakhs."
+        "As per RBI guidelines: up to 90% for property value up to ₹30 Lakhs; up to 80% for loans between ₹30 Lakhs and ₹75 Lakhs; and up to 75% for loans above ₹75 Lakhs."
       ]
     ],
     "related": [
@@ -517,10 +517,10 @@
     "slug": "loan-against-property",
     "name": "Loan Against Property",
     "category": "Secured Real Estate Mortgage",
-    "headline": "Unlock High-Value Capital up to \u20b910 Crore by Pledging Real Estate",
-    "description": "Monetize your residential, commercial or industrial property to raise large-ticket funding up to \u20b910 Crore with extended 15-year tenures and much lower interest rates than unsecured credit.",
+    "headline": "Unlock High-Value Capital up to ₹10 Crore by Pledging Real Estate",
+    "description": "Monetize your residential, commercial or industrial property to raise large-ticket funding up to ₹10 Crore with extended 15-year tenures and much lower interest rates than unsecured credit.",
     "pills": [
-      "Up to \u20b910 Crore",
+      "Interest from 8.40% p.a.",
       "Up to 70% Property Value",
       "Tenure up to 15 Yrs",
       "Lower Interest Rate"
@@ -540,54 +540,54 @@
     "calc_badge": "HIGH VALUE SECURED",
     "benefits": [
       [
-        "\ud83c\udfe2",
+        "🏢",
         "Retain Full Ownership",
         "Continue residing or earning rental income while your property acts as collateral."
       ],
       [
-        "\ud83d\udcc9",
+        "📉",
         "Cheaper than Personal Loans",
         "Mortgage security unlocks significantly lower interest rates compared to unsecured personal credit."
       ],
       [
-        "\ud83d\udc8e",
+        "💎",
         "Substantial Capital Pool",
-        "Borrow up to \u20b910 Crore to expand your business, fund daughter's overseas education or clear debts."
+        "Borrow up to ₹10 Crore to expand your business, fund daughter's overseas education or clear debts."
       ],
       [
-        "\ud83d\udcc5",
+        "📅",
         "Extended 15-Year Horizon",
         "Longer tenure ensures stress-free monthly installments that do not strain cash flow."
       ]
     ],
     "features": [
       [
-        "\ud83c\udfd8\ufe0f",
+        "🏘️",
         "All Property Types Accepted",
         "Pledge fully-constructed residential houses, self-occupied flats, commercial offices, or registered industrial units."
       ],
       [
-        "\ud83c\udfaf",
+        "🎯",
         "No End-Use Restrictions",
         "Use the sanctioned amount for business expansion, working capital, debt consolidation, or major personal goals."
       ],
       [
-        "\ud83d\udcca",
+        "📊",
         "Higher LTV (Loan to Value)",
         "Get up to 70% of fair market property valuation based on professional technical assessment."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Dropline Overdraft Facility",
         "Opt for an overdraft mortgage where you only pay interest on utilized funds while withdrawing as needed."
       ],
       [
-        "\ud83e\udd1d",
+        "🤝",
         "Dual Earning Co-Borrowers",
         "Include family co-owners or business partners to qualify for substantial sanction limits."
       ],
       [
-        "\u2696\ufe0f",
+        "⚖️",
         "Transparent Title Evaluation",
         "Professional legal verification of deed, encumbrance certificate, and municipal approvals."
       ]
@@ -595,7 +595,7 @@
     "eligibility_salaried": [
       "Age: 25 to 65 years",
       "Property must have clear, marketable, unencumbered title deed",
-      "Min. Salary: \u20b940,000/month",
+      "Min. Salary: ₹40,000/month",
       "CIBIL Score: 680+"
     ],
     "eligibility_self": [
@@ -604,8 +604,8 @@
       "ITR records showing steady net profit",
       "Property in applicant/co-applicant name"
     ],
-    "rate_range": "9.15% \u2013 12.50% p.a.",
-    "proc_fee": "0.50% \u2013 1.00% + legal/technical valuation costs",
+    "rate_range": "8.40% to 12.50% p.a.",
+    "proc_fee": "0.50% – 1.00% + legal/technical valuation costs",
     "foreclosure_fee": "NIL for individual borrowers on floating rates",
     "faqs": [
       [
@@ -647,16 +647,16 @@
     "headline": "Instant Liquidity Against Gold Jewellery from 0.75% per Month",
     "description": "Unlock instant funds against gold jewellery in just 30 minutes with maximum RBI-mandated 75% LTV, certified weighing, bank vault safety, and zero income proof requirements.",
     "pills": [
-      "Rates from 0.75%/mo",
+      "Rates from 6.90% p.a.",
       "30-Min Disbursal",
       "Up to 75% Gold Value",
       "No Income Proof Needed"
     ],
     "hero_img": "images/loan-gold.jpg",
-    "badge1_icon": "\ud83e\ude99",
+    "badge1_icon": "🪙",
     "badge1_title": "Cash in 15 Mins",
     "badge1_sub": "Same-day branch disbursal",
-    "badge2_icon": "\ud83d\udd12",
+    "badge2_icon": "🔒",
     "badge2_title": "Free Safe Vault",
     "badge2_sub": "100% insured bank locker",
     "caption_title": "Instant funds against gold ornaments",
@@ -667,54 +667,54 @@
     "calc_badge": "30-MIN DISBURSAL",
     "benefits": [
       [
-        "\u26a1",
+        "⚡",
         "30-Minute Disbursal",
         "Fastest emergency borrowing route with on-the-spot karat testing and cash/NEFT transfer."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "Bank Grade Vault Security",
         "Pledged jewellery is stored in high-security, tamper-proof, fully insured bank lockers."
       ],
       [
-        "\ud83d\udcc4",
+        "📄",
         "No Income Proof or ITR",
         "Credit score or salary slips are not compulsory; sanctioned purely on physical gold appraisal."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Flexible Bullet Repayment",
         "Pay only monthly interest and clear principal at maturity, or pay regular EMI."
       ]
     ],
     "features": [
       [
-        "\ud83d\udc8d",
+        "💍",
         "Gold Ornaments & Coins Accepted",
         "Appraise neck-chains, bangles, rings, and certified bank gold coins up to 50 grams."
       ],
       [
-        "\ud83d\udcca",
+        "📊",
         "Maximum 75% RBI LTV",
         "Enjoy highest permitted valuation based on live daily bullion gold spot rates."
       ],
       [
-        "\ud83d\udd12",
+        "🔒",
         "100% Free Insurance",
         "Your jewellery is fully insured against theft or loss at zero extra charge while under bank custody."
       ],
       [
-        "\ud83c\udff7\ufe0f",
+        "🏷️",
         "Flexible Tenure (3 to 36 Months)",
         "Repay comfortably within 3 months up to 3 years without long lock-ins."
       ],
       [
-        "\ud83d\udcb3",
+        "💳",
         "Multiple Repayment Modes",
         "Choose between Bullet Repayment, Monthly Interest-Only, or traditional monthly EMI."
       ],
       [
-        "\u2728",
+        "✨",
         "Same-Day Release upon Repayment",
         "Collect your intact sealed jewellery pouch immediately upon settling the loan account."
       ]
@@ -731,8 +731,8 @@
       "Valid KYC documents",
       "No ITR or Balance sheet needed"
     ],
-    "rate_range": "0.75% \u2013 1.50% per month (9.00% \u2013 18.00% p.a.)",
-    "proc_fee": "0.25% \u2013 0.50% (often waived for digital bookings)",
+    "rate_range": "6.90% to 18.00% p.a.",
+    "proc_fee": "0.25% – 0.50% (often waived for digital bookings)",
     "foreclosure_fee": "NIL at any time during the tenure",
     "faqs": [
       [
@@ -771,19 +771,19 @@
     "slug": "education-loan",
     "name": "Education Loan",
     "category": "Academic & Global Study Credit",
-    "headline": "Invest in Global Ambitions with Study Loans up to \u20b91 Crore & Moratorium",
-    "description": "Comprehensive student loans up to \u20b91 Crore covering 100% tuition, travel, and accommodation for premier universities in India and overseas with repayment starting post-study.",
+    "headline": "Invest in Global Ambitions with Study Loans up to ₹1 Crore & Moratorium",
+    "description": "Comprehensive student loans up to ₹1 Crore covering 100% tuition, travel, and accommodation for premier universities in India and overseas with repayment starting post-study.",
     "pills": [
-      "Up to \u20b91 Crore",
+      "Rates from 8.00% p.a.",
       "Study in India & Abroad",
       "Moratorium Repayment",
       "Tax Deduction Sec 80E"
     ],
     "hero_img": "images/loan-education.jpg",
-    "badge1_icon": "\ud83c\udf93",
+    "badge1_icon": "🎓",
     "badge1_title": "100% Course Funding",
     "badge1_sub": "India & premier global unis",
-    "badge2_icon": "\u23f3",
+    "badge2_icon": "⏳",
     "badge2_title": "Study Moratorium",
     "badge2_sub": "Pay EMIs 1 yr post-study",
     "caption_title": "Finance higher education worldwide",
@@ -794,54 +794,54 @@
     "calc_badge": "MORATORIUM BENEFIT",
     "benefits": [
       [
-        "\ud83c\udf93",
+        "🎓",
         "Course + 1 Yr Moratorium",
         "No EMI pressure during your college years. Repayment starts 6-12 months post graduation."
       ],
       [
-        "\u2708\ufe0f",
+        "✈️",
         "Comprehensive Coverage",
         "Covers tuition fees, flight tickets, campus housing, laptop, books, and living expenses."
       ],
       [
-        "\ud83d\udcb0",
-        "Collateral-Free up to \u20b97.5L",
-        "Unsecured education funding up to \u20b97.5 Lakhs for premier Indian institutes."
+        "💰",
+        "Collateral-Free up to ₹7.5L",
+        "Unsecured education funding up to ₹7.5 Lakhs for premier Indian institutes."
       ],
       [
-        "\ud83d\udcd1",
+        "📑",
         "100% Tax Relief (Sec 80E)",
         "Claim unlimited tax deduction on total interest paid for up to 8 consecutive financial years."
       ]
     ],
     "features": [
       [
-        "\ud83c\udf0d",
+        "🌍",
         "Global University Acceptance",
         "Approved across universities in USA, UK, Canada, Germany, Australia, Ireland, and Singapore."
       ],
       [
-        "\ud83e\udd1d",
+        "🤝",
         "Parent / Guardian Co-Signer",
         "Parents, legal guardians or spouse act as financial co-applicants."
       ],
       [
-        "\ud83d\udcb5",
+        "💵",
         "Pre-Visa Disbursement Sanction",
         "Receive formal loan sanction letter to facilitate your overseas student visa interview."
       ],
       [
-        "\ud83d\udcc8",
+        "📈",
         "Attractive Student Rates",
         "Special concession of 0.50% for female scholars at select partner banking institutions."
       ],
       [
-        "\ud83c\udfe2",
+        "🏢",
         "Direct College Fee Remittance",
         "Streamlined foreign outward remittance directly to your college bursar account."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Extended 15-Year Repayments",
         "Long repayment horizons keep monthly student EMIs comfortable after landing your first job."
       ]
@@ -855,8 +855,8 @@
       "Co-applicant with stable business vintage and regular ITR filings",
       "Clean CIBIL repayment history for co-signer (680+)"
     ],
-    "rate_range": "9.25% \u2013 13.50% p.a.",
-    "proc_fee": "NIL for Indian studies; up to \u20b910,000 for overseas processing",
+    "rate_range": "8.00% to 16.00% p.a.",
+    "proc_fee": "NIL for Indian studies; up to ₹10,000 for overseas processing",
     "foreclosure_fee": "NIL anytime during tenure",
     "faqs": [
       [
@@ -898,16 +898,16 @@
     "headline": "Drive Your Dream Car with up to 100% On-Road Financing from 8.75% p.a.",
     "description": "Flexible new and pre-owned car financing with zero or minimal down payment, customized tenures up to 7 years, instant digital approvals, and partnerships with leading automakers across India.",
     "pills": [
-      "Rates from 8.75% p.a.",
+      "Rates from 8.50% p.a.",
       "Up to 100% On-Road",
       "Tenure up to 7 Yrs",
       "Instant Dealership Sanction"
     ],
     "hero_img": "images/loan-vehicle.jpg",
-    "badge1_icon": "\ud83d\ude97",
+    "badge1_icon": "🚗",
     "badge1_title": "Up to 100% On-Road",
     "badge1_sub": "Zero down payment schemes",
-    "badge2_icon": "\u23f1\ufe0f",
+    "badge2_icon": "⏱️",
     "badge2_title": "1-Day Delivery",
     "badge2_sub": "New cars & certified pre-owned",
     "caption_title": "Drive home your dream car this week",
@@ -918,72 +918,72 @@
     "calc_badge": "100% ON-ROAD OPTIONS",
     "benefits": [
       [
-        "\ud83d\ude97",
+        "🚗",
         "Up to 100% On-Road Funding",
         "Cover registration, road tax, and insurance without dipping into your savings."
       ],
       [
-        "\ud83d\udcc9",
+        "📉",
         "Attractive Rates from 8.75%",
         "Fixed interest rate options guarantee unvarying monthly payments throughout."
       ],
       [
-        "\ud83c\udfce\ufe0f",
+        "🏎️",
         "New & Pre-Owned Cars",
         "Financing available for brand-new models as well as certified used vehicles up to 10 years old."
       ],
       [
-        "\u26a1",
+        "⚡",
         "Instant In-Principle Sanction",
         "Walk into your favorite dealership with a pre-approved loan voucher ready in hand."
       ]
     ],
     "features": [
       [
-        "\ud83e\udd1d",
+        "🤝",
         "Direct Dealership Integration",
         "Partnered with Maruti, Hyundai, Tata, Mahindra, Honda, Toyota and luxury automakers."
       ],
       [
-        "\u26a1",
+        "⚡",
         "Minimal Documentation",
         "Fast paperless underwriting via digital bank statement and PAN verification."
       ],
       [
-        "\ud83d\udcc5",
+        "📅",
         "Tenures from 1 to 7 Years",
         "Tailor your repayment tenure to match your vehicle replacement cycle."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Pre-Owned Car Refinancing",
         "Get funds against your existing paid-off car with quick evaluation."
       ],
       [
-        "\ud83c\udff7\ufe0f",
+        "🏷️",
         "Zero Hidden Charges",
         "Upfront disclosure of documentation and RTO registration fees."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "Comprehensive Bundled Insurance",
         "Option to fold multi-year comprehensive auto insurance into your EMI."
       ]
     ],
     "eligibility_salaried": [
       "Age: 21 to 65 years",
-      "Min. Monthly Salary: \u20b925,000",
+      "Min. Monthly Salary: ₹25,000",
       "Min. 1 year of total employment",
       "CIBIL Score: 680+"
     ],
     "eligibility_self": [
       "Age: 21 to 65 years",
       "Min 2 years in current business with ITR filing",
-      "Net Annual Income: \u20b92.5 Lakhs+",
+      "Net Annual Income: ₹2.5 Lakhs+",
       "CIBIL Score: 700+"
     ],
-    "rate_range": "8.75% \u2013 12.50% p.a.",
-    "proc_fee": "0.50% \u2013 1.00% (or flat \u20b93,000 - \u20b95,000 + GST)",
+    "rate_range": "8.50% p.a. onwards",
+    "proc_fee": "0.50% – 1.00% (or flat ₹3,000 - ₹5,000 + GST)",
     "foreclosure_fee": "2% to 4% after 6 to 12 months",
     "faqs": [
       [
@@ -1023,18 +1023,18 @@
     "name": "Two-Wheeler Loan",
     "category": "Motorcycle, Scooter & EV Credit",
     "headline": "Ride Away on Your Dream Bike or EV with Instant Approvals & Easy EMIs",
-    "description": "Fast two-wheeler financing up to \u20b93.5 Lakhs for commuter bikes, performance motorcycles, and electric scooters with zero down payment options, paperless KYC, and low EMIs.",
+    "description": "Fast two-wheeler financing up to ₹3.5 Lakhs for commuter bikes, performance motorcycles, and electric scooters with zero down payment options, paperless KYC, and low EMIs.",
     "pills": [
-      "Rates from 9.99% p.a.",
-      "Up to \u20b93.5 Lakhs",
+      "Rates from 7.60% p.a.",
+      "Up to ₹3.5 Lakhs",
       "Zero Down Payment",
       "EV Subsidy Supported"
     ],
     "hero_img": "images/loan-vehicle.jpg",
-    "badge1_icon": "\ud83c\udfcd\ufe0f",
+    "badge1_icon": "🏍️",
     "badge1_title": "Instant Bike Loan",
     "badge1_sub": "Commuters, sports bikes & EVs",
-    "badge2_icon": "\u26a1",
+    "badge2_icon": "⚡",
     "badge2_title": "Zero Down Payment",
     "badge2_sub": "Special subsidies on EVs",
     "caption_title": "Your daily ride with effortless EMIs",
@@ -1045,61 +1045,61 @@
     "calc_badge": "FAST APPROVAL",
     "benefits": [
       [
-        "\u26a1",
+        "⚡",
         "Approval in 10 Minutes",
         "Spot dealership sanction with quick online Aadhaar and PAN check."
       ],
       [
-        "\ud83d\udef5",
+        "🛵",
         "Electric Two-Wheeler Friendly",
         "Special low rates and government EV subsidy pass-through for electric scooters."
       ],
       [
-        "\ud83d\udcb3",
+        "💳",
         "Zero Down Payment Schemes",
         "Drive out with 100% financing on select commuter and executive bikes."
       ],
       [
-        "\ud83d\udcc5",
+        "📅",
         "Flexible 1-4 Years Tenure",
-        "Bite-sized EMIs as low as \u20b91,800/month to keep your daily budget relaxed."
+        "Bite-sized EMIs as low as ₹1,800/month to keep your daily budget relaxed."
       ]
     ],
     "features": [
       [
-        "\ud83c\udfcd\ufe0f",
+        "🏍️",
         "Covers All Segments",
         "Financing for Hero, Honda, Bajaj, TVS, Royal Enfield, Yamaha, Ather, Ola, and Chetak."
       ],
       [
-        "\ud83d\udcc4",
+        "📄",
         "Minimal Income Paperwork",
         "Simple bank statement verification for salaried employees and self-employed individuals."
       ],
       [
-        "\ud83c\udff7\ufe0f",
+        "🏷️",
         "Pre-Owned Two-Wheelers",
         "Loans also provided for certified pre-owned super-bikes and performance bikes."
       ],
       [
-        "\ud83d\udcf1",
+        "📱",
         "UPI Automatic EMIs",
         "Seamless monthly debit setup via UPI e-mandate or netbanking NACH."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "Helmet & Accessory Financing",
         "Fold riding gear and insurance costs into your combined loan structure."
       ],
       [
-        "\u2728",
+        "✨",
         "Fast RTO Hypothecation Removal",
         "Prompt NOC release upon final EMI settlement so you own the bike 100% cleanly."
       ]
     ],
     "eligibility_salaried": [
       "Age: 18 to 60 years",
-      "Min. Monthly Income: \u20b915,000",
+      "Min. Monthly Income: ₹15,000",
       "Valid driving license & Aadhaar",
       "CIBIL Score: 650+"
     ],
@@ -1109,8 +1109,8 @@
       "Bank statement of last 3 months",
       "CIBIL Score: 660+"
     ],
-    "rate_range": "9.99% \u2013 16.50% p.a.",
-    "proc_fee": "Flat \u20b91,000 \u2013 \u20b92,500 + GST",
+    "rate_range": "7.60% to 28.00% p.a.",
+    "proc_fee": "Flat ₹1,000 – ₹2,500 + GST",
     "foreclosure_fee": "2% after 6 months",
     "faqs": [
       [
@@ -1149,19 +1149,19 @@
     "slug": "medical-loan",
     "name": "Medical Loan",
     "category": "Emergency Healthcare Financing",
-    "headline": "Immediate Medical Emergency Financing up to \u20b925 Lakhs with Zero Prepayment Fees",
+    "headline": "Immediate Medical Emergency Financing up to ₹25 Lakhs with Zero Prepayment Fees",
     "description": "Urgent healthcare loans with immediate hospital/bank disbursal, zero prepayment penalties, minimal documentation, and flexible repayment tenures for surgeries, treatments, and procedures.",
     "pills": [
-      "Disbursal in 4 Hours",
-      "Up to \u20b925 Lakhs",
+      "Rates from 8.90% p.a.",
+      "Up to ₹25 Lakhs",
       "Zero Prepayment Fees",
       "Covers Non-Insured Costs"
     ],
     "hero_img": "images/loan-medical.jpg",
-    "badge1_icon": "\ud83e\ude7a",
+    "badge1_icon": "🩺",
     "badge1_title": "4-Hr Priority Disbursal",
     "badge1_sub": "Emergency hospitalization",
-    "badge2_icon": "\ud83d\udcb3",
+    "badge2_icon": "💳",
     "badge2_title": "Zero Foreclosure Fee",
     "badge2_sub": "Preclose without penalty",
     "caption_title": "Caring financial support for health needs",
@@ -1172,61 +1172,61 @@
     "calc_badge": "EMERGENCY SANCTION",
     "benefits": [
       [
-        "\ud83c\udfe5",
+        "🏥",
         "Same-Day Hospital Credit",
         "Direct settlement or transfer into your account within 4 to 12 hours of urgent application."
       ],
       [
-        "\ud83d\udd13",
+        "🔓",
         "Zero Prepayment Penalty",
         "Close the loan anytime without penalty once insurance claims or mediclaim reimbursements arrive."
       ],
       [
-        "\ud83d\udc8a",
+        "💊",
         "Covers Non-Insured Expenses",
         "Fund robotic surgeries, dental implants, IVF, cosmetic procedures, and pre/post-hospital care."
       ],
       [
-        "\ud83d\udcc4",
+        "📄",
         "Minimal Documentation",
         "Prioritized emergency underwriting requiring just basic identity and bank statement."
       ]
     ],
     "features": [
       [
-        "\u26a1",
+        "⚡",
         "Priority Emergency Desk",
         "Dedicated priority processing desk to ensure medical procedures are never delayed."
       ],
       [
-        "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
+        "👨‍👩‍👧",
         "Covers Family Members",
         "Borrow funds for self, spouse, parents, children, or dependent siblings."
       ],
       [
-        "\ud83d\udcb0",
-        "Loan Quantum up to \u20b925 Lakhs",
+        "💰",
+        "Loan Quantum up to ₹25 Lakhs",
         "Sufficient headroom for cardiac care, oncology, organ transplants, and prolonged ICU recovery."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "No Collateral or Asset Hypothecation",
         "Completely unsecured financing based on household income."
       ],
       [
-        "\ud83d\udcc9",
+        "📉",
         "Competitive Interest Rates",
         "Special concession rates starting at 10.99% p.a."
       ],
       [
-        "\ud83d\udcb3",
+        "💳",
         "Insurance Settlement Flexibility",
         "Use the medical loan to clear hospital bills upfront, and repay instantly when your mediclaim insurer reimburses."
       ]
     ],
     "eligibility_salaried": [
       "Age: 21 to 65 years",
-      "Min. Monthly Salary: \u20b920,000",
+      "Min. Monthly Salary: ₹20,000",
       "Hospital estimate / admission record",
       "CIBIL Score: 650+"
     ],
@@ -1236,7 +1236,7 @@
       "Hospital estimate document",
       "CIBIL Score: 660+"
     ],
-    "rate_range": "10.99% \u2013 17.50% p.a.",
+    "rate_range": "8.90% to 30.50% p.a.",
     "proc_fee": "1.00% (discounted for emergency healthcare)",
     "foreclosure_fee": "ZERO foreclosure charge after 30 days",
     "faqs": [
@@ -1277,18 +1277,18 @@
     "name": "Loan Against Securities",
     "category": "Portfolio Backed Credit Line",
     "headline": "Instant Overdraft Credit Line Without Selling Your Stocks or Mutual Funds",
-    "description": "Unlock immediate liquidity up to \u20b92 Crore by creating a digital lien on your equity shares, mutual funds, and bonds. Retain 100% of dividends and pay interest only on what you withdraw.",
+    "description": "Unlock immediate liquidity up to ₹2 Crore by creating a digital lien on your equity shares, mutual funds, and bonds. Retain 100% of dividends and pay interest only on what you withdraw.",
     "pills": [
-      "Up to \u20b92 Crore",
+      "Rates from 7.50% p.a.",
       "Overdraft Facility",
       "Retain Capital Growth",
       "Pay Interest on Used Funds"
     ],
     "hero_img": "images/loan-securities.jpg",
-    "badge1_icon": "\ud83d\udcc8",
+    "badge1_icon": "📈",
     "badge1_title": "Zero Share Selling",
     "badge1_sub": "Stay invested in market growth",
-    "badge2_icon": "\ud83d\udcb0",
+    "badge2_icon": "💰",
     "badge2_title": "Pay Only on Drawn",
     "badge2_sub": "Revolving overdraft line",
     "caption_title": "Liquidity against Mutual Funds & Equities",
@@ -1299,54 +1299,54 @@
     "calc_badge": "REVOLVING CREDIT",
     "benefits": [
       [
-        "\ud83d\udcc8",
+        "📈",
         "Never Sell in a Down Market",
         "Avoid distress-selling your long-term wealth assets during market corrections."
       ],
       [
-        "\ud83d\udcb8",
+        "💸",
         "Interest Only on Usage",
-        "If your limit is \u20b920 Lakhs and you use \u20b92 Lakhs for 15 days, pay interest only on \u20b92 Lakhs for 15 days."
+        "If your limit is ₹20 Lakhs and you use ₹2 Lakhs for 15 days, pay interest only on ₹2 Lakhs for 15 days."
       ],
       [
-        "\ud83c\udf81",
+        "🎁",
         "Keep Earning Dividends",
         "100% of dividends, bonus shares, and market appreciation remain yours."
       ],
       [
-        "\u26a1",
+        "⚡",
         "Digital Lien in 2 Hours",
         "Seamless online lien marking through NSDL, CDSL, CAMS, and KFintech."
       ]
     ],
     "features": [
       [
-        "\ud83d\udcca",
+        "📊",
         "Approved List of 1,000+ Stocks & Funds",
         "Pledge large-cap, mid-cap equities, debt mutual funds, sovereign gold bonds (SGB), and tax-free bonds."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Revolving Overdraft Architecture",
         "Deposit surplus cash anytime to zero out interest, and withdraw again whenever an opportunity arises."
       ],
       [
-        "\ud83d\udcc9",
+        "📉",
         "Attractive Interest Rates from 9.00% p.a.",
         "Lower borrowing cost than unsecured credit cards and personal loans."
       ],
       [
-        "\ud83d\udcf1",
+        "📱",
         "Linked ATM / Net-Banking Limit",
         "Access your approved limit via online transfers, UPI, or linked current account debit card."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "No Prepayment or Foreclosure Fees",
         "Zero penalty for closing or zeroing the overdraft facility at any time."
       ],
       [
-        "\u26a1",
+        "⚡",
         "Instant Unpledge",
         "Release lien on your shares within 24 hours of clearing dues."
       ]
@@ -1355,14 +1355,14 @@
       "Age: 21 to 70 years",
       "Demat account with NSDL or CDSL holding approved securities",
       "Valid PAN and Aadhaar",
-      "Min. portfolio value: \u20b91,00,000"
+      "Min. portfolio value: ₹1,00,000"
     ],
     "eligibility_self": [
       "Resident Indian, HUF, or Corporate holding eligible equity/mutual fund investments",
       "Valid PAN card linked to Demat portfolio"
     ],
-    "rate_range": "9.00% \u2013 11.50% p.a. (Calculated daily on utilized balance)",
-    "proc_fee": "Flat \u20b91,500 \u2013 \u20b93,500 + Demat pledge creation charges",
+    "rate_range": "7.50% to 15.00% p.a.",
+    "proc_fee": "Flat ₹1,500 – ₹3,500 + Demat pledge creation charges",
     "foreclosure_fee": "NIL at any time",
     "faqs": [
       [
@@ -1404,16 +1404,16 @@
     "headline": "Merge Multiple High-Interest Debts into a Single Lower Monthly Payment",
     "description": "Combine multiple credit card balances and high-interest personal loans into a single consolidated Finora loan with lower interest rates, reducing monthly payments by up to 40%.",
     "pills": [
-      "Reduce EMIs by up to 40%",
+      "Rates from 9.99% p.a.",
       "Single Monthly Due Date",
       "Boost CIBIL Score",
       "Tenure up to 5 Yrs"
     ],
     "hero_img": "images/loan-consolidation.jpg",
-    "badge1_icon": "\u2702\ufe0f",
+    "badge1_icon": "✂️",
     "badge1_title": "Save up to 40% EMI",
     "badge1_sub": "Combine high-interest dues",
-    "badge2_icon": "\ud83d\udee1\ufe0f",
+    "badge2_icon": "🛡️",
     "badge2_title": "Single Monthly Due",
     "badge2_sub": "Rebuild your credit health",
     "caption_title": "Break free from multi-debt stress",
@@ -1424,61 +1424,61 @@
     "calc_badge": "DEBT RESTRUCTURING",
     "benefits": [
       [
-        "\ud83d\udcc9",
+        "📉",
         "Save up to 40% Monthly",
         "Cut down expensive 42% credit card finance charges to clean 10.99% personal loan rates."
       ],
       [
-        "\ud83d\udcc5",
+        "📅",
         "One Single Monthly Payment",
         "Replace 4 or 5 confusing billing cycles with a single, predictable auto-debit date."
       ],
       [
-        "\ud83d\udcc8",
+        "📈",
         "Rapid CIBIL Recovery",
         "Lowering your credit card credit-utilization-ratio (CUR) triggers an immediate credit score jump."
       ],
       [
-        "\ud83e\uddd8",
+        "🧘",
         "End Collection Stress",
         "Pay off harassing multi-creditor dues and regain complete control over your monthly budget."
       ]
     ],
     "features": [
       [
-        "\ud83d\udd04",
+        "🔄",
         "Direct Creditor Payouts",
         "Option for Finora to disburse funds directly to your credit card issuers and lenders to ensure clean closure."
       ],
       [
-        "\ud83d\udcb0",
-        "Consolidate up to \u20b940 Lakhs",
+        "💰",
+        "Consolidate up to ₹40 Lakhs",
         "Sufficient headroom to package multiple loans and credit cards into one structured facility."
       ],
       [
-        "\ud83d\udcca",
+        "📊",
         "Fixed Monthly Budgeting",
         "Clear countdown to debt freedom with transparent amortization schedule."
       ],
       [
-        "\ud83d\uded1",
+        "🛑",
         "Stop Compounding Interest Traps",
         "Escape minimum-amount-due credit card traps that take 15+ years to clear."
       ],
       [
-        "\ud83d\udd10",
+        "🔐",
         "Zero Collateral Required",
         "Unsecured consolidation based on current income and verified willingness to clear past debt."
       ],
       [
-        "\ud83e\udd1d",
+        "🤝",
         "Free Debt Advisory Review",
         "Complimentary consultation with a senior Finora credit advisor to structure your debt repayment."
       ]
     ],
     "eligibility_salaried": [
       "Age: 21 to 60 years",
-      "Min. Take-Home Salary: \u20b925,000/month",
+      "Min. Take-Home Salary: ₹25,000/month",
       "Existing credit cards or loans in active standard standing",
       "CIBIL Score: 640+ (cases with high utilization welcomed)"
     ],
@@ -1488,8 +1488,8 @@
       "Latest 1 year banking statement",
       "CIBIL Score: 650+"
     ],
-    "rate_range": "10.99% \u2013 16.50% p.a.",
-    "proc_fee": "1.00% \u2013 1.50% of consolidated amount",
+    "rate_range": "9.99% to 30.00% p.a.",
+    "proc_fee": "1.00% – 1.50% of consolidated amount",
     "foreclosure_fee": "NIL after 12 months",
     "faqs": [
       [
@@ -1528,19 +1528,19 @@
     "slug": "easy-emi-loan",
     "name": "Easy EMI Loan",
     "category": "Consumer & Retail Checkout Financing",
-    "headline": "Buy Now and Pay in Convenient Monthly Installments up to \u20b95 Lakhs",
+    "headline": "Buy Now and Pay in Convenient Monthly Installments up to ₹5 Lakhs",
     "description": "Convert consumer electronics, home appliances, smartphones, travel bookings, and lifestyle purchases into affordable No-Cost and Low-Cost EMIs over 3 to 24 months.",
     "pills": [
-      "Up to \u20b95 Lakhs",
+      "Rates from 8.75% p.a.",
       "No-Cost EMI Options",
       "Instant Digital Approval",
       "Zero Down Payment"
     ],
     "hero_img": "images/loan-easyemi.jpg",
-    "badge1_icon": "\ud83c\udff7\ufe0f",
+    "badge1_icon": "🏷️",
     "badge1_title": "0% No-Cost EMI",
     "badge1_sub": "Electronics, gadgets & lifestyle",
-    "badge2_icon": "\u26a1",
+    "badge2_icon": "⚡",
     "badge2_title": "Instant Store Checkout",
     "badge2_sub": "5,000+ merchant partner outlets",
     "caption_title": "Shop your favourite products in easy parts",
@@ -1551,61 +1551,61 @@
     "calc_badge": "FLEXIBLE CHECKOUT",
     "benefits": [
       [
-        "\ud83d\udecd\ufe0f",
+        "🛍️",
         "0% No-Cost EMI",
         "Enjoy true zero-interest installments on 3 to 6-month tenures across partner brands."
       ],
       [
-        "\u26a1",
+        "⚡",
         "Instant Digital Sanction",
         "Pre-approved checkout limit verified in under 60 seconds with your mobile number."
       ],
       [
-        "\ud83d\udcf1",
+        "📱",
         "Zero Credit Card Needed",
         "Shop on EMI using your regular savings bank debit card or UPI auto-pay mandate."
       ],
       [
-        "\ud83d\udcb8",
+        "💸",
         "Zero Down Payment",
         "Take your purchase home today with 100% upfront financing."
       ]
     ],
     "features": [
       [
-        "\ud83d\udcfa",
+        "📺",
         "Electronics, Appliances & Gadgets",
         "Finance iPhones, laptops, 4K Smart TVs, air conditioners, and modular furniture."
       ],
       [
-        "\ud83c\udfd6\ufe0f",
+        "🏖️",
         "Travel & Vacation Packages",
         "Split flight tickets and luxury resort bookings into manageable monthly EMIs."
       ],
       [
-        "\ud83d\udcb3",
+        "💳",
         "Pre-Set Reusable Limit",
         "Once approved, use your Finora Easy EMI limit across 5,000+ online and offline merchant partners."
       ],
       [
-        "\ud83d\udd04",
+        "🔄",
         "Automated Monthly Deductions",
         "Set-and-forget monthly debits via UPI autopay or e-NACH mandate."
       ],
       [
-        "\ud83d\udee1\ufe0f",
+        "🛡️",
         "No Security Deposit",
         "Unsecured consumer retail loan with zero collateral."
       ],
       [
-        "\u2728",
+        "✨",
         "Build Credit History",
         "Timely repayment of small-ticket consumer loans is the fastest way to build a high CIBIL score."
       ]
     ],
     "eligibility_salaried": [
       "Age: 18 to 60 years",
-      "Min. Monthly Income: \u20b915,000",
+      "Min. Monthly Income: ₹15,000",
       "Valid Aadhaar and PAN Card",
       "CIBIL Score: 640+ (first-time borrowers with no history eligible)"
     ],
@@ -1614,8 +1614,8 @@
       "Active bank account with regular UPI/credit transactions",
       "Valid KYC documents"
     ],
-    "rate_range": "0% (No-Cost EMI) to 14.00% p.a. on longer tenures",
-    "proc_fee": "Flat \u20b9199 \u2013 \u20b9799 depending on ticket size",
+    "rate_range": "8.75% to 36.00% p.a.",
+    "proc_fee": "Flat ₹199 – ₹799 depending on ticket size",
     "foreclosure_fee": "NIL at any time",
     "faqs": [
       [
@@ -1645,7 +1645,7 @@
       [
         "Personal Loan",
         "personal-loan",
-        "Higher cash loan up to \u20b940L"
+        "Higher cash loan up to ₹40L"
       ]
     ]
   }
