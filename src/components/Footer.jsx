@@ -49,6 +49,7 @@ export default function Footer({ onOpenApplyModal }) {
             <div>
               <h4>Resources</h4>
               <div className="footer-links">
+                <Link to="/blog">Blog</Link>
                 <a href="/#guides">Personal loan guides</a>
                 <a href="/#guides">Business loan guides</a>
                 <a href="/#guides">Home loan guides</a>

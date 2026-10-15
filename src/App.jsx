@@ -5,6 +5,8 @@ import Footer from './components/Footer.jsx';
 import ApplyModal from './components/ApplyModal.jsx';
 import Home from './pages/Home.jsx';
 import LoanDetail from './pages/LoanDetail.jsx';
+import ArticleDetail from './pages/ArticleDetail.jsx';
+import Blog from './pages/Blog.jsx';
 
 // Automatically scroll to top or target hash when navigating between pages/routes
 function ScrollToTop() {
@@ -46,6 +48,8 @@ export default function App() {
       
       <Routes>
         <Route path="/" element={<Home onOpenApplyModal={handleOpenApplyModal} />} />
+        <Route path="/blog" element={<Blog onOpenApplyModal={handleOpenApplyModal} />} />
+        <Route path="/blog/:slug" element={<ArticleDetail onOpenApplyModal={handleOpenApplyModal} />} />
         {/* Support both slug and slug.html for direct link integrity */}
         <Route path="/:slug" element={<LoanDetail onOpenApplyModal={handleOpenApplyModal} />} />
       </Routes>

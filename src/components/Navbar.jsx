@@ -207,12 +207,12 @@ export default function Navbar({ onOpenApplyModal }) {
               </div>
             </div>
 
-            <a href="/#loans" onClick={closeMenus}>All Loans</a>
             <a href="/#investment" onClick={closeMenus}>Investment</a>
             <a href="/#calculators" onClick={closeMenus}>Calculators</a>
             <a href="/#rates" onClick={closeMenus}>Interest rates</a>
             <a href="/#locations" onClick={closeMenus}>Locations</a>
             <a href="/#guides" onClick={closeMenus}>Guides</a>
+            <Link to="/blog" onClick={closeMenus}>Blog</Link>
           </nav>
 
           <div className="nav-actions">

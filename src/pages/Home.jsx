@@ -849,12 +849,15 @@ export default function Home({ onOpenApplyModal }) {
             </article>
           </div>
 
-          <div style={{ marginTop: '28px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ marginTop: '28px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a className="btn btn-outline" href="#guides">Personal loan guides</a>
             <a className="btn btn-outline" href="#guides">Business loan guides</a>
             <a className="btn btn-outline" href="#guides">Home loan guides</a>
             <a className="btn btn-outline" href="#guides">Credit score guides</a>
             <a className="btn btn-outline" href="#guides">Loan eligibility guides</a>
+            <Link className="btn btn-primary btn-small" to="/blog" style={{ textDecoration: 'none', marginLeft: 'auto' }}>
+              Visit Finora Journal & Blog →
+            </Link>
           </div>
         </div>
       </section>
