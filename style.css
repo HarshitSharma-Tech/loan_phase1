@@ -1544,7 +1544,7 @@ tr:last-child td {
 /* ==========================================================================
    Investment, Purpose & Guides Cards
    ========================================================================== */
-.investment-grid, .purpose-grid, .guide-grid {
+.investment-grid, .purpose-grid, .eligibility-grid, .guide-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
@@ -2110,7 +2110,7 @@ footer h4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .investment-grid, .purpose-grid {
+  .investment-grid, .purpose-grid, .eligibility-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2172,7 +2172,7 @@ footer h4 {
     grid-template-columns: 1fr;
   }
 
-  .investment-grid, .purpose-grid {
+  .investment-grid, .purpose-grid, .eligibility-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2280,8 +2280,6 @@ body.cyber-night-mode td {
   color: #CBD5E1;
   border-color: #1E293B;
 }
-body.cyber-night-mode 
-body.cyber-night-mode 
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
