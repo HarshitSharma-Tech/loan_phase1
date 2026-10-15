@@ -44,14 +44,15 @@
 .mega-menu {
   position: absolute;
   top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%) translateY(12px);
-  width: min(980px, 95vw);
+  left: 0;
+  transform: translateY(12px);
+  width: min(880px, calc(100vw - 48px));
+  max-width: 90vw;
   background: #FFFFFF;
   border: 1.5px solid #D5E0F2;
   border-radius: 24px;
   box-shadow: 0 28px 64px -12px rgba(8, 40, 95, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.9);
-  padding: 32px;
+  padding: 30px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -65,8 +66,8 @@
   content: "";
   position: absolute;
   top: -8px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
+  left: 36px;
+  transform: rotate(45deg);
   width: 16px;
   height: 16px;
   background: #FFFFFF;
@@ -78,7 +79,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 .mega-container {
@@ -1332,30 +1333,56 @@
   .eligibility-split {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 860px) {
+  
+  /* Convert floating desktop mega-menu into clean, scrollable nested accordion inside nav */
   .mega-menu {
-    position: static;
-    width: 100%;
-    transform: none;
-    box-shadow: none;
-    border: none;
-    padding: 16px 0;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    position: static !important;
+    width: 100% !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: 1.5px solid #E2E8F4 !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
     display: none;
+    max-height: none !important;
+    overflow-y: visible !important;
+    margin-top: 8px !important;
+    background: #F8FAFD !important;
   }
   .nav-item.has-mega.open .mega-menu {
-    display: block;
+    display: block !important;
   }
   .mega-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
   }
   .mega-menu::before {
-    display: none;
+    display: none !important;
+  }
+  .mega-col-title {
+    font-size: 0.85rem !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 6px !important;
+  }
+  .mega-list {
+    gap: 6px !important;
+  }
+  .mega-list li a {
+    padding: 10px 12px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E8EEF8 !important;
+    border-radius: 10px !important;
+  }
+  .mega-list li a strong {
+    font-size: 14.5px !important;
+    color: #0A1C3E !important;
+  }
+  .mega-list li a span {
+    font-size: 13px !important;
+    color: #64748B !important;
   }
 }
 
@@ -1369,16 +1396,55 @@
   }
   .form-grid-2 {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
   .persona-image-holder {
     height: 190px;
   }
+  .persona-badge-float {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  .persona-badge-float .badge-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+  .persona-badge-float strong {
+    font-size: 0.75rem;
+  }
+  .persona-badge-float small {
+    font-size: 0.65rem;
+  }
   .persona-card-footer {
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px;
   }
   .persona-user-stats {
     text-align: left;
+  }
+  .product-calc-card {
+    padding: 22px 16px;
+  }
+  .calc-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .calc-chip {
+    flex: 1 1 calc(33.333% - 6px);
+    font-size: 0.78rem;
+    padding: 6px 4px;
+    text-align: center;
+  }
+  .calc-emi-val {
+    font-size: 1.85rem;
+  }
+  .calc-submetrics {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
@@ -1737,26 +1803,6 @@
     padding: 20px;
     flex-direction: column;
     align-items: flex-start;
-  }
-}
-
-@media (max-width: 960px) {
-  .mega-menu {
-    width: 94vw;
-    padding: 20px;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-  .mega-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-@media (max-width: 640px) {
-  .mega-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
   }
 }
 

@@ -52,21 +52,22 @@ export default function Navbar({ onOpenApplyModal }) {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="topbar">
-        <div className="container">
-          <div className="topbar-left">
-            <span className="topbar-badge">VERIFIED RATES</span>
-            <span>Simple finance. Clear next steps.</span>
-          </div>
-          <div className="top-secondary">
-            <span>Need help? <a href="/#contact" onClick={closeMenus}>Talk to our support team ↗</a></span>
+      {/* Sticky Header enclosing both Top Bar and Navigation */}
+      <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
+        {/* Top Bar */}
+        <div className="topbar">
+          <div className="container">
+            <div className="topbar-left">
+              <span className="topbar-badge">VERIFIED RATES</span>
+              <span>Simple finance. Clear next steps.</span>
+            </div>
+            <div className="top-secondary">
+              <span>Need help? <a href="/#contact" onClick={closeMenus}>Talk to our support team ↗</a></span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Header Navigation */}
-      <header className={isScrolled ? 'scrolled' : ''}>
+        {/* Main Navigation Bar */}
         <div className="container nav-wrap">
           <Link className="brand" to="/" onClick={closeMenus} aria-label="Finora home">
             <img 
@@ -78,6 +79,11 @@ export default function Navbar({ onOpenApplyModal }) {
             />
           </Link>
           
+          {/* Mobile navigation backdrop */}
+          {isMobileMenuOpen && (
+            <div className="nav-backdrop active" onClick={closeMenus} aria-hidden="true" />
+          )}
+
           <nav className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`} id="mainNav" aria-label="Main navigation">
             {/* Interactive Loans Mega Menu Item */}
             <div className={`nav-item has-mega ${isMegaOpen ? 'open' : ''}`} ref={megaRef}>
@@ -201,6 +207,7 @@ export default function Navbar({ onOpenApplyModal }) {
               </div>
             </div>
 
+            <a href="/#loans" onClick={closeMenus}>All Loans</a>
             <a href="/#investment" onClick={closeMenus}>Investment</a>
             <a href="/#calculators" onClick={closeMenus}>Calculators</a>
             <a href="/#rates" onClick={closeMenus}>Interest rates</a>

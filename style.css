@@ -436,8 +436,8 @@ table td strong,
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1.5px solid rgba(26, 92, 255, 0.12);
@@ -449,6 +449,14 @@ header.scrolled {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 8px 28px -4px rgba(8, 40, 95, 0.09);
   border-bottom-color: rgba(26, 92, 255, 0.18);
+}
+
+.topbar {
+  background: linear-gradient(90deg, #071E44 0%, #0A2860 100%);
+  color: var(--slate-300);
+  font-size: 0.82rem;
+  padding: 8px 0;
+  border-bottom: none;
 }
 
 .nav-wrap {
@@ -585,10 +593,10 @@ header.scrolled {
 
 .hero-copy h1 {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(3.2rem, 6.2vw, 5.2rem);
+  font-size: clamp(2.6rem, 4.4vw, 3.8rem);
   font-weight: 900;
-  letter-spacing: -0.048em;
-  line-height: 1.04;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
   color: #0B1E48;
   margin-bottom: 24px;
 }
@@ -2085,20 +2093,185 @@ footer h4 {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints
+   Responsive Breakpoints & Mobile Optimization
    ========================================================================== */
-@media (max-width: 1024px) {
+
+/* Universal Responsive Utilities */
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.table-responsive,
+.rate-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 28, 62, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 97;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Drawer / Sheet Base */
+.modal-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.modal-drawer.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 28, 62, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-sheet {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 28px;
+  box-shadow: 0 25px 60px -15px rgba(8, 40, 95, 0.25);
+  border: 1.5px solid #D5E0F2;
+  z-index: 2;
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-drawer.active .modal-sheet {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #475569;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #E2E8F0;
+  color: #0A1C3E;
+  transform: rotate(90deg);
+}
+
+.modal-input-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.modal-input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 6px;
+}
+
+.modal-input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+  background: #F8FAFD;
+}
+
+.modal-input-group input:focus {
+  outline: none;
+  border-color: #0052FF;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.12);
+}
+
+.modal-success-screen {
+  text-align: center;
+  padding: 24px 10px;
+}
+
+.success-icon-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ECFDF5;
+  color: #059669;
+  border: 2px solid #A7F3D0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 auto 16px;
+}
+
+/* Tablet & Desktop Large (<= 1100px) */
+@media (max-width: 1100px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
+  .hero-copy {
+    max-width: 100%;
+  }
+
   .hero-visual {
     justify-content: center;
+    width: 100%;
   }
 
   .hero-calculator-card {
-    max-width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .split {
@@ -2114,49 +2287,66 @@ footer h4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .guide-grid {
-    grid-template-columns: 1fr;
-  }
-
   .audience-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .location-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .faq-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
   }
 }
 
-@media (max-width: 768px) {
+/* Medium Tablets & Mobile Devices (<= 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --text-nav-size: 14px;
+  }
+
+  .container {
+    width: min(100%, calc(100% - 32px));
+  }
+
+  /* Sticky Top Bar & Header Adjustments */
   .topbar {
+    display: none;
+  }
+
+  .nav-wrap {
+    height: 64px;
+  }
+
+  .brand-logo {
+    height: 40px;
+    max-width: 145px;
+  }
+
+  .nav-actions .btn {
     display: none;
   }
 
   .menu-toggle {
     display: inline-flex;
+    cursor: pointer;
   }
 
   .nav-links {
     position: fixed;
-    top: 72px;
+    top: 64px;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background: #FFFFFF;
     flex-direction: column;
-    padding: 24px;
-    border-bottom: 1px solid var(--porcelain-border);
-    box-shadow: var(--shadow-lg);
-    gap: 18px;
-    transform: translateY(-120%);
-    transition: transform var(--transition-normal);
+    align-items: stretch;
+    padding: 20px;
+    border-bottom: 2px solid var(--porcelain-border);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+    gap: 10px;
+    transform: translateY(-130%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 98;
   }
 
@@ -2164,56 +2354,256 @@ footer h4 {
     transform: translateY(0);
   }
 
-  .quick-grid {
-    grid-template-columns: 1fr 1fr;
+  .nav-links a,
+  .nav-link-dropdown {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
   }
 
+  /* Section Padding */
+  .section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding: 36px 0 64px;
+    min-height: auto;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.3rem, 7.5vw, 3.4rem);
+    margin-bottom: 18px;
+  }
+
+  .hero-copy p {
+    font-size: 1.02rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .trust-row {
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.88rem;
+  }
+
+  /* Filter Bar Scrollable on Mobile */
+  .filter-bar {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Grids */
   .product-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .investment-grid, .purpose-grid, .eligibility-grid {
+  .quick-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .investment-grid, 
+  .purpose-grid, 
+  .eligibility-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .audience-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .location-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .eligibility-band {
     flex-direction: column;
     align-items: flex-start;
-    padding: 32px 24px;
+    padding: 28px 20px;
+    gap: 20px;
+  }
+
+  .eligibility-band .btn {
+    width: 100%;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 40px;
   }
 
+  /* Sticky Bottom Mobile Bar */
   .mobile-cta {
     display: flex;
+    padding: 10px 16px;
   }
 
   body {
     padding-bottom: 74px;
   }
+
+  /* Modal Sheet full width on small screens */
+  .modal-drawer {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-sheet {
+    border-radius: 24px 24px 0 0;
+    max-height: 88vh;
+    padding: 28px 20px 36px;
+  }
 }
 
+/* Small Smart Phones (<= 480px) */
 @media (max-width: 480px) {
-  .quick-grid {
-    grid-template-columns: 1fr;
+  .container {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .nav-wrap {
+    height: 58px;
+  }
+
+  .nav-links {
+    top: 58px;
+    max-height: calc(100vh - 58px);
+  }
+
+  .hero-calculator-card {
+    padding: 20px 16px;
   }
 
   .hero-calc-row {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .hero-calc-presets {
+    display: flex;
     flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .hero-preset-btn {
+    flex: 1 1 calc(33.333% - 6px);
+    font-size: 0.78rem;
+    padding: 6px 4px;
+    text-align: center;
+  }
+
+  .hero-calc-result {
+    padding: 16px;
+  }
+
+  .hero-emi-val {
+    font-size: 1.85rem;
+  }
+
+  .hero-result-sub {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .preset-chip {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .emi-value {
+    font-size: 2rem;
+  }
+
+  .advisor-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .contact-form-wrap {
+    padding: 22px 16px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+
+  .mobile-cta {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .mobile-cta .btn {
+    padding: 10px 12px;
+    font-size: 0.85rem;
   }
 }
 

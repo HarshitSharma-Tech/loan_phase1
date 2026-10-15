@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ApplyModal from './components/ApplyModal.jsx';
 import Home from './pages/Home.jsx';
 import LoanDetail from './pages/LoanDetail.jsx';
+
+// Automatically scroll to top or target hash when navigating between pages/routes
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      // If there's a hash, give a tick for DOM rendering then smooth scroll to it
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      // Otherwise immediately scroll to top of page
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
 
 export default function App() {
   const [modalState, setModalState] = useState({ isOpen: false, product: 'Personal Loan' });
@@ -19,6 +41,7 @@ export default function App() {
 
   return (
     <div className="finora-app">
+      <ScrollToTop />
       <Navbar onOpenApplyModal={handleOpenApplyModal} />
       
       <Routes>

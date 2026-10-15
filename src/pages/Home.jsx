@@ -10,7 +10,7 @@ const LOAN_CARDS = [
   { slug: 'gold-loan', name: 'Gold Loan', category: 'business', badge: 'From 0.75%/mo', img: '/images/loan-gold.jpg', desc: 'Instant cash liquidity against hallmarked gold jewellery with RBI 75% valuation.' },
   { slug: 'education-loan', name: 'Education Loan', category: 'business', badge: 'India & Abroad', img: '/images/loan-education.jpg', desc: 'Fund tuition fees and living costs with convenient 1-year post-study moratorium.' },
   { slug: 'car-loan', name: 'Car Loan', category: 'personal', badge: '100% On-Road', img: '/images/loan-vehicle.jpg', desc: 'Drive home your dream new or pre-owned car with attractive financing terms.' },
-  { slug: 'two-wheeler-loan', name: 'Two-Wheeler Loan', category: 'personal', badge: 'Zero Down Payment', img: '/images/loan-vehicle.jpg', desc: 'Instant digital approval for commuter motorcycles, scooters, and electric bikes.' },
+  { slug: 'two-wheeler-loan', name: 'Two-Wheeler Loan', category: 'personal', badge: 'Zero Down Payment', img: '/images/loan-twowheeler.jpg', desc: 'Instant digital approval for commuter motorcycles, scooters, and electric bikes.' },
   { slug: 'medical-loan', name: 'Medical Loan', category: 'personal', badge: '4-Hr Emergency', img: '/images/loan-medical.jpg', desc: 'Emergency medical credit for unexpected hospitalisation, surgeries, and therapies.' },
   { slug: 'loan-against-securities', name: 'Loan Against Securities', category: 'business', badge: 'Flexible Overdraft', img: '/images/loan-securities.jpg', desc: 'Instant credit line against shares and mutual funds. Pay interest only on drawn funds.' },
   { slug: 'debt-consolidation-loan', name: 'Debt Consolidation Loan', category: 'personal', badge: 'Save 40% EMI', img: '/images/loan-consolidation.jpg', desc: 'Combine multiple high-cost credit cards and personal loans into one lower monthly EMI.' },
@@ -79,9 +79,13 @@ export default function Home({ onOpenApplyModal }) {
           <div className="hero-copy">
             <div className="hero-eyebrow">
               <span className="eyebrow-dash"></span>
-              <span className="eyebrow-text">Finance that fits your plans</span>
+              <span className="eyebrow-text">LOAN OPTIONS | EMI CALCULATORS | FINANCIAL GUIDANCE</span>
             </div>
-            <h1>Your next step,<br />made <span className="hero-blue">more</span><br /><span className="hero-blue">possible.</span></h1>
+            <h1>
+              Looking for a Loan?<br />
+              Start With a<br />
+              <span className="hero-blue">Clear Plan.</span>
+            </h1>
             <p>Compare loan options, estimate your monthly EMI and understand your next steps with clear, straightforward information.</p>
             
             <div className="hero-actions">
