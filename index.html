@@ -8,13 +8,13 @@
   
   <link rel="icon" type="image/png" href="images/favicon.png">
   
-  <!-- Humanoid & Luxury Fonts: Space Grotesk, Plus Jakarta Sans, Syne -->
+  <!-- Humanoid & Luxury Fonts: Outfit, Plus Jakarta Sans, Syne, Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -35,7 +35,7 @@
   <header>
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Finora home">
-        <img src="images/finora-logo-trimmed.png" alt="Finora - Financing a Brighter Tomorrow" class="brand-logo" width="168" height="48">
+        <img src="images/finora-logo-trimmed.png?v=2" alt="Finora Loan - Financing a Brighter Tomorrow" class="brand-logo" width="175" height="50">
       </a>
       
       <nav class="nav-links" id="mainNav" aria-label="Main navigation">
@@ -56,7 +56,31 @@
     </div>
   </header>
 
-  <!-- Live Rates Ticker Bar -->
+  <!-- Live Market Rates Ticker Strip -->
+  <aside class="rates-ticker-bar" aria-label="Live rates and market highlights">
+    <div class="container ticker-container">
+      <div class="ticker-badge">
+        <span class="ticker-pulse"></span>
+        <span>TODAY'S RATES</span>
+      </div>
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="t-name">Home Loan</span> <span class="t-val">8.40% p.a.</span> <span class="t-tag t-gold">Lowest APR</span></div>
+        <div class="t-sep">•</div>
+        <div class="ticker-item"><span class="t-name">Personal Loan</span> <span class="t-val">10.49% p.a.</span> <span class="t-tag t-emerald">Instant Disbursal</span></div>
+        <div class="t-sep">•</div>
+        <div class="ticker-item"><span class="t-name">Fixed Deposit</span> <span class="t-val">up to 8.55% p.a.</span> <span class="t-tag t-gold">Finora Prime</span></div>
+        <div class="t-sep">•</div>
+        <div class="ticker-item"><span class="t-name">Gold Loan</span> <span class="t-val">0.75% / mo</span> <span class="t-tag t-blue">Same-Day</span></div>
+        <div class="t-sep">•</div>
+        <div class="ticker-item"><span class="t-name">Business Loan</span> <span class="t-val">11.25% p.a.</span> <span class="t-tag t-emerald">Zero Collateral</span></div>
+        <div class="t-sep">•</div>
+        <div class="ticker-item"><span class="t-name">Property Loan</span> <span class="t-val">9.15% p.a.</span> <span class="t-tag t-blue">Max LTV 75%</span></div>
+      </div>
+      <div class="ticker-cta">
+        <a href="#rates">Compare all ↗</a>
+      </div>
+    </div>
+  </aside>
 
   <main>
     <!-- Hero Section -->
@@ -64,8 +88,11 @@
 
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Finance that fits your plans</span>
-          <h1>Your next step,<br>made <span class="gradient-text">more possible.</span></h1>
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dash"></span>
+            <span class="eyebrow-text">Finance that fits your plans</span>
+          </div>
+          <h1>Your next step,<br>made <span class="hero-blue">more</span><br><span class="hero-blue">possible.</span></h1>
           <p>Compare loan options, estimate your monthly EMI and understand your next steps with clear, straightforward information.</p>
           
           <div class="hero-actions">
@@ -201,7 +228,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Borrow with purpose</span>
-          <h2>Find a loan for what comes next</h2>
+          <h2>Find a <span class="text-gradient-blue">loan</span> for what comes next</h2>
           <p>Start with the goal you have in mind. Review the loan type, check the details and compare options before making a decision.</p>
         </div>
 
@@ -415,7 +442,7 @@
         <div>
           <div class="section-head">
             <span class="eyebrow">Plan your repayments</span>
-            <h2>Calculate your EMI in seconds</h2>
+            <h2>Calculate your EMI in <span class="text-gradient-blue">seconds</span></h2>
             <p>Adjust the amount, interest rate and repayment period to estimate a monthly payment. Use this as a starting point for comparing loan offers.</p>
           </div>
 
@@ -544,7 +571,7 @@
             <span class="eyebrow" style="background: rgba(255,255,255,0.15); color: #ffd18a; border-color: rgba(255,255,255,0.2);">
               Your next step
             </span>
-            <h2>Understand your loan eligibility</h2>
+            <h2>Understand your <span class="text-gradient-gold">loan eligibility</span></h2>
             <p>Eligibility may depend on income, existing obligations, credit history, employment or business profile, loan amount and lender policy.</p>
           </div>
           <a class="btn btn-primary" href="#contact">Start an eligibility enquiry ↗</a>
@@ -609,7 +636,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Know the cost</span>
-          <h2>Loan interest rates and charges</h2>
+          <h2>Loan interest <span class="text-gradient-blue">rates</span> and charges</h2>
           <p>Compare the full borrowing cost, not only the headline interest rate. The example figures below are placeholders, not live offers.</p>
         </div>
 
@@ -661,7 +688,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Plan beyond borrowing</span>
-          <h2>Explore investment and savings options</h2>
+          <h2>Explore investment and <span class="text-gradient-blue">savings options</span></h2>
           <p>Compare product features, risk, liquidity, time horizon and applicable terms before choosing an investment.</p>
         </div>
 
@@ -738,7 +765,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Loans by purpose</span>
-          <h2>What are you planning for?</h2>
+          <h2>What are you <span class="text-gradient-blue">planning for?</span></h2>
           <p>Browse common reasons people consider borrowing and review the total cost before choosing a loan.</p>
         </div>
 
@@ -816,7 +843,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Loans by applicant profile</span>
-          <h2>Options for different working lives</h2>
+          <h2>Options for different <span class="text-gradient-blue">working lives</span></h2>
           <p>Documentation and eligibility criteria can vary by applicant and lender.</p>
         </div>
 
@@ -897,7 +924,7 @@
             <span>Home Loan in Delhi</span>
             <span>↗</span>
           </a>
-          <a class="location-link" href="#contact" style="background: var(--federal-blue-soft); border-color: var(--federal-blue); color: var(--federal-blue);">
+          <a class="location-link" href="#contact" style="background: var(--gold-wash-strong); border-color: var(--gold-primary); color: var(--gold-deep); font-weight: 700;">
             <span>View all locations</span>
             <span>→</span>
           </a>
@@ -910,7 +937,7 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">The finance library</span>
-          <h2>Helpful guides before you decide</h2>
+          <h2>Helpful <span class="text-gradient-blue">guides</span> before you decide</h2>
           <p>Understand key terms, compare the numbers and prepare the right questions for a lender.</p>
         </div>
 
@@ -976,7 +1003,7 @@
       <div class="container faq-grid">
         <div>
           <span class="eyebrow">Common questions</span>
-          <h2>Clear answers, before you apply</h2>
+          <h2>Clear answers, <span class="text-gradient-blue">before you apply</span></h2>
           <p>Every lender has its own policies. Always review the latest offer documents and ask for clarification on anything you do not understand.</p>
           <a class="btn btn-outline" href="#contact">More questions? Contact us</a>
         </div>
@@ -1021,7 +1048,7 @@
         <div class="split" style="align-items:center;">
           <div>
             <span class="eyebrow">We're here to help</span>
-            <h2>Have a question about your next step?</h2>
+            <h2>Have a question about your <span class="text-gradient-gold">next step?</span></h2>
             <p>Send a sample enquiry and a member of the team can follow up. This demo form does not transmit or store your details.</p>
             <p style="font-size:0.9rem; color:var(--muted);">For this prototype, replace the sample brand and contact details with your approved business information.</p>
 
@@ -1083,7 +1110,7 @@
       <div class="footer-grid">
         <div class="footer-about">
           <a class="brand brand-footer" href="#home" aria-label="Finora home">
-            <img src="images/finora-logo-light.png" alt="Finora - Financing a Brighter Tomorrow" class="footer-logo" width="180" height="52">
+            <img src="images/finora-logo-light.png?v=2" alt="Finora Loan - Financing a Brighter Tomorrow" class="footer-logo" width="185" height="52">
           </a>
           <p>Clear information for more considered financial decisions. Compare, calculate and understand your options with complete transparency.</p>
           <div style="margin-top: 14px;">

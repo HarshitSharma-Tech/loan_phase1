@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const max = parseFloat(slider.max) || 100;
     const val = parseFloat(slider.value) || 0;
     const percentage = ((val - min) / (max - min)) * 100;
-    slider.style.background = `linear-gradient(to right, var(--federal-blue, #1A5CFF) 0%, var(--federal-blue, #1A5CFF) ${percentage}%, #e2e8f4 ${percentage}%, #e2e8f4 100%)`;
+    slider.style.background = `linear-gradient(to right, #D97706 0%, #F59E0B ${percentage}%, #E2E8F0 ${percentage}%, #E2E8F0 100%)`;
   }
 
   // Calculate & Update EMI
