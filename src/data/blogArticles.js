@@ -19,7 +19,7 @@ export const blogArticles = [
     imageAlt: 'Loan EMI calculation on digital tablet showing reducing balance breakdown',
     date: 'October 12, 2026',
     readTime: '5 min read',
-    author: 'Finora Editorial Desk',
+    author: 'Loan Aasra Editorial Desk',
     authorRole: 'Credit & Treasury Research',
     relatedLoans: [
       { name: 'Personal Loan', slug: 'personal-loan' },
@@ -103,7 +103,7 @@ export const blogArticles = [
     imageAlt: 'Credit score evaluation report and performance chart',
     date: 'October 08, 2026',
     readTime: '6 min read',
-    author: 'Finora Credit Research',
+    author: 'Loan Aasra Credit Research',
     authorRole: 'Risk & Underwriting Analyst',
     relatedLoans: [
       { name: 'Personal Loan', slug: 'personal-loan' },
@@ -174,7 +174,7 @@ export const blogArticles = [
     imageAlt: 'Financial planning notes for personal loan prepayment and interest savings',
     date: 'September 28, 2026',
     readTime: '4 min read',
-    author: 'Finora Advisory',
+    author: 'Loan Aasra Advisory',
     authorRole: 'Consumer Lending Specialist',
     relatedLoans: [
       { name: 'Personal Loan', slug: 'personal-loan' }
@@ -226,7 +226,7 @@ export const blogArticles = [
     imageAlt: 'Document review and loan eligibility assessment papers',
     date: 'September 20, 2026',
     readTime: '5 min read',
-    author: 'Finora Research',
+    author: 'Loan Aasra Research',
     authorRole: 'Underwriting Lead',
     relatedLoans: [
       { name: 'Personal Loan', slug: 'personal-loan' },
@@ -279,7 +279,7 @@ export const blogArticles = [
     imageAlt: 'Investment portfolio and liquid emergency savings growth chart',
     date: 'September 14, 2026',
     readTime: '7 min read',
-    author: 'Finora Wealth Desk',
+    author: 'Loan Aasra Wealth Desk',
     authorRole: 'Financial Planning Strategist',
     relatedLoans: [
       { name: 'Gold Loan', slug: 'gold-loan' },
@@ -327,7 +327,7 @@ export const blogArticles = [
     imageAlt: 'Gold and collateral assets compared to unsecured lending agreements',
     date: 'September 02, 2026',
     readTime: '5 min read',
-    author: 'Finora Advisory',
+    author: 'Loan Aasra Advisory',
     authorRole: 'Structured Credit Lead',
     relatedLoans: [
       { name: 'Gold Loan', slug: 'gold-loan' },
@@ -376,7 +376,7 @@ export const blogArticles = [
     imageAlt: 'Home loan tenure duration graph comparing total interest outgo',
     date: 'August 24, 2026',
     readTime: '5 min read',
-    author: 'Finora Editorial Desk',
+    author: 'Loan Aasra Editorial Desk',
     authorRole: 'Quantitative Credit Specialist',
     relatedLoans: [
       { name: 'Home Loan', slug: 'home-loan' },
@@ -420,7 +420,7 @@ export const blogArticles = [
     imageAlt: 'Checklist documents and ID verification files on an executive desk',
     date: 'August 15, 2026',
     readTime: '4 min read',
-    author: 'Finora Editorial Desk',
+    author: 'Loan Aasra Editorial Desk',
     authorRole: 'Customer Success & Documentation',
     relatedLoans: [
       { name: 'Personal Loan', slug: 'personal-loan' },

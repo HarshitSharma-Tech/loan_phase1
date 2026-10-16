@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import TrustMarquee from '../components/TrustMarquee';
 import WhyChoosePersonalLoan from '../components/WhyChoosePersonalLoan';
+import SeoHead from '../components/SeoHead';
+import { LOAN_CARDS_HI, PRIMARY_CITIES_HI, ALL_CITIES_HI, RATE_ROWS_HI, HOME_FAQS_HI } from '../data/homeHindi';
+import { LOAN_CARDS_PA, PRIMARY_CITIES_PA, ALL_CITIES_PA, RATE_ROWS_PA, HOME_FAQS_PA } from '../data/homePunjabi';
 
 const LOAN_CARDS = [
   { slug: 'personal-loan', name: 'Personal Loan', category: 'personal', badge: 'Instant Disbursal', img: '/images/loan-personal.jpg', desc: 'For planned expenses, unexpected costs or a financial need that calls for flexibility.' },
-  { slug: 'insta-personal-loan', name: 'Insta Personal Loan', category: 'personal', badge: '100% Paperless', img: '/images/loan-insta.jpg', desc: 'Express 30-minute disbursal pre-approved funds directly to your verified bank account.' },
   { slug: 'business-loan', name: 'Business Loan', category: 'business', badge: 'Collateral Free', img: '/images/loan-business.jpg', desc: 'Working capital, inventory expansion, machinery purchase and business scaling.' },
   { slug: 'home-loan', name: 'Home Loan', category: 'property', badge: 'From 8.40% p.a.', img: '/images/loan-home.jpg', desc: 'Turn home ownership into reality with lowest APRs and Sec 24(b) tax advantages.' },
   { slug: 'loan-against-property', name: 'Loan Against Property', category: 'property', badge: 'Up to 70% LTV', img: '/images/loan-property.jpg', desc: 'Unlock high loan limits against your residential or commercial real estate equity.' },
@@ -127,6 +130,23 @@ const HOME_FAQS = [
 ];
 
 export default function Home({ onOpenApplyModal }) {
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language ? i18n.language.substring(0, 2) : 'en';
+  const isHi = currentLang === 'hi';
+  const isPa = currentLang === 'pa';
+
+  const cards = isHi ? LOAN_CARDS_HI : isPa ? LOAN_CARDS_PA : LOAN_CARDS;
+  const primaryCities = isHi ? PRIMARY_CITIES_HI : isPa ? PRIMARY_CITIES_PA : PRIMARY_CITIES;
+  const allCities = isHi ? ALL_CITIES_HI : isPa ? ALL_CITIES_PA : ALL_CITIES;
+  const rateRows = isHi ? RATE_ROWS_HI : isPa ? RATE_ROWS_PA : RATE_ROWS;
+  const homeFaqs = isHi ? HOME_FAQS_HI : isPa ? HOME_FAQS_PA : HOME_FAQS;
+
+  const getLocalePath = (path) => {
+    if (currentLang === 'en') return path;
+    if (path === '/') return `/${currentLang}`;
+    return `/${currentLang}${path.startsWith('/') ? path : '/' + path}`;
+  };
+
   // 1. Hero Calculator State
   const [heroAmount, setHeroAmount] = useState(500000);
   const [heroTenure, setHeroTenure] = useState(5);
@@ -141,7 +161,7 @@ export default function Home({ onOpenApplyModal }) {
   const [filter, setFilter] = useState('all');
 
   // 4. Contact Enquiry Form State
-  const [contactForm, setContactForm] = useState({ fullName: '', email: '', loanType: 'Personal loan' });
+  const [contactForm, setContactForm] = useState({ fullName: '', email: '', loanType: isHi ? 'पर्सनल लोन' : isPa ? 'ਪਰਸਨਲ ਲੋਨ' : 'Personal loan' });
   const [contactSuccess, setContactSuccess] = useState('');
 
   // 5. Locations Showcase State (Top 7 vs All 20)
@@ -155,8 +175,8 @@ export default function Home({ onOpenApplyModal }) {
   const [faqCategory, setFaqCategory] = useState('all');
 
   const visibleFaqs = faqCategory === 'all' 
-    ? HOME_FAQS 
-    : HOME_FAQS.filter(f => f.group === faqCategory);
+    ? homeFaqs 
+    : homeFaqs.filter(f => f.group === faqCategory);
 
   // 5. Hero EMI Math
   const heroMRate = heroRate / 1200;
@@ -185,45 +205,55 @@ export default function Home({ onOpenApplyModal }) {
   const formatINR = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
   const filteredCards = filter === 'all' 
-    ? LOAN_CARDS 
-    : LOAN_CARDS.filter(c => c.category === filter);
+    ? cards 
+    : cards.filter(c => c.category === filter);
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    setContactSuccess(`✓ Thank you, ${contactForm.fullName}! Your sample enquiry for ${contactForm.loanType} has been recorded. Our financial advisor will connect shortly.`);
-    setContactForm({ fullName: '', email: '', loanType: 'Personal loan' });
+    if (isHi) {
+      setContactSuccess(`✓ धन्यवाद, ${contactForm.fullName}! ${contactForm.loanType} के लिए आपकी पूछताछ दर्ज कर ली गई है। हमारे लोन सलाहकार जल्द आपसे संपर्क करेंगे।`);
+    } else if (isPa) {
+      setContactSuccess(`✓ ਧੰਨਵਾਦ, ${contactForm.fullName}! ${contactForm.loanType} ਲਈ ਤੁਹਾਡੀ ਪੁੱਛਗਿੱਛ ਦਰਜ ਕਰ ਲਈ ਗਈ ਹੈ। ਸਾਡੇ ਲੋਨ ਸਲਾਹਕਾਰ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨਾਲ ਰਾਬਤਾ ਕਰਨਗੇ।`);
+    } else {
+      setContactSuccess(`✓ Thank you, ${contactForm.fullName}! Your sample enquiry for ${contactForm.loanType} has been recorded. Our financial advisor will connect shortly.`);
+    }
+    setContactForm({ fullName: '', email: '', loanType: isHi ? 'पर्सनल लोन' : isPa ? 'ਪਰਸਨਲ ਲੋਨ' : 'Personal loan' });
   };
 
   return (
     <main>
+      <SeoHead 
+        title={t('seo.homeTitle', 'Loan Aasra | Your Dreams, Our Support - Compare, Calculate & Apply for Loans')}
+        description={t('seo.homeDesc', 'Compare personal, home, business & gold loans with Loan Aasra. Calculate instant reducing-balance EMIs, check eligibility without CIBIL impact, and apply online.')}
+      />
+
       {/* 1. Hero Section */}
       <section className="hero" id="home">
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="hero-eyebrow">
               <span className="eyebrow-dash"></span>
-              <span className="eyebrow-text">LOAN OPTIONS | EMI CALCULATORS | FINANCIAL GUIDANCE</span>
+              <span className="eyebrow-text">{t('hero.badge', 'OFFICIAL INDIAN BORROWER ADVISORY')}</span>
             </div>
             <h1>
-              Looking for a Loan?<br />
-              Start With a<br />
-              <span className="hero-blue">Clear Plan.</span>
+              {t('hero.titleLine1', 'Your Dreams,')}<br />
+              <span className="hero-blue text-gradient-blue">{t('hero.titleLine2', 'Our Support.')}</span>
             </h1>
-            <p>Compare loan options, estimate your monthly EMI and understand your next steps with clear, straightforward information.</p>
+            <p>{t('hero.subtitle', 'Discover transparent borrowing with zero hidden clauses. Compare verified interest rates from top banks & NBFCs, calculate precise reducing-balance EMIs, and receive institutional-grade loan guidance tailored to your goals.')}</p>
             
             <div className="hero-actions">
               <a className="btn btn-primary" href="#loans">
-                Explore loan options <span>→</span>
+                {t('common.exploreLoans', 'Explore Loans')} <span>→</span>
               </a>
               <a className="btn btn-outline" href="#calculators">
-                Calculate my EMI
+                {t('common.calculateEmi', 'Calculate EMI')}
               </a>
             </div>
 
             <div className="trust-row">
-              <span><i className="check">✓</i> Clear information</span>
-              <span><i className="check">✓</i> Easy-to-use tools</span>
-              <span><i className="check">✓</i> Informed decisions</span>
+              <span><i className="check">✓</i> {t('trust.pill1', '100% Paperless Journey')}</span>
+              <span><i className="check">✓</i> {t('trust.pill2', 'Zero Collateral Options')}</span>
+              <span><i className="check">✓</i> {t('trust.pill3', '30+ Lending Partners')}</span>
             </div>
           </div>
 
@@ -232,8 +262,8 @@ export default function Home({ onOpenApplyModal }) {
             <div className="hero-calculator-card">
               <div className="card-top">
                 <div>
-                  <small className="hero-calc-badge">YOUR LOAN SNAPSHOT</small>
-                  <h3 style={{ margin: '5px 0 0', fontSize: '1.25rem' }}>Plan with clarity</h3>
+                  <small className="hero-calc-badge">{t('calculator.eyebrow', 'TACTILE REPAYMENT ENGINE')}</small>
+                  <h3 style={{ margin: '5px 0 0', fontSize: '1.25rem' }}>{t('calculator.heading', 'Calculate your monthly EMI with mathematical precision')}</h3>
                 </div>
                 <div className="card-icon">₹</div>
               </div>
@@ -241,7 +271,7 @@ export default function Home({ onOpenApplyModal }) {
               {/* Amount Field */}
               <div className="hero-calc-field">
                 <div className="hero-calc-head">
-                  <label htmlFor="heroAmount">Loan amount</label>
+                  <label htmlFor="heroAmount">{t('calculator.amountLabel', 'Loan amount')}</label>
                   <output id="heroAmountOut">{formatINR(heroAmount)}</output>
                 </div>
                 <input 
@@ -252,6 +282,7 @@ export default function Home({ onOpenApplyModal }) {
                   step="25000" 
                   value={heroAmount} 
                   onChange={e => setHeroAmount(Number(e.target.value))}
+                  aria-label="Loan amount in Rupees"
                 />
                 <div className="hero-calc-presets">
                   {[100000, 500000, 1000000, 2500000, 5000000].map(val => (
@@ -271,8 +302,8 @@ export default function Home({ onOpenApplyModal }) {
               <div className="hero-calc-row">
                 <div className="hero-calc-field-half">
                   <div className="hero-calc-head-sm">
-                    <label htmlFor="heroTenure">Tenure</label>
-                    <output id="heroTenureOut">{heroTenure} {heroTenure === 1 ? 'year' : 'years'}</output>
+                    <label htmlFor="heroTenure">{t('calculator.tenureLabel', 'Tenure')}</label>
+                    <output id="heroTenureOut">{heroTenure} {heroTenure === 1 ? t('common.years', 'year') : t('common.years', 'years')}</output>
                   </div>
                   <input 
                     id="heroTenure" 
@@ -282,11 +313,12 @@ export default function Home({ onOpenApplyModal }) {
                     step="1" 
                     value={heroTenure} 
                     onChange={e => setHeroTenure(Number(e.target.value))}
+                    aria-label="Loan tenure in years"
                   />
                 </div>
                 <div className="hero-calc-field-half">
                   <div className="hero-calc-head-sm">
-                    <label htmlFor="heroRate">Interest</label>
+                    <label htmlFor="heroRate">{t('calculator.rateLabel', 'Interest')}</label>
                     <output id="heroRateOut">{heroRate}%</output>
                   </div>
                   <input 
@@ -297,6 +329,7 @@ export default function Home({ onOpenApplyModal }) {
                     step="0.25" 
                     value={heroRate} 
                     onChange={e => setHeroRate(Number(e.target.value))}
+                    aria-label="Annual interest rate percentage"
                   />
                 </div>
               </div>
@@ -304,16 +337,16 @@ export default function Home({ onOpenApplyModal }) {
               {/* Dynamic Result Card */}
               <div className="hero-calc-result">
                 <div className="hero-result-main">
-                  <small>Estimated monthly EMI</small>
+                  <small>{t('calculator.monthlyEmi', 'Estimated monthly EMI')}</small>
                   <div className="hero-emi-val" id="heroEmiOut">{formatINR(heroEmi)}</div>
                 </div>
                 <div className="hero-result-sub">
                   <div>
-                    <small>Total interest</small>
+                    <small>{t('calculator.totalInterest', 'Total interest')}</small>
                     <strong id="heroTotalInterest">{formatINR(heroTotalInterest)}</strong>
                   </div>
                   <div>
-                    <small>Total repayment</small>
+                    <small>{t('calculator.totalAmount', 'Total repayment')}</small>
                     <strong id="heroTotalPayment">{formatINR(heroTotalPayment)}</strong>
                   </div>
                 </div>
@@ -325,14 +358,14 @@ export default function Home({ onOpenApplyModal }) {
                   className="btn btn-primary btn-calc" 
                   onClick={() => onOpenApplyModal('Snapshot Loan')}
                 >
-                  Apply based on this estimate ↗
+                  {t('calculator.applyWithAmount', 'Apply based on this estimate')} ↗
                 </button>
               </div>
             </div>
 
             <div className="floating-note">
-              <strong>Plan before you apply</strong>
-              <span>Compare. Calculate. Decide.</span>
+              <strong>{isHi ? 'आवेदन से पहले सही योजना बनाएं' : isPa ? 'ਅਰਜ਼ੀ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਸਹੀ ਯੋਜਨਾ ਬਣਾਓ' : 'Plan before you apply'}</strong>
+              <span>{isHi ? 'तुलना करें • किस्त जानें • सही फैसला लें' : isPa ? 'ਤੁਲਨਾ ਕਰੋ • ਕਿਸ਼ਤ ਜਾਣੋ • ਸਹੀ ਫ਼ੈਸਲਾ ਲਵੋ' : 'Compare. Calculate. Decide.'}</span>
             </div>
           </div>
         </div>
@@ -344,29 +377,29 @@ export default function Home({ onOpenApplyModal }) {
           <a className="quick-item" href="#calculators">
             <span className="quick-icon">⌗</span>
             <span>
-              <strong>Calculate your EMI</strong>
-              <small>Estimate monthly payments</small>
+              <strong>{isHi ? 'अपनी मासिक किस्त जानें' : isPa ? 'ਆਪਣੀ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਜਾਣੋ' : 'Calculate your EMI'}</strong>
+              <small>{isHi ? 'हर महीने की किस्त का हिसाब लगाएं' : isPa ? 'ਹਰ ਮਹੀਨੇ ਦੀ ਕਿਸ਼ਤ ਦਾ ਹਿਸਾਬ ਲਗਾਓ' : 'Estimate monthly payments'}</small>
             </span>
           </a>
           <a className="quick-item" href="#eligibility">
             <span className="quick-icon">✓</span>
             <span>
-              <strong>Check eligibility</strong>
-              <small>Understand what matters</small>
+              <strong>{isHi ? 'लोन की योग्यता जांचें' : isPa ? 'ਲੋਨ ਦੀ ਯੋਗਤਾ ਜਾਣੋ' : 'Check eligibility'}</strong>
+              <small>{isHi ? 'जानें किन बातों का ध्यान रखना है' : isPa ? 'ਜਾਣੋ ਕਿਹੜੀਆਂ ਗੱਲਾਂ ਦਾ ਧਿਆਨ ਰੱਖਣਾ ਹੈ' : 'Understand what matters'}</small>
             </span>
           </a>
           <a className="quick-item" href="#rates">
             <span className="quick-icon">％</span>
             <span>
-              <strong>View interest rates</strong>
-              <small>Review key charges</small>
+              <strong>{isHi ? 'ब्याज दरें देखें' : isPa ? 'ਵਿਆਜ ਦਰਾਂ ਦੇਖੋ' : 'View interest rates'}</strong>
+              <small>{isHi ? 'सभी शुल्कों की जानकारी लें' : isPa ? 'ਸਾਰੇ ਖ਼ਰਚਿਆਂ ਦੀ ਜਾਣਕਾਰੀ ਲਵੋ' : 'Review key charges'}</small>
             </span>
           </a>
           <a className="quick-item" href="#investment">
             <span className="quick-icon">↗</span>
             <span>
-              <strong>Explore investments</strong>
-              <small>Review savings options</small>
+              <strong>{isHi ? 'बचत और निवेश देखें' : isPa ? 'ਬੱਚਤ ਅਤੇ ਨਿਵੇਸ਼ ਦੇਖੋ' : 'Explore investments'}</strong>
+              <small>{isHi ? 'सुरक्षित बचत के विकल्प जानें' : isPa ? 'ਸੁਰੱਖਿਅਤ ਬੱਚਤ ਦੇ ਵਿਕਲਪ ਜਾਣੋ' : 'Review savings options'}</small>
             </span>
           </a>
         </div>
@@ -379,17 +412,17 @@ export default function Home({ onOpenApplyModal }) {
       <section className="section" id="loans">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Borrow with purpose</span>
-            <h2><span className="text-gradient-blue">Quick loan</span> for immediate financial need</h2>
-            <p>Start with the goal you have in mind. Review the loan type, check the details and compare options before making a decision.</p>
+            <span className="eyebrow">{t('categories.eyebrow', 'Borrow with purpose')}</span>
+            <h2>{isHi ? <>अपनी जरूरत के अनुसार <span className="text-gradient-blue">सही लोन चुनें</span></> : isPa ? <>ਆਪਣੀ ਲੋੜ ਅਨੁਸਾਰ <span className="text-gradient-blue">ਸਹੀ ਲੋਨ ਚੁਣੋ</span></> : <><span className="text-gradient-blue">{t('categories.heading', 'Quick loan')}</span> for immediate financial need</>}</h2>
+            <p>{t('categories.subheading', 'Start with the goal you have in mind. Review the loan type, check the details and compare options before making a decision.')}</p>
           </div>
 
           {/* Interactive Category Filter */}
           <div className="filter-bar" role="tablist" aria-label="Filter loans by category">
-            <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All Loans (13)</button>
-            <button className={`filter-btn ${filter === 'personal' ? 'active' : ''}`} onClick={() => setFilter('personal')}>Personal & Instant</button>
-            <button className={`filter-btn ${filter === 'property' ? 'active' : ''}`} onClick={() => setFilter('property')}>Home & Property</button>
-            <button className={`filter-btn ${filter === 'business' ? 'active' : ''}`} onClick={() => setFilter('business')}>Business & Wealth</button>
+            <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>{t('categories.filterAll', 'All Loans')} (12)</button>
+            <button className={`filter-btn ${filter === 'personal' ? 'active' : ''}`} onClick={() => setFilter('personal')}>{t('categories.filterPersonal', 'Personal & Instant')}</button>
+            <button className={`filter-btn ${filter === 'property' ? 'active' : ''}`} onClick={() => setFilter('property')}>{t('categories.filterProperty', 'Home & Property')}</button>
+            <button className={`filter-btn ${filter === 'business' ? 'active' : ''}`} onClick={() => setFilter('business')}>{t('categories.filterBusiness', 'Business & Wealth')}</button>
           </div>
 
           <div className="product-grid">
@@ -403,8 +436,8 @@ export default function Home({ onOpenApplyModal }) {
                   <h3>{c.name}</h3>
                   <p>{c.desc}</p>
                   <div className="product-card-footer">
-                    <Link className="text-link" to={`/${c.slug}`}>
-                      Explore {c.name.toLowerCase()} →
+                    <Link className="text-link" to={getLocalePath(`/${c.slug}`)}>
+                      {isHi ? `${c.name} के बारे में जानें →` : isPa ? `${c.name} ਬਾਰੇ ਜਾਣੋ →` : `Explore ${c.name.toLowerCase()} →`}
                     </Link>
                   </div>
                 </div>
@@ -419,48 +452,54 @@ export default function Home({ onOpenApplyModal }) {
         <div className="container split">
           <div>
             <div className="section-head">
-              <span className="eyebrow">Plan your repayments</span>
-              <h2>Calculate your EMI in <span className="text-gradient-blue">seconds</span></h2>
-              <p>Adjust the amount, interest rate and repayment period to estimate a monthly payment. Use this as a starting point for comparing loan offers.</p>
+              <span className="eyebrow">{isHi ? 'किस्त चुकाने की योजना बनाएं' : isPa ? 'ਕਿਸ਼ਤ ਚੁਕਾਉਣ ਦੀ ਯੋਜਨਾ ਬਣਾਓ' : 'Plan your repayments'}</span>
+              <h2>{isHi ? <>कुछ ही सेकंड में <span className="text-gradient-blue">अपनी मासिक किस्त जानें</span></> : isPa ? <>ਕੁਝ ਹੀ ਸਕਿੰਟਾਂ ਵਿੱਚ <span className="text-gradient-blue">ਆਪਣੀ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਜਾਣੋ</span></> : <>Calculate your EMI in <span className="text-gradient-blue">seconds</span></>}</h2>
+              <p>{isHi ? 'लोन की राशि, ब्याज दर और समय चुनकर अपनी मासिक किस्त का अनुमान लगाएं। इससे आपको सही लोन चुनने में मदद मिलेगी।' : isPa ? 'ਲੋਨ ਦੀ ਰਕਮ, ਵਿਆਜ ਦਰ ਅਤੇ ਸਮਾਂ ਚੁਣ ਕੇ ਆਪਣੀ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਦਾ ਅੰਦਾਜ਼ਾ ਲਗਾਓ। ਇਸ ਨਾਲ ਤੁਹਾਨੂੰ ਸਹੀ ਲੋਨ ਚੁਣਨ ਵਿੱਚ ਮਦਦ ਮਿਲੇਗੀ।' : 'Adjust the amount, interest rate and repayment period to estimate a monthly payment. Use this as a starting point for comparing loan offers.'}</p>
             </div>
 
             <div className="calc-features">
               <div className="feature">
                 <span className="check">✓</span>
                 <div>
-                  <strong>See the monthly estimate</strong>
-                  <p>Understand how loan size and tenure affect your monthly budget.</p>
+                  <strong>{isHi ? 'हर महीने की अनुमानित किस्त देखें' : isPa ? 'ਹਰ ਮਹੀਨੇ ਦੀ ਅੰਦਾਜ਼ਨ ਕਿਸ਼ਤ ਦੇਖੋ' : 'See the monthly estimate'}</strong>
+                  <p>{isHi ? 'समझें कि लोन राशि और समय बदलने से किस्त पर क्या असर पड़ता है।' : isPa ? 'ਸਮਝੋ ਕਿ ਲੋਨ ਰਕਮ ਅਤੇ ਸਮਾਂ ਬਦਲਣ ਨਾਲ ਕਿਸ਼ਤ \'ਤੇ ਕੀ ਅਸਰ ਪੈਂਦਾ ਹੈ।' : 'Understand how loan size and tenure affect your monthly budget.'}</p>
                 </div>
               </div>
               <div className="feature">
                 <span className="check">✓</span>
                 <div>
-                  <strong>Compare different scenarios</strong>
-                  <p>Change one value at a time to see how your estimated EMI changes.</p>
+                  <strong>{isHi ? 'अलग-अलग विकल्पों की तुलना करें' : isPa ? 'ਵੱਖ-ਵੱਖ ਵਿਕਲਪਾਂ ਦੀ ਤੁਲਨਾ ਕਰੋ' : 'Compare different scenarios'}</strong>
+                  <p>{isHi ? 'राशि या अवधि बदलकर देखें कि कौन सी किस्त आपके बजट के अनुकूल है।' : isPa ? 'ਰਕਮ ਜਾਂ ਸਮਾਂ ਬਦਲ ਕੇ ਦੇਖੋ ਕਿ ਕਿਹੜੀ ਕਿਸ਼ਤ ਤੁਹਾਡੇ ਬਜਟ ਵਿੱਚ ਸਹੀ ਬੈਠਦੀ ਹੈ।' : 'Change one value at a time to see how your estimated EMI changes.'}</p>
                 </div>
               </div>
               <div className="feature">
                 <span className="check">✓</span>
                 <div>
-                  <strong>Review total repayment</strong>
-                  <p>Consider interest cost alongside the monthly amount.</p>
+                  <strong>{isHi ? 'कुल भुगतान की जांच करें' : isPa ? 'ਕੁੱਲ ਵਾਪਸੀ ਰਕਮ ਦੇਖੋ' : 'Review total repayment'}</strong>
+                  <p>{isHi ? 'मासिक किस्त के साथ-साथ यह भी देखें कि कुल कितना ब्याज देना होगा।' : isPa ? 'ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਦੇ ਨਾਲ-ਨਾਲ ਇਹ ਵੀ ਦੇਖੋ ਕਿ ਕੁੱਲ ਕਿੰਨਾ ਵਿਆਜ ਦੇਣਾ ਪਵੇਗਾ।' : 'Consider interest cost alongside the monthly amount.'}</p>
                 </div>
               </div>
             </div>
 
             <p style={{ fontSize: '0.86rem', color: 'var(--muted)', lineHeight: '1.6' }}>
-              Also available: Personal Loan EMI Calculator, Home Loan EMI Calculator, Business Loan EMI Calculator, Loan Eligibility Calculator, Interest Rate Calculator and Loan Repayment Calculator.
+              {isHi 
+                ? 'इसके अलावा उपलब्ध: पर्सनल लोन कैलकुलेटर, होम लोन कैलकुलेटर, बिज़नेस लोन कैलकुलेटर और लोन पात्रता कैलकुलेटर।'
+                : isPa
+                ? 'ਇਸ ਤੋਂ ਇਲਾਵਾ ਉਪਲਬਧ: ਪਰਸਨਲ ਲੋਨ ਕੈਲਕੁਲੇਟਰ, ਹੋਮ ਲੋਨ ਕੈਲਕੁਲੇਟਰ, ਬਿਜ਼ਨਸ ਲੋਨ ਕੈਲਕੁਲੇਟਰ ਅਤੇ ਲੋਨ ਯੋਗਤਾ ਕੈਲਕੁਲੇਟਰ।'
+                : 'Also available: Personal Loan EMI Calculator, Home Loan EMI Calculator, Business Loan EMI Calculator, Loan Eligibility Calculator, Interest Rate Calculator and Loan Repayment Calculator.'}
             </p>
           </div>
 
           <div className="calculator-card">
-            <h3>EMI calculator</h3>
-            <p style={{ fontSize: '0.9rem', color: 'var(--muted)', marginBottom: '24px' }}>Move the sliders to estimate your repayment.</p>
+            <h3>{isHi ? 'ईएमआई कैलकुलेटर' : isPa ? 'ਕਿਸ਼ਤ (EMI) ਕੈਲਕੁਲੇਟਰ' : 'EMI calculator'}</h3>
+            <p style={{ fontSize: '0.9rem', color: 'var(--muted)', marginBottom: '24px' }}>
+              {isHi ? 'स्लाइडर को आगे-पीछे करके अपनी मासिक किस्त का अनुमान लगाएं।' : isPa ? 'ਸਲਾਈਡਰ ਨੂੰ ਅੱਗੇ-ਪਿੱਛੇ ਕਰਕੇ ਆਪਣੀ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਦਾ ਅੰਦਾਜ਼ਾ ਲਗਾਓ।' : 'Move the sliders to estimate your repayment.'}
+            </p>
 
             {/* Field 1: Amount */}
             <div className="field">
               <div className="field-head">
-                <label htmlFor="loanAmount">Loan amount</label>
+                <label htmlFor="loanAmount">{isHi ? 'लोन की राशि' : isPa ? 'ਲੋਨ ਦੀ ਰਕਮ' : 'Loan amount'}</label>
                 <output id="amountOut">{formatINR(calcAmount)}</output>
               </div>
               <input 
@@ -475,7 +514,7 @@ export default function Home({ onOpenApplyModal }) {
               />
               <div className="range-labels">
                 <span>₹50,000</span>
-                <span>₹50 lakh</span>
+                <span>{isHi ? '₹50 लाख' : isPa ? '₹50 ਲੱਖ' : '₹50 lakh'}</span>
               </div>
               <div className="presets">
                 {[100000, 500000, 1000000, 2500000, 5000000].map(val => (
@@ -485,7 +524,7 @@ export default function Home({ onOpenApplyModal }) {
                     onClick={() => setCalcAmount(val)}
                     style={{ cursor: 'pointer' }}
                   >
-                    ₹{val >= 100000 ? `${val / 100000} Lakh` : val}
+                    ₹{val >= 100000 ? (isHi ? `${val / 100000} लाख` : isPa ? `${val / 100000} ਲੱਖ` : `${val / 100000} Lakh`) : val}
                   </span>
                 ))}
               </div>
@@ -494,7 +533,7 @@ export default function Home({ onOpenApplyModal }) {
             {/* Field 2: Interest */}
             <div className="field">
               <div className="field-head">
-                <label htmlFor="interest">Annual interest rate</label>
+                <label htmlFor="interest">{isHi ? 'वार्षिक ब्याज दर' : isPa ? 'ਸਾਲਾਨਾ ਵਿਆਜ ਦਰ' : 'Annual interest rate'}</label>
                 <output id="interestOut">{calcRate}%</output>
               </div>
               <input 
@@ -516,8 +555,8 @@ export default function Home({ onOpenApplyModal }) {
             {/* Field 3: Tenure */}
             <div className="field">
               <div className="field-head">
-                <label htmlFor="tenure">Loan tenure</label>
-                <output id="tenureOut">{calcTenure} {calcTenure === 1 ? 'year' : 'years'}</output>
+                <label htmlFor="tenure">{isHi ? 'लोन की अवधि' : isPa ? 'ਲੋਨ ਦਾ ਸਮਾਂ' : 'Loan tenure'}</label>
+                <output id="tenureOut">{calcTenure} {calcTenure === 1 ? (isHi ? 'साल' : isPa ? 'ਸਾਲ' : 'year') : (isHi ? 'साल' : isPa ? 'ਸਾਲ' : 'years')}</output>
               </div>
               <input 
                 id="tenure" 
@@ -530,21 +569,21 @@ export default function Home({ onOpenApplyModal }) {
                 aria-label="Loan Tenure Slider"
               />
               <div className="range-labels">
-                <span>1 year</span>
-                <span>30 years</span>
+                <span>{isHi ? '1 साल' : isPa ? '1 ਸਾਲ' : '1 year'}</span>
+                <span>{isHi ? '30 साल' : isPa ? '30 ਸਾਲ' : '30 years'}</span>
               </div>
             </div>
 
             {/* Results */}
             <div className="results" aria-live="polite">
-              <p>Estimated monthly EMI</p>
+              <p>{isHi ? 'अनुमानित मासिक किस्त (EMI)' : isPa ? 'ਅੰਦਾਜ਼ਨ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ (EMI)' : 'Estimated monthly EMI'}</p>
               <div className="emi-value" id="emiOut">{formatINR(cEmi)}</div>
 
               {/* Visual Breakdown Bar */}
               <div className="breakdown-bar">
                 <div className="breakdown-labels">
-                  <span id="principalRatio">Principal: {principalPercent}%</span>
-                  <span id="interestRatio">Interest: {interestPercent}%</span>
+                  <span id="principalRatio">{isHi ? `मूलधन: ${principalPercent}%` : isPa ? `ਮੂਲ ਰਕਮ: ${principalPercent}%` : `Principal: ${principalPercent}%`}</span>
+                  <span id="interestRatio">{isHi ? `ब्याज: ${interestPercent}%` : isPa ? `ਵਿਆਜ: ${interestPercent}%` : `Interest: ${interestPercent}%`}</span>
                 </div>
                 <div className="breakdown-track">
                   <div className="principal-fill" id="principalFill" style={{ width: `${principalPercent}%` }}></div>
@@ -554,18 +593,22 @@ export default function Home({ onOpenApplyModal }) {
 
               <div className="result-grid">
                 <div>
-                  <small>Total interest</small>
+                  <small>{isHi ? 'कुल ब्याज' : isPa ? 'ਕੁੱਲ ਵਿਆਜ' : 'Total interest'}</small>
                   <strong id="totalInterest">{formatINR(cTotalInterest)}</strong>
                 </div>
                 <div>
-                  <small>Total repayment</small>
+                  <small>{isHi ? 'कुल भुगतान' : isPa ? 'ਕੁੱਲ ਵਾਪਸੀ' : 'Total repayment'}</small>
                   <strong id="totalPayment">{formatINR(cTotalPayment)}</strong>
                 </div>
               </div>
             </div>
 
             <p style={{ fontSize: '0.75rem', color: '#64748b', margin: '14px 0 0', lineHeight: '1.4' }}>
-              Estimate only. Fees, taxes, lender terms and actual rates may change the final repayment amount.
+              {isHi 
+                ? 'यह केवल अनुमानित गणना है। बैंक के नियमों, प्रोसेसिंग फीस और वास्तविक ब्याज दर के अनुसार अंतिम राशि में थोड़ा अंतर हो सकता है।'
+                : isPa
+                ? 'ਇਹ ਸਿਰਫ਼ ਅੰਦਾਜ਼ਨ ਗਿਣਤੀ ਹੈ। ਬੈਂਕ ਦੇ ਨਿਯਮਾਂ, ਪ੍ਰੋਸੈਸਿੰਗ ਫੀਸ ਅਤੇ ਅਸਲ ਵਿਆਜ ਦਰ ਮੁਤਾਬਕ ਆਖ਼ਰੀ ਰਕਮ ਵਿੱਚ ਥੋੜ੍ਹਾ ਫ਼ਰਕ ਹੋ ਸਕਦਾ ਹੈ।'
+                : 'Estimate only. Fees, taxes, lender terms and actual rates may change the final repayment amount.'}
             </p>
           </div>
         </div>
@@ -577,56 +620,56 @@ export default function Home({ onOpenApplyModal }) {
           <div className="eligibility-band">
             <div>
               <span className="eyebrow" style={{ background: 'rgba(255,255,255,0.15)', color: '#ffd18a', borderColor: 'rgba(255,255,255,0.2)' }}>
-                Your next step
+                {isHi ? 'अगला कदम' : isPa ? 'ਅਗਲਾ ਕਦਮ' : 'Your next step'}
               </span>
-              <h2>Understand your <span className="text-gradient-gold">loan eligibility</span></h2>
-              <p>Eligibility may depend on income, existing obligations, credit history, employment or business profile, loan amount and lender policy.</p>
+              <h2>{isHi ? <>जानें कि आप <span className="text-gradient-gold">लोन के लिए योग्य हैं या नहीं</span></> : isPa ? <>ਜਾਣੋ ਕਿ ਤੁਸੀਂ <span className="text-gradient-gold">ਲੋਨ ਦੇ ਯੋਗ ਹੋ ਜਾਂ ਨਹੀਂ</span></> : <>Understand your <span className="text-gradient-gold">loan eligibility</span></>}</h2>
+              <p>{isHi ? 'आपकी पात्रता आपकी मासिक आय, मौजूदा किस्तों, सिबिल स्कोर और बैंक के नियमों पर निर्भर करती है।' : isPa ? 'ਤੁਹਾਡੀ ਯੋਗਤਾ ਤੁਹਾਡੀ ਮਹੀਨਾਵਾਰ ਕਮਾਈ, ਪੁਰਾਣੀਆਂ ਕਿਸ਼ਤਾਂ, ਸਿਬਿਲ ਸਕੋਰ ਅਤੇ ਬੈਂਕ ਦੇ ਨਿਯਮਾਂ \'ਤੇ ਨਿਰਭਰ ਕਰਦੀ ਹੈ।' : 'Eligibility may depend on income, existing obligations, credit history, employment or business profile, loan amount and lender policy.'}</p>
             </div>
-            <a className="btn btn-primary" href="#contact">Start an eligibility enquiry ↗</a>
+            <a className="btn btn-primary" href="#contact">{isHi ? 'पात्रता की जानकारी लें ↗' : isPa ? 'ਯੋਗਤਾ ਦੀ ਜਾਣਕਾਰੀ ਲਵੋ ↗' : 'Start an eligibility enquiry ↗'}</a>
           </div>
 
           <div style={{ marginTop: '50px' }} className="section-head">
-            <h2 style={{ fontSize: '1.85rem' }}>Explore eligibility by loan type</h2>
-            <p>Use these starting points to understand the factors lenders may assess. They are not approval decisions.</p>
+            <h2 style={{ fontSize: '1.85rem' }}>{isHi ? 'लोन के अनुसार अपनी योग्यता समझें' : isPa ? 'ਲੋਨ ਮੁਤਾਬਕ ਆਪਣੀ ਯੋਗਤਾ ਸਮਝੋ' : 'Explore eligibility by loan type'}</h2>
+            <p>{isHi ? 'इन बुनियादी बातों से समझें कि बैंक आपके आवेदन में क्या-क्या जांचते हैं।' : isPa ? 'ਇਨ੍ਹਾਂ ਬੁਨਿਆਦੀ ਗੱਲਾਂ ਤੋਂ ਸਮਝੋ ਕਿ ਬੈਂਕ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਵਿੱਚ ਕੀ-ਕੀ ਦੇਖਦੇ ਹਨ।' : 'Use these starting points to understand the factors lenders may assess. They are not approval decisions.'}</p>
           </div>
 
           <div className="eligibility-grid">
             <article className="product-card">
               <div className="product-card-body" style={{ paddingTop: '26px' }}>
-                <h3>Personal Loan Eligibility</h3>
-                <p>Review income, employment, credit profile and current monthly commitments.</p>
+                <h3>{isHi ? 'पर्सनल लोन के लिए योग्यता' : isPa ? 'ਪਰਸਨਲ ਲੋਨ ਲਈ ਯੋਗਤਾ' : 'Personal Loan Eligibility'}</h3>
+                <p>{isHi ? 'अपनी मासिक आय, नौकरी की स्थिरता, सिबिल स्कोर और मौजूदा किस्तों की स्थिति समझें।' : isPa ? 'ਆਪਣੀ ਮਹੀਨਾਵਾਰ ਕਮਾਈ, ਨੌਕਰੀ ਦੀ ਸਥਿਰਤਾ, ਸਿਬਿਲ ਸਕੋਰ ਅਤੇ ਪੁਰਾਣੀਆਂ ਕਿਸ਼ਤਾਂ ਦੀ ਸਥਿਤੀ ਸਮਝੋ।' : 'Review income, employment, credit profile and current monthly commitments.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">Check requirements →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'जरूरी शर्तें देखें →' : isPa ? 'ਜ਼ਰੂਰੀ ਸ਼ਰਤਾਂ ਦੇਖੋ →' : 'Check requirements →'}</a>
                 </div>
               </div>
             </article>
 
             <article className="product-card">
               <div className="product-card-body" style={{ paddingTop: '26px' }}>
-                <h3>Business Loan Eligibility</h3>
-                <p>Review business vintage, turnover, cash flow, documents and credit profile.</p>
+                <h3>{isHi ? 'बिज़नेस लोन के लिए योग्यता' : isPa ? 'ਬਿਜ਼ਨਸ ਲੋਨ ਲਈ ਯੋਗਤਾ' : 'Business Loan Eligibility'}</h3>
+                <p>{isHi ? 'कारोबार के वर्ष, सालाना टर्नओवर, बैंक स्टेटमेंट और सिबिल रिकॉर्ड समझें।' : isPa ? 'ਕਾਰੋਬਾਰ ਦੇ ਸਾਲ, ਸਾਲਾਨਾ ਟਰਨਓਵਰ, ਬੈਂਕ ਸਟੇਟਮੈਂਟ ਅਤੇ ਸਿਬਿਲ ਰਿਕਾਰਡ ਸਮਝੋ।' : 'Review business vintage, turnover, cash flow, documents and credit profile.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">Check requirements →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'जरूरी शर्तें देखें →' : isPa ? 'ਜ਼ਰੂਰੀ ਸ਼ਰਤਾਂ ਦੇਖੋ →' : 'Check requirements →'}</a>
                 </div>
               </div>
             </article>
 
             <article className="product-card">
               <div className="product-card-body" style={{ paddingTop: '26px' }}>
-                <h3>Home Loan Eligibility</h3>
-                <p>Consider income, down payment, existing EMIs, tenure and property details.</p>
+                <h3>{isHi ? 'होम लोन के लिए योग्यता' : isPa ? 'ਹੋਮ ਲੋਨ ਲਈ ਯੋਗਤਾ' : 'Home Loan Eligibility'}</h3>
+                <p>{isHi ? 'मासिक आय, डाउन पेमेंट, मौजूदा ईएमआई और प्रॉपर्टी के कागजात समझें।' : isPa ? 'ਮਹੀਨਾਵਾਰ ਕਮਾਈ, ਡਾਊਨ ਪੇਮੈਂਟ, ਮੌਜੂਦਾ ਕਿਸ਼ਤਾਂ ਅਤੇ ਜਾਇਦਾਦ ਦੇ ਕਾਗ਼ਜ਼ਾਤ ਸਮਝੋ।' : 'Consider income, down payment, existing EMIs, tenure and property details.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">Check requirements →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'जरूरी शर्तें देखें →' : isPa ? 'ਜ਼ਰੂਰੀ ਸ਼ਰਤਾਂ ਦੇਖੋ →' : 'Check requirements →'}</a>
                 </div>
               </div>
             </article>
 
             <article className="product-card">
               <div className="product-card-body" style={{ paddingTop: '26px' }}>
-                <h3>Eligibility by Credit Score</h3>
-                <p>Learn how credit history may influence lender assessment and offered terms.</p>
+                <h3>{isHi ? 'सिबिल स्कोर के अनुसार योग्यता' : isPa ? 'ਸਿਬਿਲ ਸਕੋਰ ਮੁਤਾਬਕ ਯੋਗਤਾ' : 'Eligibility by Credit Score'}</h3>
+                <p>{isHi ? 'जानें कि अच्छा सिबिल स्कोर आपको कम ब्याज दर पर लोन दिलाने में कैसे मदद करता है।' : isPa ? 'ਜਾਣੋ ਕਿ ਚੰਗਾ ਸਿਬਿਲ ਸਕੋਰ ਤੁਹਾਨੂੰ ਘੱਟ ਵਿਆਜ ਦਰ \'ਤੇ ਲੋਨ ਦਿਵਾਉਣ ਵਿੱਚ ਕਿਵੇਂ ਮਦਦ ਕਰਦਾ ਹੈ।' : 'Learn how credit history may influence lender assessment and offered terms.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#guides">Read credit score guides →</a>
+                  <a className="text-link" href="#guides">{isHi ? 'सिबिल स्कोर गाइड पढ़ें →' : isPa ? 'ਸਿਬਿਲ ਸਕੋਰ ਗਾਈਡ ਪੜ੍ਹੋ →' : 'Read credit score guides →'}</a>
                 </div>
               </div>
             </article>
@@ -638,28 +681,28 @@ export default function Home({ onOpenApplyModal }) {
       <section className="section soft-section" id="rates">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Verified Interest Rates</span>
-            <h2>Compare loan interest <span className="text-gradient-blue">rates and terms</span></h2>
-            <p>Review current annual interest rate ranges (Per Annum) across all Finora loan categories to make transparent, cost-effective borrowing decisions.</p>
+            <span className="eyebrow">{isHi ? 'सत्यापित ब्याज दरें' : isPa ? 'ਪ੍ਰਮਾਣਿਤ ਵਿਆਜ ਦਰਾਂ' : 'Verified Interest Rates'}</span>
+            <h2>{isHi ? <>सभी प्रकार के लोन की <span className="text-gradient-blue">ब्याज दरें और शर्तें</span></> : isPa ? <>ਸਾਰੇ ਲੋਨਾਂ ਦੀਆਂ <span className="text-gradient-blue">ਵਿਆਜ ਦਰਾਂ ਅਤੇ ਸ਼ਰਤਾਂ</span></> : <>Compare loan interest <span className="text-gradient-blue">rates and terms</span></>}</h2>
+            <p>{isHi ? 'Loan Aasra पर सभी लोन श्रेणियों की ताजा वार्षिक ब्याज दरों की तुलना करें ताकि आप किफायती फैसला ले सकें।' : isPa ? 'Loan Aasra \'ਤੇ ਸਾਰੇ ਲੋਨਾਂ ਦੀਆਂ ਤਾਜ਼ਾ ਸਾਲਾਨਾ ਵਿਆਜ ਦਰਾਂ ਦੀ ਤੁਲਨਾ ਕਰੋ ਤਾਂ ਜੋ ਤੁਸੀਂ ਸਸਤਾ ਅਤੇ ਸਹੀ ਫ਼ੈਸਲਾ ਲੈ ਸਕੋ।' : 'Review current annual interest rate ranges (Per Annum) across all Loan Aasra loan categories to make transparent, cost-effective borrowing decisions.'}</p>
           </div>
 
           <div className="rate-table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th style={{ width: '70px', textAlign: 'center' }}>S. No.</th>
-                  <th>Loan Type</th>
-                  <th>Interest Rate (Per Annum)</th>
-                  <th>Key Highlights & Review</th>
-                  <th style={{ textAlign: 'right' }}>Action</th>
+                  <th style={{ width: '70px', textAlign: 'center' }}>{isHi ? 'क्र.सं.' : isPa ? 'ਲੜੀ ਨੰ.' : 'S. No.'}</th>
+                  <th>{isHi ? 'लोन का प्रकार' : isPa ? 'ਲੋਨ ਦੀ ਕਿਸਮ' : 'Loan Type'}</th>
+                  <th>{isHi ? 'ब्याज दर (सालाना)' : isPa ? 'ਵਿਆਜ ਦਰ (ਸਾਲਾਨਾ)' : 'Interest Rate (Per Annum)'}</th>
+                  <th>{isHi ? 'मुख्य विशेषताएं' : isPa ? 'ਮੁੱਖ ਖ਼ਾਸੀਅਤਾਂ' : 'Key Highlights & Review'}</th>
+                  <th style={{ textAlign: 'right' }}>{isHi ? 'विकल्प' : isPa ? 'ਵਿਕਲਪ' : 'Action'}</th>
                 </tr>
               </thead>
               <tbody>
-                {(showAllRates ? RATE_ROWS : RATE_ROWS.slice(0, 5)).map((row) => (
+                {(showAllRates ? rateRows : rateRows.slice(0, 5)).map((row) => (
                   <tr key={row.sno}>
                     <td style={{ textAlign: 'center', fontWeight: '750', color: '#64748B' }}>{row.sno}</td>
                     <td>
-                      <Link to={`/${row.slug}`} style={{ color: '#0A1C3E', fontWeight: '750', textDecoration: 'none' }}>
+                      <Link to={getLocalePath(`/${row.slug}`)} style={{ color: '#0A1C3E', fontWeight: '750', textDecoration: 'none' }}>
                         {row.name}
                       </Link>
                     </td>
@@ -668,8 +711,8 @@ export default function Home({ onOpenApplyModal }) {
                     </td>
                     <td style={{ color: '#475569', fontSize: '0.92rem' }}>{row.note}</td>
                     <td style={{ textAlign: 'right' }}>
-                      <Link className="text-link" to={`/${row.slug}`} style={{ whiteSpace: 'nowrap', fontWeight: '650' }}>
-                        View details →
+                      <Link className="text-link" to={getLocalePath(`/${row.slug}`)} style={{ whiteSpace: 'nowrap', fontWeight: '650' }}>
+                        {isHi ? 'जानकारी देखें →' : isPa ? 'ਜਾਣਕਾਰੀ ਦੇਖੋ →' : 'View details →'}
                       </Link>
                     </td>
                   </tr>
@@ -698,18 +741,18 @@ export default function Home({ onOpenApplyModal }) {
               }}
               aria-expanded={showAllRates}
             >
-              <span>{showAllRates ? 'Show top 5 loan rates only' : 'View all interest rates (12)'}</span>
+              <span>{showAllRates ? (isHi ? 'केवल मुख्य 5 लोन दरें देखें' : isPa ? 'ਸਿਰਫ਼ ਮੁੱਖ 5 ਲੋਨ ਦਰਾਂ ਦੇਖੋ' : 'Show top 5 loan rates only') : (isHi ? 'सभी 12 ब्याज दरें देखें' : isPa ? 'ਸਾਰੀਆਂ 12 ਵਿਆਜ ਦਰਾਂ ਦੇਖੋ' : 'View all interest rates (12)')}</span>
               <span>{showAllRates ? '↑' : '↓'}</span>
             </button>
           </div>
 
           <p className="rate-note">
-            <strong>Important:</strong> Quoted interest rates are annualized (Per Annum) and determined by individual lender credit evaluation, CIBIL score, income stability, and loan tenure. Review detailed sanction letters and fee schedules prior to acceptance.
+            <strong>{isHi ? 'ज़रूरी सूचना:' : isPa ? 'ਜ਼ਰੂਰੀ ਸੂਚਨਾ:' : 'Important:'}</strong> {isHi ? 'दिखाई गई ब्याज दरें वार्षिक (सालाना) हैं और बैंक के नियमों, आपके सिबिल स्कोर, आय और लोन अवधि पर निर्भर करती हैं। लोन लेने से पहले स्वीकृति पत्र (सेंक्शन लेटर) और शुल्क विवरण ध्यान से पढ़ें।' : isPa ? 'ਦੱਸੀਆਂ ਗਈਆਂ ਵਿਆਜ ਦਰਾਂ ਸਾਲਾਨਾ ਹਨ ਅਤੇ ਬੈਂਕ ਦੇ ਨਿਯਮਾਂ, ਤੁਹਾਡੇ ਸਿਬਿਲ ਸਕੋਰ, ਕਮਾਈ ਅਤੇ ਲੋਨ ਦੇ ਸਮੇਂ ਤੇ ਨਿਰਭਰ ਕਰਦੀਆਂ ਹਨ। ਲੋਨ ਲੈਣ ਤੋਂ ਪਹਿਲਾਂ ਪ੍ਰਵਾਨਗੀ ਪੱਤਰ (ਮਨਜ਼ੂਰੀ ਪੱਤਰ) ਅਤੇ ਫੀਸਾਂ ਦਾ ਵੇਰਵਾ ਧਿਆਨ ਨਾਲ ਪੜ੍ਹੋ।' : 'Quoted interest rates are annualized (Per Annum) and determined by individual lender credit evaluation, CIBIL score, income stability, and loan tenure. Review detailed sanction letters and fee schedules prior to acceptance.'}
           </p>
 
           <div style={{ marginTop: '26px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-            <a className="btn btn-primary" href="#contact">Consult a Loan Specialist →</a>
-            <a className="btn btn-outline" href="#calculators">Use EMI Calculators</a>
+            <a className="btn btn-primary" href="#contact">{isHi ? 'लोन विशेषज्ञ से बात करें →' : isPa ? 'ਲੋਨ ਸਲਾਹਕਾਰ ਨਾਲ ਗੱਲ ਕਰੋ →' : 'Consult a Loan Specialist →'}</a>
+            <a className="btn btn-outline" href="#calculators">{isHi ? 'ईएमआई कैलकुलेटर चलाएं' : isPa ? 'ਕਿਸ਼ਤ ਕੈਲਕੁਲੇਟਰ ਵਰਤੋ' : 'Use EMI Calculators'}</a>
           </div>
         </div>
       </section>
@@ -718,9 +761,9 @@ export default function Home({ onOpenApplyModal }) {
       <section className="section" id="investment">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Plan beyond borrowing</span>
-            <h2>Explore investment and <span className="text-gradient-blue">savings options</span></h2>
-            <p>Compare product features, risk, liquidity, time horizon and applicable terms before choosing an investment.</p>
+            <span className="eyebrow">{isHi ? 'लोन के साथ बचत की योजना' : isPa ? 'ਲੋਨ ਦੇ ਨਾਲ ਬੱਚਤ ਦੀ ਯੋਜਨਾ' : 'Plan beyond borrowing'}</span>
+            <h2>{isHi ? <>बचत और सुरक्षित <span className="text-gradient-blue">निवेश के विकल्प</span></> : isPa ? <>ਬੱਚਤ ਅਤੇ ਸੁਰੱਖਿਅਤ <span className="text-gradient-blue">ਨਿਵੇਸ਼ ਦੇ ਵਿਕਲਪ</span></> : <>Explore investment and <span className="text-gradient-blue">savings options</span></>}</h2>
+            <p>{isHi ? 'अपनी जरूरत के अनुसार सही बचत विकल्प चुनें और सुरक्षित भविष्य की योजना बनाएं।' : isPa ? 'ਆਪਣੀ ਲੋੜ ਮੁਤਾਬਕ ਸਹੀ ਬੱਚਤ ਵਿਕਲਪ ਚੁਣੋ ਅਤੇ ਸੁਰੱਖਿਅਤ ਭਵਿੱਖ ਦੀ ਯੋਜਨਾ ਬਣਾਓ।' : 'Compare product features, risk, liquidity, time horizon and applicable terms before choosing an investment.'}</p>
           </div>
 
           <div className="investment-grid">
@@ -729,10 +772,10 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/invest-fd.jpg" alt="Fixed Deposit savings investment" loading="lazy" />
               </div>
               <div className="investment-card-body">
-                <h3>Fixed Deposit</h3>
-                <p>Review tenure, payout choices, premature withdrawal terms and applicable tax.</p>
+                <h3>{isHi ? 'फिक्स्ड डिपॉजिट (FD)' : isPa ? 'ਫਿਕਸਡ ਡਿਪਾਜ਼ਿਟ (FD)' : 'Fixed Deposit'}</h3>
+                <p>{isHi ? 'अवधि, ब्याज भुगतान के विकल्प और टैक्स लाभ की जानकारी लें।' : isPa ? 'ਸਮਾਂ, ਵਿਆਜ ਭੁਗਤਾਨ ਦੇ ਵਿਕਲਪ ਅਤੇ ਟੈਕਸ ਛੋਟ ਦੀ ਜਾਣਕਾਰੀ ਲਵੋ।' : 'Review tenure, payout choices, premature withdrawal terms and applicable tax.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">View fixed deposits →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'फिक्स्ड डिपॉजिट देखें →' : isPa ? 'ਫਿਕਸਡ ਡਿਪਾਜ਼ਿਟ ਦੇਖੋ →' : 'View fixed deposits →'}</a>
                 </div>
               </div>
             </article>
@@ -742,10 +785,10 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/invest-rd.jpg" alt="Recurring deposit steady savings" loading="lazy" />
               </div>
               <div className="investment-card-body">
-                <h3>Recurring Deposit</h3>
-                <p>Explore regular saving contributions and maturity value based on product terms.</p>
+                <h3>{isHi ? 'रेकरिंग डिपॉजिट (RD)' : isPa ? 'ਰੈਕਰਿੰਗ ਡਿਪਾਜ਼ਿਟ (RD)' : 'Recurring Deposit'}</h3>
+                <p>{isHi ? 'हर महीने छोटी बचत जमा करें और निश्चित ब्याज का लाभ पाएं।' : isPa ? 'ਹਰ ਮਹੀਨੇ ਛੋਟੀ ਬੱਚਤ ਜਮ੍ਹਾਂ ਕਰੋ ਅਤੇ ਪੱਕੇ ਵਿਆਜ ਦਾ ਲਾਭ ਲਵੋ।' : 'Explore regular saving contributions and maturity value based on product terms.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">View recurring deposits →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'रेकरिंग डिपॉजिट देखें →' : isPa ? 'ਰੈਕਰਿੰਗ ਡਿਪਾਜ਼ਿਟ ਦੇਖੋ →' : 'View recurring deposits →'}</a>
                 </div>
               </div>
             </article>
@@ -755,10 +798,10 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/invest-scheme.jpg" alt="Government saving scheme growth" loading="lazy" />
               </div>
               <div className="investment-card-body">
-                <h3>Saving Scheme</h3>
-                <p>Compare eligibility, returns, access rules and any government-backed scheme terms.</p>
+                <h3>{isHi ? 'सरकारी बचत योजनाएं' : isPa ? 'ਸਰਕਾਰੀ ਬੱਚਤ ਸਕੀਮਾਂ' : 'Saving Scheme'}</h3>
+                <p>{isHi ? 'सुरक्षित रिटर्न और सरकारी गारंटी वाली लोकप्रिय बचत योजनाएं।' : isPa ? 'ਸੁਰੱਖਿਅਤ ਮੁਨਾਫ਼ੇ ਅਤੇ ਸਰਕਾਰੀ ਗਾਰੰਟੀ ਵਾਲੀਆਂ ਮਸ਼ਹੂਰ ਬੱਚਤ ਸਕੀਮਾਂ।' : 'Compare eligibility, returns, access rules and any government-backed scheme terms.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">Compare saving schemes →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'बचत योजनाएं देखें →' : isPa ? 'ਬੱਚਤ ਸਕੀਮਾਂ ਦੇਖੋ →' : 'Compare saving schemes →'}</a>
                 </div>
               </div>
             </article>
@@ -768,17 +811,21 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/invest-mutual.jpg" alt="Mutual funds market analytics" loading="lazy" />
               </div>
               <div className="investment-card-body">
-                <h3>Mutual Funds</h3>
-                <p>Understand market risk, expense ratios, investment goals and time horizon.</p>
+                <h3>{isHi ? 'म्यूचुअल फंड' : isPa ? 'ਮਿਉਚੁਅਲ ਫੰਡ' : 'Mutual Funds'}</h3>
+                <p>{isHi ? 'बाजार के जोखिम, निवेश के लक्ष्य और समय सीमा को समझकर निवेश करें।' : isPa ? 'ਬਾਜ਼ਾਰ ਦੇ ਜੋਖ਼ਮ, ਨਿਵੇਸ਼ ਦੇ ਟੀਚੇ ਅਤੇ ਸਮੇਂ ਨੂੰ ਸਮਝ ਕੇ ਨਿਵੇਸ਼ ਕਰੋ।' : 'Understand market risk, expense ratios, investment goals and time horizon.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">Learn about mutual funds →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'म्यूचुअल फंड के बारे में जानें →' : isPa ? 'ਮਿਉਚੁਅਲ ਫੰਡ ਬਾਰੇ ਜਾਣੋ →' : 'Learn about mutual funds →'}</a>
                 </div>
               </div>
             </article>
           </div>
 
           <p style={{ fontSize: '0.82rem', marginTop: '22px', color: 'var(--muted)', lineHeight: '1.5' }}>
-            Investment products carry different risks. Returns may be variable and are not guaranteed unless product terms explicitly state otherwise.
+            {isHi 
+              ? 'निवेश उत्पादों में बाजार का जोखिम शामिल होता है। नियम व शर्तों के अनुसार रिटर्न में बदलाव हो सकता है।'
+              : isPa
+              ? 'ਨਿਵੇਸ਼ ਉਤਪਾਦਾਂ ਵਿੱਚ ਬਾਜ਼ਾਰ ਦਾ ਜੋਖ਼ਮ ਹੁੰਦਾ ਹੈ। ਨਿਯਮਾਂ ਅਤੇ ਸ਼ਰਤਾਂ ਮੁਤਾਬਕ ਮੁਨਾਫ਼ਾ ਬਦਲ ਸਕਦਾ ਹੈ।'
+              : 'Investment products carry different risks. Returns may be variable and are not guaranteed unless product terms explicitly state otherwise.'}
           </p>
         </div>
       </section>
@@ -787,9 +834,9 @@ export default function Home({ onOpenApplyModal }) {
       <section className="section soft-section" id="purpose">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Loans by purpose</span>
-            <h2>What are you <span className="text-gradient-blue">planning for?</span></h2>
-            <p>Pick your reason for borrowing to see personalized options and compare real cost breakdowns before you commit.</p>
+            <span className="eyebrow">{isHi ? 'ज़रूरत के अनुसार लोन' : isPa ? 'ਲੋੜ ਮੁਤਾਬਕ ਲੋਨ' : 'Loans by purpose'}</span>
+            <h2>{isHi ? <>आप किस काम के लिए <span className="text-gradient-blue">लोन लेना चाहते हैं?</span></> : isPa ? <>ਤੁਸੀਂ ਕਿਸ ਕੰਮ ਲਈ <span className="text-gradient-blue">ਲੋਨ ਲੈਣਾ ਚਾਹੁੰਦੇ ਹੋ?</span></> : <>What are you <span className="text-gradient-blue">planning for?</span></>}</h2>
+            <p>{isHi ? 'अपनी जरूरत चुनें ताकि हम आपको सबसे सही और किफायती विकल्प दिखा सकें।' : isPa ? 'ਆਪਣੀ ਲੋੜ ਚੁਣੋ ਤਾਂ ਜੋ ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਭ ਤੋਂ ਸਹੀ ਅਤੇ ਸਸਤਾ ਵਿਕਲਪ ਦਿਖਾ ਸਕੀਏ।' : 'Pick your reason for borrowing to see personalized options and compare real cost breakdowns before you commit.'}</p>
           </div>
 
           <div className="purpose-grid">
@@ -798,10 +845,10 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/purpose-wedding.jpg?v=2" alt="Indian wedding celebration" loading="lazy" />
               </div>
               <div className="purpose-card-body">
-                <h3>Wedding expenses</h3>
-                <p>Plan a budget for venue, attire, jewellery and festive celebrations.</p>
+                <h3>{isHi ? 'शादी के खर्च' : isPa ? 'ਵਿਆਹ ਦੇ ਖ਼ਰਚੇ' : 'Wedding expenses'}</h3>
+                <p>{isHi ? 'विवाह स्थल, खरीदारी, जेवर और समारोह के लिए आसान लोन।' : isPa ? 'ਪੈਲੇਸ ਬੁਕਿੰਗ, ਗਹਿਣੇ, ਕੱਪੜੇ ਅਤੇ ਖ਼ੁਸ਼ੀਆਂ ਦੇ ਸਮਾਗਮਾਂ ਲਈ ਸੌਖਾ ਲੋਨ।' : 'Plan a budget for venue, attire, jewellery and festive celebrations.'}</p>
                 <div className="product-card-footer">
-                  <Link className="text-link" to="/personal-loan">Explore options →</Link>
+                  <Link className="text-link" to={getLocalePath('/personal-loan')}>{isHi ? 'विकल्प देखें →' : isPa ? 'ਵਿਕਲਪ ਦੇਖੋ →' : 'Explore options →'}</Link>
                 </div>
               </div>
             </article>
@@ -811,10 +858,10 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/purpose-medical.jpg?v=2" alt="Healthcare medical emergency care" loading="lazy" />
               </div>
               <div className="purpose-card-body">
-                <h3>Medical emergencies</h3>
-                <p>Review financing choices for unexpected healthcare expenses.</p>
+                <h3>{isHi ? 'इलाज और मेडिकल खर्च' : isPa ? 'ਇਲਾਜ ਅਤੇ ਹਸਪਤਾਲ ਦੇ ਖ਼ਰਚੇ' : 'Medical emergencies'}</h3>
+                <p>{isHi ? 'अचानक आए अस्पताल और दवाइयों के खर्च के लिए तुरंत मदद।' : isPa ? 'ਅਚਾਨਕ ਆਏ ਹਸਪਤਾਲ ਅਤੇ ਦਵਾਈਆਂ ਦੇ ਖ਼ਰਚਿਆਂ ਲਈ ਤੁਰੰਤ ਮਦਦ।' : 'Review financing choices for unexpected healthcare expenses.'}</p>
                 <div className="product-card-footer">
-                  <Link className="text-link" to="/medical-loan">Explore options →</Link>
+                  <Link className="text-link" to={getLocalePath('/medical-loan')}>{isHi ? 'विकल्प देखें →' : isPa ? 'ਵਿਕਲਪ ਦੇਖੋ →' : 'Explore options →'}</Link>
                 </div>
               </div>
             </article>
@@ -824,10 +871,10 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/purpose-renovation.jpg?v=2" alt="Modern Indian home interior makeover" loading="lazy" />
               </div>
               <div className="purpose-card-body">
-                <h3>Home renovation</h3>
-                <p>Estimate the cost of repairs, upgrades or essential improvements.</p>
+                <h3>{isHi ? 'घर का नवीनीकरण (रिनोवेशन)' : isPa ? 'ਘਰ ਦੀ ਮੁਰੰਮਤ ਅਤੇ ਸਜਾਵਟ' : 'Home renovation'}</h3>
+                <p>{isHi ? 'घर की मरम्मत, रंग-रोगन या नए इंटीरियर के लिए लोन।' : isPa ? 'ਘਰ ਦੀ ਮੁਰੰਮਤ, ਰੰਗ-ਰੋਗਨ ਜਾਂ ਨਵੇਂ ਇੰਟੀਰੀਅਰ ਲਈ ਲੋਨ।' : 'Estimate the cost of repairs, upgrades or essential improvements.'}</p>
                 <div className="product-card-footer">
-                  <Link className="text-link" to="/home-loan">Explore options →</Link>
+                  <Link className="text-link" to={getLocalePath('/home-loan')}>{isHi ? 'विकल्प देखें →' : isPa ? 'ਵਿਕਲਪ ਦੇਖੋ →' : 'Explore options →'}</Link>
                 </div>
               </div>
             </article>
@@ -837,36 +884,36 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/purpose-business.jpg?v=2" alt="Business team in modern conference expansion" loading="lazy" />
               </div>
               <div className="purpose-card-body">
-                <h3>Business expansion</h3>
-                <p>Consider equipment, stock, premises or other business investment needs.</p>
+                <h3>{isHi ? 'कारोबार का विस्तार' : isPa ? 'ਕਾਰੋਬਾਰ ਵਧਾਉਣ ਲਈ' : 'Business expansion'}</h3>
+                <p>{isHi ? 'नई मशीनरी, दुकान का सामान या व्यापार बढ़ाने के लिए पूंजी।' : isPa ? 'ਨਵੀਂ ਮਸ਼ੀਨਰੀ, ਦੁਕਾਨ ਦਾ ਸਾਮਾਨ ਜਾਂ ਵਪਾਰ ਵਧਾਉਣ ਲਈ ਪੈਸੇ।' : 'Consider equipment, stock, premises or other business investment needs.'}</p>
                 <div className="product-card-footer">
-                  <Link className="text-link" to="/business-loan">Explore options →</Link>
+                  <Link className="text-link" to={getLocalePath('/business-loan')}>{isHi ? 'विकल्प देखें →' : isPa ? 'ਵਿਕਲਪ ਦੇਖੋ →' : 'Explore options →'}</Link>
                 </div>
               </div>
             </article>
           </div>
 
           <div style={{ marginTop: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <Link className="btn btn-outline" to="/education-loan">Education expense loans</Link>
-            <a className="btn btn-outline" href="#eligibility">Loans for other needs</a>
+            <Link className="btn btn-outline" to={getLocalePath('/education-loan')}>{isHi ? 'पढ़ाई के खर्च के लिए लोन' : isPa ? 'ਪੜ੍ਹਾਈ ਦੇ ਖ਼ਰਚਿਆਂ ਲਈ ਲੋਨ' : 'Education expense loans'}</Link>
+            <a className="btn btn-outline" href="#eligibility">{isHi ? 'अन्य ज़रूरतों के लिए लोन' : isPa ? 'ਹੋਰ ਲੋੜਾਂ ਲਈ ਲੋਨ' : 'Loans for other needs'}</a>
           </div>
         </div>
       </section>
 
-      {/* 9. Why Choose Finora for a Personal Loan Section (Replaced Options for Different Working Lives) */}
+      {/* 9. Why Choose Loan Aasra for a Personal Loan Section (Replaced Options for Different Working Lives) */}
       <WhyChoosePersonalLoan onOpenApplyModal={onOpenApplyModal} />
 
       {/* 10. Locations Section */}
       <section className="section soft-section" id="locations">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Local loan information</span>
-            <h2>Explore loans by city</h2>
-            <p>Check product availability, service areas and applicable terms for your location. City pages should be updated with verified local information before launch.</p>
+            <span className="eyebrow">{isHi ? 'स्थानीय लोन सेवाएं' : isPa ? 'ਸ਼ਹਿਰ ਮੁਤਾਬਕ ਲੋਨ ਸੇਵਾਵਾਂ' : 'Local loan information'}</span>
+            <h2>{isHi ? 'शहर के अनुसार लोन की जानकारी' : isPa ? 'ਸ਼ਹਿਰ ਮੁਤਾਬਕ ਲੋਨ ਦੀ ਜਾਣਕਾਰੀ' : 'Explore loans by city'}</h2>
+            <p>{isHi ? 'अपने शहर में उपलब्ध लोन सेवाएं और आसान शर्तें देखें।' : isPa ? 'ਆਪਣੇ ਸ਼ਹਿਰ ਵਿੱਚ ਉਪਲਬਧ ਲੋਨ ਸੇਵਾਵਾਂ ਅਤੇ ਸੌਖੀਆਂ ਸ਼ਰਤਾਂ ਦੇਖੋ।' : 'Check product availability, service areas and applicable terms for your location. City pages should be updated with verified local information before launch.'}</p>
           </div>
 
           <div className="location-grid">
-            {(showAllLocations ? ALL_CITIES : PRIMARY_CITIES).map((city) => (
+            {(showAllLocations ? allCities : primaryCities).map((city) => (
               <a 
                 key={city}
                 className="location-link" 
@@ -874,7 +921,7 @@ export default function Home({ onOpenApplyModal }) {
                 onClick={(e) => {
                   if (onOpenApplyModal) {
                     e.preventDefault();
-                    onOpenApplyModal('Personal Loan');
+                    onOpenApplyModal(isHi ? 'पर्सनल लोन' : isPa ? 'ਪਰਸਨਲ ਲੋਨ' : 'Personal Loan');
                   }
                 }}
               >
@@ -894,9 +941,9 @@ export default function Home({ onOpenApplyModal }) {
                   color: 'var(--gold-deep)', 
                   fontWeight: '700' 
                 }}
-                aria-label="View all 20 loan locations"
+                aria-label={isHi ? 'सभी 20 शहर देखें' : isPa ? 'ਸਾਰੇ 20 ਸ਼ਹਿਰ ਦੇਖੋ' : 'View all 20 loan locations'}
               >
-                <span>View all locations (20)</span>
+                <span>{isHi ? 'सभी 20 शहर देखें' : isPa ? 'ਸਾਰੇ 20 ਸ਼ਹਿਰ ਦੇਖੋ' : 'View all locations (20)'}</span>
                 <span>→</span>
               </button>
             )}
@@ -916,9 +963,9 @@ export default function Home({ onOpenApplyModal }) {
                   fontWeight: '650',
                   cursor: 'pointer'
                 }}
-                aria-label="Show top 7 cities only"
+                aria-label={isHi ? 'केवल मुख्य 7 शहर देखें' : isPa ? 'ਸਿਰਫ਼ ਮੁੱਖ 7 ਸ਼ਹਿਰ ਦੇਖੋ' : 'Show top 7 cities only'}
               >
-                <span>Show top 7 cities only</span>
+                <span>{isHi ? 'केवल मुख्य 7 शहर देखें' : isPa ? 'ਸਿਰਫ਼ ਮੁੱਖ 7 ਸ਼ਹਿਰ ਦੇਖੋ' : 'Show top 7 cities only'}</span>
                 <span>↑</span>
               </button>
             </div>
@@ -930,9 +977,9 @@ export default function Home({ onOpenApplyModal }) {
       <section className="section" id="guides">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">The finance library</span>
-            <h2>Helpful <span className="text-gradient-blue">guides</span> before you decide</h2>
-            <p>Understand key terms, compare the numbers and prepare the right questions for a lender.</p>
+            <span className="eyebrow">{isHi ? 'आसान वित्तीय जानकारी' : isPa ? 'ਸੌਖੀ ਵਿੱਤੀ ਜਾਣਕਾਰੀ' : 'The finance library'}</span>
+            <h2>{isHi ? <>फैसला लेने से पहले <span className="text-gradient-blue">ज़रूरी बातें जानें</span></> : isPa ? <>ਫ਼ੈਸਲਾ ਲੈਣ ਤੋਂ ਪਹਿਲਾਂ <span className="text-gradient-blue">ਜ਼ਰੂਰੀ ਗੱਲਾਂ ਜਾਣੋ</span></> : <>Helpful <span className="text-gradient-blue">guides</span> before you decide</>}</h2>
+            <p>{isHi ? 'लोन लेने से पहले आसान भाषा में समझें कि नियम क्या हैं और ब्याज कैसे लगता है।' : isPa ? 'ਲੋਨ ਲੈਣ ਤੋਂ ਪਹਿਲਾਂ ਸੌਖੀ ਬੋਲੀ ਵਿੱਚ ਸਮਝੋ ਕਿ ਨਿਯਮ ਕੀ ਹਨ ਅਤੇ ਵਿਆਜ ਕਿਵੇਂ ਲੱਗਦਾ ਹੈ।' : 'Understand key terms, compare the numbers and prepare the right questions for a lender.'}</p>
           </div>
 
           <div className="guide-grid">
@@ -942,11 +989,11 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/guide-emi.jpg" alt="EMI calculation analysis with calculator" loading="lazy" />
               </div>
               <div className="guide-content">
-                <span className="tag">EMI & interest rates</span>
-                <h3>How does an EMI work?</h3>
-                <p>Learn how principal, interest and tenure shape a monthly repayment.</p>
+                <span className="tag">{isHi ? 'ईएमआई और ब्याज दरें' : isPa ? 'ਕਿਸ਼ਤ ਅਤੇ ਵਿਆਜ ਦਰਾਂ' : 'EMI & interest rates'}</span>
+                <h3>{isHi ? 'ईएमआई (EMI) कैसे काम करती है?' : isPa ? 'ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ (EMI) ਕਿਵੇਂ ਕੰਮ ਕਰਦੀ ਹੈ?' : 'How does an EMI work?'}</h3>
+                <p>{isHi ? 'जानें कि लोन की राशि, ब्याज दर और समय मिलकर आपकी मासिक किस्त कैसे तय करते हैं।' : isPa ? 'ਜਾਣੋ ਕਿ ਲੋਨ ਦੀ ਰਕਮ, ਵਿਆਜ ਦਰ ਅਤੇ ਸਮਾਂ ਮਿਲ ਕੇ ਤੁਹਾਡੀ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਕਿਵੇਂ ਤੈਅ ਕਰਦੇ ਹਨ।' : 'Learn how principal, interest and tenure shape a monthly repayment.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#calculators">Use the EMI calculator →</a>
+                  <a className="text-link" href="#calculators">{isHi ? 'ईएमआई कैलकुलेटर चलाएं →' : isPa ? 'ਕਿਸ਼ਤ ਕੈਲਕੁਲੇਟਰ ਵਰਤੋ →' : 'Use the EMI calculator →'}</a>
                 </div>
               </div>
             </article>
@@ -957,11 +1004,11 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/guide-score.jpg" alt="Credit score chart report on tablet" loading="lazy" />
               </div>
               <div className="guide-content">
-                <span className="tag">Credit score</span>
-                <h3>What lenders may check</h3>
-                <p>Understand how credit history, existing debt and repayment patterns may matter.</p>
+                <span className="tag">{isHi ? 'सिबिल स्कोर' : isPa ? 'ਸਿਬਿਲ ਸਕੋਰ' : 'Credit score'}</span>
+                <h3>{isHi ? 'बैंक आपके आवेदन में क्या जांचते हैं?' : isPa ? 'ਬੈਂਕ ਤੁਹਾਡੀ ਅਰਜ਼ੀ ਵਿੱਚ ਕੀ ਦੇਖਦੇ ਹਨ?' : 'What lenders may check'}</h3>
+                <p>{isHi ? 'समझें कि सिबिल स्कोर, पुराना रिकॉर्ड और समय पर किस्त चुकाने का क्या महत्व है।' : isPa ? 'ਸਮਝੋ ਕਿ ਸਿਬਿਲ ਸਕੋਰ, ਪੁਰਾਣਾ ਰਿਕਾਰਡ ਅਤੇ ਸਮੇਂ ਸਿਰ ਕਿਸ਼ਤ ਭਰਨ ਦੀ ਕੀ ਅਹਿਮੀਅਤ ਹੈ।' : 'Understand how credit history, existing debt and repayment patterns may matter.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#eligibility">Review eligibility →</a>
+                  <a className="text-link" href="#eligibility">{isHi ? 'योग्यता समझें →' : isPa ? 'ਯੋਗਤਾ ਸਮਝੋ →' : 'Review eligibility →'}</a>
                 </div>
               </div>
             </article>
@@ -972,11 +1019,11 @@ export default function Home({ onOpenApplyModal }) {
                 <img src="/images/guide-docs.jpg" alt="Checklist of verified loan documentation" loading="lazy" />
               </div>
               <div className="guide-content">
-                <span className="tag">Loan eligibility</span>
-                <h3>Documents to prepare</h3>
-                <p>Get familiar with common identity, income and financial documents.</p>
+                <span className="tag">{isHi ? 'लोन के लिए दस्तावेज' : isPa ? 'ਲੋਨ ਲਈ ਜ਼ਰੂਰੀ ਕਾਗਜ਼' : 'Loan eligibility'}</span>
+                <h3>{isHi ? 'कौन से कागजात तैयार रखें?' : isPa ? 'ਕਿਹੜੇ ਕਾਗਜ਼ ਤਿਆਰ ਰੱਖੀਏ?' : 'Documents to prepare'}</h3>
+                <p>{isHi ? 'पहचान पत्र, पते का प्रमाण, बैंक स्टेटमेंट और सैलरी स्लिप की बुनियादी जानकारी।' : isPa ? 'ਪਛਾਣ ਪੱਤਰ, ਪਤੇ ਦਾ ਸਬੂਤ, ਬੈਂਕ ਸਟੇਟਮੈਂਟ ਅਤੇ ਸੈਲਰੀ ਸਲਿੱਪ ਦੀ ਬੁਨਿਆਦੀ ਜਾਣਕਾਰੀ।' : 'Get familiar with common identity, income and financial documents.'}</p>
                 <div className="product-card-footer">
-                  <a className="text-link" href="#contact">Ask a question →</a>
+                  <a className="text-link" href="#contact">{isHi ? 'सवाल पूछें →' : isPa ? 'ਸਵਾਲ ਪੁੱਛੋ →' : 'Ask a question →'}</a>
                 </div>
               </div>
             </article>
@@ -984,133 +1031,41 @@ export default function Home({ onOpenApplyModal }) {
 
           <div style={{ marginTop: '36px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-              <Link className="btn btn-outline" to="/blog">Personal loan guides</Link>
-              <Link className="btn btn-outline" to="/blog">Business loan guides</Link>
-              <Link className="btn btn-outline" to="/blog">Home loan guides</Link>
-              <Link className="btn btn-outline" to="/blog">Credit score guides</Link>
-              <Link className="btn btn-outline" to="/blog">Loan eligibility guides</Link>
+              <Link className="btn btn-outline" to={getLocalePath('/blog')}>{isHi ? 'पर्सनल लोन गाइड' : isPa ? 'ਪਰਸਨਲ ਲੋਨ ਗਾਈਡ' : 'Personal loan guides'}</Link>
+              <Link className="btn btn-outline" to={getLocalePath('/blog')}>{isHi ? 'बिज़नेस लोन गाइड' : isPa ? 'ਬਿਜ਼ਨਸ ਲੋਨ ਗਾਈਡ' : 'Business loan guides'}</Link>
+              <Link className="btn btn-outline" to={getLocalePath('/blog')}>{isHi ? 'होम लोन गाइड' : isPa ? 'ਹੋਮ ਲੋਨ ਗਾਈਡ' : 'Home loan guides'}</Link>
+              <Link className="btn btn-outline" to={getLocalePath('/blog')}>{isHi ? 'सिबिल स्कोर गाइड' : isPa ? 'ਸਿਬਿਲ ਸਕੋਰ ਗਾਈਡ' : 'Credit score guides'}</Link>
+              <Link className="btn btn-outline" to={getLocalePath('/blog')}>{isHi ? 'लोन पात्रता गाइड' : isPa ? 'ਲੋਨ ਯੋਗਤਾ ਗਾਈਡ' : 'Loan eligibility guides'}</Link>
             </div>
-            <Link className="btn btn-primary" to="/blog" style={{ textDecoration: 'none' }}>
-              Visit Finora Journal & Blog →
+            <Link className="btn btn-primary" to={getLocalePath('/blog')} style={{ textDecoration: 'none' }}>
+              {isHi ? 'Loan Aasra ब्लॉग और गाइड देखें →' : isPa ? 'Loan Aasra ਬਲੌਗ ਅਤੇ ਗਾਈਡ ਦੇਖੋ →' : 'Visit Loan Aasra Journal & Blog →'}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 12. FAQs Section - Ordered Borrower Journey */}
-      <section className="section soft-section" id="faqs">
-        <div className="container faq-grid">
-          <div className="faq-sidebar">
-            <span className="eyebrow">Ordered Borrower Guide • 8 Questions</span>
-            <h2>Clear answers, <span className="text-gradient-blue">in ordered sequence</span></h2>
-            <p>Structured in chronological order from estimating your EMI to eligibility verification, document submission, and early closure.</p>
-
-            {/* Advisor Guidance Support Card */}
-            <div className="faq-support-card">
-              <span className="faq-support-badge">Personalized Support</span>
-              <h3 className="faq-support-title">Still have questions?</h3>
-              <p className="faq-support-desc">Can't find the answers you're looking for? Speak directly with our verified financial advisors for tailored rate advice.</p>
-              
-              <div className="faq-support-features">
-                <div className="faq-support-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span>Fast callback within 5 minutes</span>
-                </div>
-                <div className="faq-support-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span>100% Free, zero obligation guidance</span>
-                </div>
-                <div className="faq-support-feature-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span>Zero negative impact on CIBIL score</span>
-                </div>
-              </div>
-
-              <div className="faq-support-actions">
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => onOpenApplyModal && onOpenApplyModal('General Inquiry / Advisor')}
-                  style={{ width: '100%', justifyContent: 'center', padding: '9px 14px', fontSize: '0.84rem' }}
-                >
-                  Ask an Advisor →
-                </button>
-                <a
-                  className="btn btn-outline"
-                  href="#contact"
-                  style={{ width: '100%', justifyContent: 'center', padding: '9px 14px', fontSize: '0.84rem' }}
-                >
-                  Send us a Message
-                </a>
-              </div>
-            </div>
+      {/* 12. Frequently Asked Questions */}
+      <section className="section" id="faqs">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{isHi ? 'सीधे और स्पष्ट जवाब' : isPa ? 'ਸਿੱਧੇ ਅਤੇ ਸਪਸ਼ਟ ਜਵਾਬ' : 'Clear Answers'}</span>
+            <h2>{isHi ? <>अक्सर पूछे जाने वाले <span className="text-gradient-blue">सवाल</span></> : isPa ? <>ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ <span className="text-gradient-blue">ਸਵਾਲ</span></> : <>Frequently Asked <span className="text-gradient-blue">Questions</span></>}</h2>
+            <p>{isHi ? 'लोन आवेदन, ब्याज दर, अवधि और प्रक्रिया से जुड़े सामान्य सवालों के सीधे जवाब।' : isPa ? 'ਲੋਨ ਅਰਜ਼ੀ, ਵਿਆਜ ਦਰ, ਸਮੇਂ ਅਤੇ ਪ੍ਰਕਿਰਿਆ ਨਾਲ ਜੁੜੇ ਆਮ ਸਵਾਲਾਂ ਦੇ ਸਿੱਧੇ ਜਵਾਬ।' : 'Get answers to common queries about loan processing, tenures, rates and terms.'}</p>
           </div>
 
-          <div>
-            {/* Ordered Category Filter Bar */}
-            <div className="faq-filter-bar">
-              <button 
-                type="button" 
-                className={`faq-filter-chip ${faqCategory === 'all' ? 'active' : ''}`}
-                onClick={() => { setFaqCategory('all'); setActiveHomeFaq(0); }}
-              >
-                All (01–08)
-              </button>
-              <button 
-                type="button" 
-                className={`faq-filter-chip ${faqCategory === 'planning' ? 'active' : ''}`}
-                onClick={() => { setFaqCategory('planning'); setActiveHomeFaq(0); }}
-              >
-                01 • EMI & Planning
-              </button>
-              <button 
-                type="button" 
-                className={`faq-filter-chip ${faqCategory === 'eligibility' ? 'active' : ''}`}
-                onClick={() => { setFaqCategory('eligibility'); setActiveHomeFaq(0); }}
-              >
-                02 • Eligibility & Sanction
-              </button>
-              <button 
-                type="button" 
-                className={`faq-filter-chip ${faqCategory === 'process' ? 'active' : ''}`}
-                onClick={() => { setFaqCategory('process'); setActiveHomeFaq(0); }}
-              >
-                03 • Disbursal & KYC
-              </button>
-              <button 
-                type="button" 
-                className={`faq-filter-chip ${faqCategory === 'charges' ? 'active' : ''}`}
-                onClick={() => { setFaqCategory('charges'); setActiveHomeFaq(0); }}
-              >
-                04 • Fees & Repayment
-              </button>
-            </div>
-
-            {/* Ordered FAQ Cards */}
+          <div className="faq-accordion-container">
             <div className="faq-accordion-list">
               {visibleFaqs.map((faq, idx) => (
-                <div key={faq.num} className={`faq-card ${activeHomeFaq === idx ? 'active' : ''}`}>
-                  <button
-                    type="button"
+                <div key={idx} className={`faq-card ${activeHomeFaq === idx ? 'active' : ''}`}>
+                  <button 
+                    type="button" 
                     className="faq-card-header"
                     onClick={() => setActiveHomeFaq(activeHomeFaq === idx ? null : idx)}
                     aria-expanded={activeHomeFaq === idx}
                   >
-                    <div className="faq-card-left">
-                      <span className="faq-order-num">{faq.num}</span>
-                      <div className="faq-card-heading-wrap">
-                        <span className="faq-card-category">{faq.category}</span>
-                        <span className="faq-card-title">{faq.q}</span>
-                      </div>
-                    </div>
+                    <span className="faq-card-title">{faq.q}</span>
                     <span className="faq-card-toggle">
-                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         {activeHomeFaq === idx ? (
                           <line x1="2" y1="7" x2="12" y2="7" />
                         ) : (
@@ -1132,6 +1087,21 @@ export default function Home({ onOpenApplyModal }) {
                 </div>
               ))}
             </div>
+
+            <div className="faq-help-box">
+              <div className="faq-help-content">
+                <h4>{isHi ? 'क्या आपके मन में अभी भी कोई सवाल है?' : isPa ? 'ਕੀ ਤੁਹਾਡੇ ਮਨ ਵਿੱਚ ਹਾਲੇ ਵੀ ਕੋਈ ਸਵਾਲ ਹੈ?' : 'Still have questions regarding your application?'}</h4>
+                <p>{isHi ? 'हमारे समर्पित लोन सलाहकार बिना किसी शुल्क के आपको सही जानकारी और मार्गदर्शन देंगे।' : isPa ? 'ਸਾਡੇ ਲੋਨ ਸਲਾਹਕਾਰ ਬਿਨਾਂ ਕਿਸੇ ਫੀਸ ਦੇ ਤੁਹਾਨੂੰ ਸਹੀ ਜਾਣਕਾਰੀ ਅਤੇ ਮਦਦ ਦੇਣਗੇ।' : 'Our dedicated loan advisors can walk you through personalized documentation and instant approval.'}</p>
+              </div>
+              <button 
+                type="button" 
+                className="btn btn-primary"
+                onClick={() => onOpenApplyModal && onOpenApplyModal(isHi ? 'सामान्य पूछताछ (सहायता)' : isPa ? 'ਆਮ ਪੁੱਛਗਿੱਛ (ਸਹਾਇਤਾ)' : 'General Inquiry (FAQ Assistance)')}
+                style={{ whiteSpace: 'nowrap' }}
+              >
+                {isHi ? 'सलाहकार से बात करें →' : isPa ? 'ਸਲਾਹਕਾਰ ਨਾਲ ਗੱਲ ਕਰੋ →' : 'Ask an Advisor →'}
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -1141,10 +1111,16 @@ export default function Home({ onOpenApplyModal }) {
         <div className="container">
           <div className="split" style={{ alignItems: 'center' }}>
             <div>
-              <span className="eyebrow">We're here to help</span>
-              <h2>Have a question about your <span className="text-gradient-gold">next step?</span></h2>
-              <p>Send a sample enquiry and a member of the team can follow up. This demo form does not transmit or store your details.</p>
-              <p style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>For this prototype, replace the sample brand and contact details with your approved business information.</p>
+              <span className="eyebrow">{isHi ? 'हम आपकी मदद के लिए तैयार हैं' : isPa ? 'ਅਸੀਂ ਤੁਹਾਡੀ ਮਦਦ ਲਈ ਹਾਜ਼ਰ ਹਾਂ' : 'We\'re here to help'}</span>
+              <h2>{isHi ? <>लोन से जुड़ा कोई सवाल <span className="text-gradient-gold">पूछना चाहते हैं?</span></> : isPa ? <>ਲੋਨ ਨਾਲ ਜੁੜਿਆ ਕੋਈ ਸਵਾਲ <span className="text-gradient-gold">ਪੁੱਛਣਾ ਚਾਹੁੰਦੇ ਹੋ?</span></> : <>Have a question about your <span className="text-gradient-gold">next step?</span></>}</h2>
+              <p>{isHi ? 'अपनी जानकारी भरें, हमारे विशेषज्ञ आपसे जल्द संपर्क करेंगे।' : isPa ? 'ਆਪਣਾ ਵੇਰਵਾ ਭਰੋ, ਸਾਡੇ ਮਾਹਰ ਜਲਦੀ ਤੁਹਾਡੇ ਨਾਲ ਰਾਬਤਾ ਕਰਨਗੇ।' : 'Send a sample enquiry and a member of the team can follow up. This demo form does not transmit or store your details.'}</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>
+                {isHi 
+                  ? 'यह प्रोटोटाइप डेमो फॉर्म है। आपकी व्यक्तिगत जानकारी पूरी तरह सुरक्षित है।'
+                  : isPa
+                  ? 'ਇਹ ਪ੍ਰੋਟੋਟਾਈਪ ਡੈਮੋ ਫਾਰਮ ਹੈ। ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਪੂਰੀ ਤਰ੍ਹਾਂ ਸੁਰੱਖਿਅਤ ਹੈ।'
+                  : 'For this prototype, replace the sample brand and contact details with your approved business information.'}
+              </p>
 
               {/* Advisor Card */}
               <div className="advisor-card">
@@ -1153,33 +1129,35 @@ export default function Home({ onOpenApplyModal }) {
                 </div>
                 <div className="advisor-info">
                   <strong>Priya Sharma</strong>
-                  <small>Senior Financial Advisor • Finora Advisory Desk</small>
-                  <span className="advisor-status">Available now • Avg reply 15 mins</span>
+                  <small>{isHi ? 'वरिष्ठ वित्तीय सलाहकार • Loan Aasra एडवाइजरी डेस्क' : isPa ? 'ਸੀਨੀਅਰ ਵਿੱਤੀ ਸਲਾਹਕਾਰ • Loan Aasra ਸਲਾਹਕਾਰ ਡੈਸਕ' : 'Senior Financial Advisor • Loan Aasra Advisory Desk'}</small>
+                  <span className="advisor-status">{isHi ? 'उपलब्ध हैं • औसत जवाब समय 15 मिनट' : isPa ? 'ਮੌਜੂਦ ਹਨ • ਔਸਤ ਜਵਾਬ ਸਮਾਂ 15 ਮਿੰਟ' : 'Available now • Avg reply 15 mins'}</span>
                 </div>
               </div>
             </div>
 
             {/* Interactive Contact Form */}
             <div className="contact-form-wrap">
-              <h3 style={{ marginBottom: '6px' }}>Send an enquiry</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--muted)', marginBottom: '20px' }}>Get transparent advice tailored to your goals.</p>
+              <h3 style={{ marginBottom: '6px' }}>{isHi ? 'पूछताछ भेजें' : isPa ? 'ਪੁੱਛਗਿੱਛ ਭੇਜੋ' : 'Send an enquiry'}</h3>
+              <p style={{ fontSize: '0.88rem', color: 'var(--muted)', marginBottom: '20px' }}>
+                {isHi ? 'अपनी जरूरत के अनुसार सही और स्पष्ट सलाह पाएं।' : isPa ? 'ਆਪਣੀ ਲੋੜ ਮੁਤਾਬਕ ਸਹੀ ਅਤੇ ਸਾਫ਼ ਸਲਾਹ ਲਵੋ।' : 'Get transparent advice tailored to your goals.'}
+              </p>
 
               <form id="contactForm" onSubmit={handleContactSubmit}>
                 <div className="form-group">
-                  <label htmlFor="fullName">Full name</label>
+                  <label htmlFor="fullName">{isHi ? 'पूरा नाम' : isPa ? 'ਪੂਰਾ ਨਾਂ' : 'Full name'}</label>
                   <input 
                     className="form-control" 
                     id="fullName" 
                     name="fullName" 
                     required 
-                    placeholder="Enter your name"
+                    placeholder={isHi ? 'अपना नाम लिखें' : isPa ? 'ਆਪਣਾ ਨਾਂ ਲਿਖੋ' : 'Enter your name'}
                     value={contactForm.fullName}
                     onChange={e => setContactForm({ ...contactForm, fullName: e.target.value })}
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email address</label>
+                  <label htmlFor="email">{isHi ? 'ईमेल पता' : isPa ? 'ਈਮੇਲ ਪਤਾ' : 'Email address'}</label>
                   <input 
                     className="form-control" 
                     id="email" 
@@ -1193,7 +1171,7 @@ export default function Home({ onOpenApplyModal }) {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="loanType">What are you interested in?</label>
+                  <label htmlFor="loanType">{isHi ? 'आप किस लोन में रुचि रखते हैं?' : isPa ? 'ਤੁਸੀਂ ਕਿਸ ਲੋਨ ਵਿੱਚ ਦਿਲਚਸਪੀ ਰੱਖਦੇ ਹੋ?' : 'What are you interested in?'}</label>
                   <select 
                     className="form-control" 
                     id="loanType" 
@@ -1201,16 +1179,16 @@ export default function Home({ onOpenApplyModal }) {
                     value={contactForm.loanType}
                     onChange={e => setContactForm({ ...contactForm, loanType: e.target.value })}
                   >
-                    <option>Personal loan</option>
-                    <option>Business loan</option>
-                    <option>Home loan</option>
-                    <option>Investment options</option>
-                    <option>Other enquiry</option>
+                    <option>{isHi ? 'पर्सनल लोन' : isPa ? 'ਪਰਸਨਲ ਲੋਨ' : 'Personal loan'}</option>
+                    <option>{isHi ? 'बिज़नेस लोन' : isPa ? 'ਬਿਜ਼ਨਸ ਲੋਨ' : 'Business loan'}</option>
+                    <option>{isHi ? 'होम लोन' : isPa ? 'ਹੋਮ ਲੋਨ' : 'Home loan'}</option>
+                    <option>{isHi ? 'बचत और निवेश विकल्प' : isPa ? 'ਬੱਚਤ ਅਤੇ ਨਿਵੇਸ਼ ਵਿਕਲਪ' : 'Investment options'}</option>
+                    <option>{isHi ? 'अन्य पूछताछ' : isPa ? 'ਹੋਰ ਪੁੱਛਗਿੱਛ' : 'Other enquiry'}</option>
                   </select>
                 </div>
 
                 <button className="btn btn-primary" type="submit" style={{ width: '100%', marginTop: '10px' }}>
-                  Submit demo enquiry ↗
+                  {isHi ? 'पूछताछ भेजें ↗' : isPa ? 'ਪੁੱਛਗਿੱਛ ਭੇਜੋ ↗' : 'Submit demo enquiry ↗'}
                 </button>
 
                 {contactSuccess && (

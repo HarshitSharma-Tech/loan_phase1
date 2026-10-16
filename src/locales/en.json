@@ -1,0 +1,163 @@
+{
+  "common": {
+    "brandName": "Loan Aasra",
+    "tagline": "Your Dreams, Our Support.",
+    "subTagline": "Compare, Calculate & Apply for Loans with Complete Clarity",
+    "checkEligibility": "Check eligibility",
+    "applyNow": "Apply Now",
+    "calculateEmi": "Calculate EMI",
+    "exploreLoans": "Explore Loans",
+    "talkToSupport": "Talk to our support team ↗",
+    "verifiedRates": "VERIFIED RATES",
+    "topbarText": "Simple finance. Clear next steps.",
+    "readMore": "Read full article",
+    "viewAll": "View all",
+    "learnMore": "Learn more",
+    "close": "Close",
+    "loading": "Loading...",
+    "disclaimer": "Disclaimer: Loan Aasra is an independent digital loan comparison and borrower advisory platform. Loan approval, interest rates, processing fees, and disbursal timelines depend on lender credit underwriting and borrower eligibility. Calculators provide indicative figures only and do not constitute a credit sanction or formal loan guarantee.",
+    "copyright": "© 2026 Loan Aasra. All rights reserved. Registered Indian Digital Lending Advisory.",
+    "years": "Years",
+    "months": "Months",
+    "perAnnum": "p.a.",
+    "rupees": "₹"
+  },
+  "nav": {
+    "loans": "Loans",
+    "investment": "Investment",
+    "calculators": "Calculators",
+    "rates": "Interest rates",
+    "locations": "Locations",
+    "guides": "Guides",
+    "blog": "Blog",
+    "categories": {
+      "personal": "Personal & Consumer",
+      "property": "Home & Property",
+      "vehicle": "Vehicle Financing",
+      "business": "Business & Wealth"
+    }
+  },
+  "hero": {
+    "badge": "OFFICIAL INDIAN BORROWER ADVISORY",
+    "titleLine1": "Your Dreams,",
+    "titleLine2": "Our Support.",
+    "subtitle": "Discover transparent borrowing with zero hidden clauses. Compare verified interest rates from top banks & NBFCs, calculate precise reducing-balance EMIs, and receive institutional-grade loan guidance tailored to your goals.",
+    "stat1Value": "30+",
+    "stat1Label": "RBI-Regulated Lenders",
+    "stat2Value": "₹1,200 Cr+",
+    "stat2Label": "Applications Assisted",
+    "stat3Value": "0%",
+    "stat3Label": "Hidden Processing Surcharges",
+    "stat4Value": "24 Hrs",
+    "stat4Label": "Average Sanction Window"
+  },
+  "calculator": {
+    "eyebrow": "TACTILE REPAYMENT ENGINE",
+    "heading": "Calculate your monthly EMI with mathematical precision",
+    "subheading": "Real-time reducing balance schedule. Toggle loan amounts and tenure to preview scheduled repayment installments before sharing personal details.",
+    "amountLabel": "Loan Amount",
+    "tenureLabel": "Tenure",
+    "rateLabel": "Interest Rate (% p.a.)",
+    "monthlyEmi": "Estimated Monthly EMI",
+    "totalInterest": "Total Interest Payable",
+    "totalAmount": "Total Repayment Amount",
+    "principalAmount": "Principal Borrowed",
+    "applyWithAmount": "Apply for this Loan",
+    "tenurePresets": {
+      "1yr": "1 Yr",
+      "3yr": "3 Yrs",
+      "5yr": "5 Yrs",
+      "7yr": "7 Yrs"
+    }
+  },
+  "categories": {
+    "eyebrow": "COMPREHENSIVE PORTFOLIO",
+    "heading": "Explore loan solutions designed for your every milestone",
+    "subheading": "Compare transparent borrowing terms across 12 distinct categories. Fast digital processing, clear APR disclosures, and tailored tenures.",
+    "filterAll": "All Loans",
+    "filterPersonal": "Personal & Consumer",
+    "filterBusiness": "Business & Enterprise",
+    "filterProperty": "Home & Assets"
+  },
+  "trust": {
+    "pill1": "100% Paperless Journey",
+    "pill2": "Zero Collateral Options",
+    "pill3": "30+ Lending Partners",
+    "pill4": "RBI Regulated Banks & NBFCs",
+    "pill5": "Instant Eligibility Check",
+    "pill6": "Zero Hidden Costs"
+  },
+  "ratesTable": {
+    "eyebrow": "TRANSPARENT SCHEDULE",
+    "heading": "Live interest rates across all loan categories",
+    "subheading": "Rates updated as per RBI repo rate benchmarks. Compare starting APRs, loan quantum, and tenure flexibility across major borrowing avenues.",
+    "colCategory": "Loan Category",
+    "colRate": "Interest Rate Range (p.a.)",
+    "colTenure": "Typical Tenure",
+    "colFeatures": "Key Highlights",
+    "colAction": "Action"
+  },
+  "howItWorks": {
+    "eyebrow": "DIGITAL ADVISORY PROCESS",
+    "heading": "Get sanctioned in 3 simple, transparent steps",
+    "step1Title": "1. Compare & Calculate",
+    "step1Desc": "Select your loan requirement, adjust sliders, and calculate precise monthly EMI installments.",
+    "step2Title": "2. Check Free Eligibility",
+    "step2Desc": "Share basic details to discover pre-approved offers without any impact on your credit score.",
+    "step3Title": "3. Fast Digital Disbursal",
+    "step3Desc": "Upload KYC documents via DigiLocker and receive verified funds directly into your bank account."
+  },
+  "locations": {
+    "eyebrow": "NATIONWIDE PRESENCE",
+    "heading": "Available across all major Indian cities & metropolitan hubs",
+    "subheading": "Access institutional financial advisory and local partner bank branches across India."
+  },
+  "faqs": {
+    "eyebrow": "CLEAR BORROWER ANSWERS",
+    "heading": "Frequently Asked Questions",
+    "subheading": "Everything you need to know about loan eligibility, interest calculations, and borrowing safety.",
+    "tabAll": "All Questions",
+    "tabPlanning": "EMI & Planning",
+    "tabEligibility": "Eligibility & CIBIL",
+    "tabCharges": "Fees & Charges",
+    "tabProcess": "Disbursal & KYC"
+  },
+  "advisorBanner": {
+    "eyebrow": "DEDICATED FINANCIAL SUPPORT",
+    "heading": "Need personalized loan guidance from a senior advisor?",
+    "subheading": "Our credit desk helps you analyze balance transfers, consolidate debt, or structure commercial working capital without fees or spam.",
+    "cta": "Connect with an Advisor"
+  },
+  "applyModal": {
+    "title": "Apply for {{product}}",
+    "subtitle": "Discover verified offers from 30+ RBI-regulated lenders. Zero impact on CIBIL score.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "e.g. Harpreet Singh",
+    "mobile": "Mobile Number",
+    "mobilePlaceholder": "10-digit mobile number",
+    "city": "City / Location",
+    "cityPlaceholder": "e.g. Chandigarh, Mumbai, Delhi",
+    "loanType": "Loan Type",
+    "amount": "Required Loan Amount (₹)",
+    "income": "Monthly Net Take-Home Income (₹)",
+    "submit": "Get Verified Loan Offers ↗",
+    "submitting": "Processing your inquiry...",
+    "privacyNotice": "🔒 Your details are encrypted with 256-bit SSL. We never sell your personal information or spam your phone.",
+    "successTitle": "Application Received Successfully!",
+    "successMessage": "Thank you for trusting Loan Aasra. A certified relationship advisor will review your eligibility and reach out shortly with customized loan quotes.",
+    "closeBtn": "Done"
+  },
+  "footer": {
+    "brandBio": "Loan Aasra is India's dedicated financial advisory and loan comparison platform. We empower individuals, entrepreneurs, and families with transparent borrowing rates, zero hidden charges, and tailored support.",
+    "quickLinks": "Quick Navigation",
+    "products": "Loan Categories",
+    "regulatory": "Regulatory & Fair Practices Code",
+    "regulatoryText": "Loan Aasra strictly adheres to the Reserve Bank of India (RBI) guidelines for digital lending platforms. We partner exclusively with scheduled commercial banks and RBI-registered NBFCs. We do not demand any upfront cash fees for loan sanctioning."
+  },
+  "seo": {
+    "homeTitle": "Loan Aasra | Your Dreams, Our Support - Compare, Calculate & Apply for Loans",
+    "homeDesc": "Compare personal, home, business & gold loans with Loan Aasra. Calculate instant reducing-balance EMIs, check eligibility without CIBIL impact, and apply online.",
+    "blogTitle": "Financial Journal & Advisory Insights | Loan Aasra",
+    "blogDesc": "Expert articles on personal finance, loan balance transfers, debt consolidation, CIBIL score optimization, and banking transparency in India."
+  }
+}

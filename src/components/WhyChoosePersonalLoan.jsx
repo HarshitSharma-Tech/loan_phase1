@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   BadgePercent, 
   CalendarCheck2, 
@@ -9,7 +10,7 @@ import {
   Eye 
 } from 'lucide-react';
 
-const BENEFITS = [
+const BENEFITS_EN = [
   {
     icon: BadgePercent,
     title: 'Competitive Interest Rates',
@@ -42,18 +43,103 @@ const BENEFITS = [
   }
 ];
 
+const BENEFITS_HI = [
+  {
+    icon: BadgePercent,
+    title: 'किफायती ब्याज दरें',
+    desc: 'लोन लेने से पहले सभी बैंकों की ब्याज दरों की आसानी से तुलना करें।'
+  },
+  {
+    icon: CalendarCheck2,
+    title: 'किस्त चुकाने के आसान विकल्प',
+    desc: 'अपनी मासिक कमाई के अनुसार ऐसी किस्त चुनें जो आपके बजट में बिल्कुल सही बैठे।'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'बिना कुछ गिरवी रखे लोन',
+    desc: 'पर्सनल लोन के लिए आपको कोई भी संपत्ति या गहने गिरवी रखने की जरूरत नहीं है।'
+  },
+  {
+    icon: FileCheck2,
+    title: 'कागजी कार्रवाई का कोई झंझट नहीं',
+    desc: 'आसान ऑनलाइन प्रक्रिया और कम से कम दस्तावेजों के साथ तुरंत काम।'
+  },
+  {
+    icon: Zap,
+    title: 'तुरंत लोन की प्रक्रिया',
+    desc: 'ऑनलाइन पात्रता जांचें और बिना किसी देरी के जल्द से जल्द लोन पाएं।'
+  },
+  {
+    icon: Eye,
+    title: 'पूरी पारदर्शिता, कोई छिपा शुल्क नहीं',
+    desc: 'ब्याज दर, लोन प्रक्रिया का शुल्क (प्रोसेसिंग फीस) और सभी नियम पहले से साफ रहते हैं।'
+  }
+];
+
+const BENEFITS_PA = [
+  {
+    icon: BadgePercent,
+    title: 'ਘੱਟ ਵਿਆਜ ਦਰਾਂ',
+    desc: 'ਲੋਨ ਲੈਣ ਤੋਂ ਪਹਿਲਾਂ ਵੱਖ-ਵੱਖ ਬੈਂਕਾਂ ਦੀਆਂ ਵਿਆਜ ਦਰਾਂ ਆਸਾਨੀ ਨਾਲ ਦੇਖੋ ਅਤੇ ਤੁਲਨਾ ਕਰੋ।'
+  },
+  {
+    icon: CalendarCheck2,
+    title: 'ਆਸਾਨ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤਾਂ (EMI)',
+    desc: 'ਆਪਣੀ ਕਮਾਈ ਅਤੇ ਬਜਟ ਮੁਤਾਬਕ ਆਸਾਨ ਮਹੀਨਾਵਾਰ ਕਿਸ਼ਤ ਦੀ ਚੋਣ ਕਰੋ।'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'ਬਿਨਾਂ ਕੁਝ ਗਿਰਵੀ ਰੱਖੇ ਲੋਨ',
+    desc: 'ਪਰਸਨਲ ਲੋਨ ਲਈ ਤੁਹਾਨੂੰ ਕੋਈ ਜ਼ਮੀਨ, ਗਹਿਣੇ ਜਾਂ ਜਾਇਦਾਦ ਗਿਰਵੀ ਰੱਖਣ ਦੀ ਲੋੜ ਨਹੀਂ।'
+  },
+  {
+    icon: FileCheck2,
+    title: 'ਕਾਗਜ਼ੀ ਕਾਰਵਾਈ ਦਾ ਕੋਈ ਝੰਜਟ ਨਹੀਂ',
+    desc: 'ਸੌਖੀ ਆਨਲਾਈਨ ਪ੍ਰਕਿਰਿਆ ਅਤੇ ਘੱਟੋ-ਘੱਟ ਦਸਤਾਵੇਜ਼ਾਂ ਨਾਲ ਝੱਟਪੱਟ ਲੋਨ।'
+  },
+  {
+    icon: Zap,
+    title: 'ਤੁਰੰਤ ਪੈਸੇ ਖਾਤੇ ਵਿੱਚ',
+    desc: 'ਆਪਣੀ ਯੋਗਤਾ ਆਨਲਾਈਨ ਜਾਣੋ ਅਤੇ ਬਿਨਾਂ ਕਿਸੇ ਦੇਰੀ ਦੇ ਛੇਤੀ ਲੋਨ ਪ੍ਰਾਪਤ ਕਰੋ।'
+  },
+  {
+    icon: Eye,
+    title: 'ਪੂਰੀ ਪਾਰਦਰਸ਼ਤਾ, ਕੋਈ ਲੁਕਿਆ ਖ਼ਰਚ ਨਹੀਂ',
+    desc: 'ਵਿਆਜ ਦਰ, ਪ੍ਰੋਸੈਸਿੰਗ ਫੀਸ ਅਤੇ ਸਾਰੇ ਨਿਯਮ ਪਹਿਲਾਂ ਤੋਂ ਬਿਲਕੁਲ ਸਾਫ਼ ਤੇ ਪਾਰਦਰਸ਼ੀ ਰਹਿੰਦੇ ਹਨ।'
+  }
+];
+
 export default function WhyChoosePersonalLoan({ onOpenApplyModal }) {
-  // Duplicate for seamless 50% infinite marquee loop
-  const repeated = [...BENEFITS, ...BENEFITS];
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language ? i18n.language.substring(0, 2) : 'en';
+  const isHi = currentLang === 'hi';
+  const isPa = currentLang === 'pa';
+
+  const benefitsList = isPa ? BENEFITS_PA : (isHi ? BENEFITS_HI : BENEFITS_EN);
+  const repeated = [...benefitsList, ...benefitsList];
 
   return (
-    <section className="section why-choose-section" id="why-choose" aria-label="Why Choose Finora for a Personal Loan">
+    <section className="section why-choose-section" id="why-choose" aria-label="Why Choose Loan Aasra for a Personal Loan">
       <div className="container">
         <div className="section-head" style={{ maxWidth: '820px', margin: '0 auto 40px', textAlign: 'center' }}>
-          <span className="eyebrow">Finora Advantages</span>
-          <h2>Why Choose Finora for a <span className="text-gradient-blue">Personal Loan?</span></h2>
+          <span className="eyebrow">{isHi ? 'Loan Aasra के फायदे' : isPa ? 'Loan Aasra ਦੇ ਫ਼ਾਇਦੇ' : 'Loan Aasra Advantages'}</span>
+          <h2>
+            {isHi ? (
+              <>पर्सनल लोन के लिए <span className="text-gradient-blue">Loan Aasra ही क्यों चुनें?</span></>
+            ) : isPa ? (
+              <>ਪਰਸਨਲ ਲੋਨ ਲਈ <span className="text-gradient-blue">Loan Aasra ਹੀ ਕਿਉਂ ਚੁਣੋ?</span></>
+            ) : (
+              <>Why Choose Loan Aasra for a <span className="text-gradient-blue">Personal Loan?</span></>
+            )}
+          </h2>
           <p style={{ fontSize: '1.02rem', lineHeight: '1.7', color: 'var(--slate-600)', margin: '14px auto 0' }}>
-            At Finora, we aim to make your personal loan journey simple, clear, and convenient. Whether you need funds for a medical emergency, home expenses, education, or a planned purchase, we help you understand your loan options and make informed financial decisions.
+            {isHi ? (
+              'Loan Aasra पर हमारा मकसद आपके लोन लेने के सफर को बेहद आसान और पारदर्शी बनाना है। चाहे शादी हो, इलाज का खर्च, बच्चों की पढ़ाई या घर का काम—हम आपको सही लोन चुनने में पूरी मदद करते हैं।'
+            ) : isPa ? (
+              'Loan Aasra \'ਤੇ ਸਾਡਾ ਮਕਸਦ ਤੁਹਾਡੇ ਲੋਨ ਦੇ ਸਫ਼ਰ ਨੂੰ ਬੇਹੱਦ ਆਸਾਨ ਅਤੇ ਪਾਰਦਰਸ਼ੀ ਬਣਾਉਣਾ ਹੈ। ਚਾਹੇ ਵਿਆਹ ਹੋਵੇ, ਇਲਾਜ ਦਾ ਖ਼ਰਚਾ, ਬੱਚਿਆਂ ਦੀ ਪੜ੍ਹਾਈ ਜਾਂ ਘਰ ਦਾ ਕੰਮ—ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਹੀ ਲੋਨ ਚੁਣਨ ਵਿੱਚ ਪੂਰੀ ਮਦਦ ਕਰਦੇ ਹਾਂ।'
+            ) : (
+              'At Loan Aasra, we aim to make your personal loan journey simple, clear, and convenient. Whether you need funds for a medical emergency, home expenses, education, or a planned purchase, we help you understand your loan options and make informed financial decisions.'
+            )}
           </p>
         </div>
       </div>
@@ -103,8 +189,8 @@ export default function WhyChoosePersonalLoan({ onOpenApplyModal }) {
       <div className="container">
         <div className="why-choose-cta-box">
           <div className="cta-copy">
-            <h3>Ready to Explore Your Personal Loan Options?</h3>
-            <p>Compare pre-approved loan offers with zero impact on your credit score.</p>
+            <h3>{isHi ? 'क्या आप अपने लिए सही पर्सनल लोन तलाश रहे हैं?' : isPa ? 'ਕੀ ਤੁਸੀਂ ਆਪਣੇ ਲਈ ਸਹੀ ਪਰਸਨਲ ਲੋਨ ਲੱਭ ਰਹੇ ਹੋ?' : 'Ready to Explore Your Personal Loan Options?'}</h3>
+            <p>{isHi ? 'सिबिल स्कोर पर बिना किसी असर के पहले से मंजूर लोन ऑफर्स देखें।' : isPa ? 'ਸਿਬਿਲ ਸਕੋਰ \'ਤੇ ਬਿਨਾਂ ਕਿਸੇ ਅਸਰ ਦੇ ਪਹਿਲਾਂ ਤੋਂ ਮਨਜ਼ੂਰ ਲੋਨ ਆਫ਼ਰ ਦੇਖੋ।' : 'Compare pre-approved loan offers with zero impact on your credit score.'}</p>
           </div>
           <div className="cta-actions">
             <Link 
@@ -117,7 +203,7 @@ export default function WhyChoosePersonalLoan({ onOpenApplyModal }) {
                 }
               }}
             >
-              Explore Loan Options <span>→</span>
+              {isHi ? 'लोन के विकल्प देखें' : isPa ? 'ਲੋਨ ਦੇ ਵਿਕਲਪ ਦੇਖੋ' : 'Explore Loan Options'} <span>→</span>
             </Link>
           </div>
         </div>

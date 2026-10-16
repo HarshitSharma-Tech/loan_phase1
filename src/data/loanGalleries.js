@@ -1,5 +1,5 @@
 /**
- * Finora Loan Product Gallery Configuration
+ * Loan Aasra Product Gallery Configuration
  * High-definition, context-specific editorial galleries for each of the 13 loan products.
  * Structure per loan:
  * - eyebrow: Section tag

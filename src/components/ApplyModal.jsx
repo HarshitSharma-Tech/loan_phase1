@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function ApplyModal({ isOpen, onClose, defaultProduct }) {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -23,101 +25,105 @@ export default function ApplyModal({ isOpen, onClose, defaultProduct }) {
     onClose();
   };
 
+  const productTitle = defaultProduct || 'Personal Loan';
+
   return (
     <div className="modal-drawer active" id="applyModal" role="dialog" aria-modal="true">
       <div className="modal-backdrop" onClick={handleClose}></div>
       <div className="modal-sheet">
-        <button className="modal-close" onClick={handleClose} aria-label="Close modal">✕</button>
+        <button className="modal-close" onClick={handleClose} aria-label={t('common.close', 'Close')}>✕</button>
 
         <div className="modal-header">
-          <span className="eyebrow">DIGITAL JOURNEY</span>
+          <span className="eyebrow">{t('applyModal.eyebrow', 'DIGITAL JOURNEY')}</span>
           <h3 id="modalProductTitle" style={{ fontSize: '1.45rem', marginTop: '6px' }}>
-            Apply for Finora {defaultProduct || 'Loan'}
+            {t('applyModal.title', { product: `Loan Aasra ${productTitle}` })}
           </h3>
           <p style={{ color: '#64748B', fontSize: '0.9rem' }}>
-            Check your pre-approved lender offers with soft credit inquiry. Zero score impact.
+            {t('applyModal.subtitle', 'Discover verified offers from 30+ RBI-regulated lenders. Zero impact on CIBIL score.')}
           </p>
         </div>
 
         {!submitted ? (
           <form id="quickApplyForm" className="modal-form" onSubmit={handleSubmit}>
             <div className="modal-input-group">
-              <label htmlFor="applicantName">Full Name (as per PAN)</label>
+              <label htmlFor="applicantName">{t('applyModal.fullName', 'Full Name')}</label>
               <input 
                 id="applicantName" 
                 type="text" 
                 required 
-                placeholder="e.g. Rahul Sharma"
+                placeholder={t('applyModal.fullNamePlaceholder', 'e.g. Rahul Sharma')}
                 value={formData.fullName}
                 onChange={e => setFormData({ ...formData, fullName: e.target.value })}
               />
             </div>
 
             <div className="modal-input-group">
-              <label htmlFor="applicantPhone">Mobile Number (Aadhaar Linked)</label>
+              <label htmlFor="applicantPhone">{t('applyModal.mobile', 'Mobile Number')}</label>
               <input 
                 id="applicantPhone" 
                 type="tel" 
                 required 
                 pattern="[0-9]{10}" 
-                placeholder="10-digit mobile number"
+                placeholder={t('applyModal.mobilePlaceholder', '10-digit mobile number')}
                 value={formData.phone}
                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
               />
             </div>
 
             <div className="modal-input-group">
-              <label htmlFor="applicantEmail">Work / Personal Email</label>
+              <label htmlFor="applicantEmail">{t('applyModal.email', 'Work / Personal Email')}</label>
               <input 
                 id="applicantEmail" 
                 type="email" 
                 required 
-                placeholder="name@company.com"
+                placeholder={t('applyModal.emailPlaceholder', 'name@company.com')}
                 value={formData.email}
                 onChange={e => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
 
             <div className="modal-input-group">
-              <label htmlFor="applicantIncome">Net Monthly In-Hand Salary (₹)</label>
+              <label htmlFor="applicantIncome">{t('applyModal.income', 'Monthly Net Take-Home Income (₹)')}</label>
               <input 
                 id="applicantIncome" 
                 type="number" 
                 required 
-                placeholder="e.g. 55000"
+                placeholder="55000"
                 value={formData.income}
                 onChange={e => setFormData({ ...formData, income: e.target.value })}
               />
             </div>
 
             <div className="modal-input-group">
-              <label htmlFor="applicantCity">Current Residential City</label>
+              <label htmlFor="applicantCity">{t('applyModal.city', 'City / Location')}</label>
               <input 
                 id="applicantCity" 
                 type="text" 
                 required 
-                placeholder="e.g. Mumbai, Bengaluru, Delhi NCR"
+                placeholder={t('applyModal.cityPlaceholder', 'e.g. Mumbai, Chandigarh, Delhi NCR')}
                 value={formData.city}
                 onChange={e => setFormData({ ...formData, city: e.target.value })}
               />
             </div>
 
             <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '12px', justifyContent: 'center' }}>
-              Check Pre-Approved Offers ↗
+              {t('applyModal.submit', 'Get Verified Loan Offers ↗')}
             </button>
-            <p style={{ fontSize: '0.72rem', color: 'var(--slate-400)', marginTop: '10px', textAlign: 'center' }}>
-              By proceeding, you consent to our privacy policy and credit assessment contact.
+            <p style={{ fontSize: '0.74rem', color: 'var(--slate-500)', marginTop: '10px', textAlign: 'center' }}>
+              {t('applyModal.privacyNotice', '🔒 Your details are encrypted with 256-bit SSL. We never sell your personal information or spam your phone.')}
             </p>
           </form>
         ) : (
           <div className="modal-success-screen active" id="modalSuccessScreen">
             <div className="success-icon-ring">✓</div>
-            <h3 style={{ color: '#0A1C3E', fontSize: '1.35rem', marginBottom: '8px' }}>Eligibility Enquiry Received!</h3>
+            <h3 style={{ color: '#0A1C3E', fontSize: '1.35rem', marginBottom: '8px' }}>
+              {t('applyModal.successTitle', 'Application Received Successfully!')}
+            </h3>
             <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: '1.5' }}>
-              Thank you, {formData.fullName || 'Valued Client'}! Based on your income profile, you are tentatively eligible for preliminary offers. A Finora relationship advisor will reach out shortly.
+              {t('applyModal.successMessage', 'Thank you for trusting Loan Aasra. A certified relationship advisor will review your eligibility and reach out shortly with customized loan quotes.')}
             </p>
             <button type="button" className="btn btn-outline btn-small" onClick={handleClose} style={{ marginTop: '14px' }}>
-              Close window
+              {t('applyModal.closeBtn', 'Done')}
             </button>
           </div>
         )}

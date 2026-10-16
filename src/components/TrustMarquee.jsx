@@ -1,38 +1,45 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Sparkles, CheckCircle2, CalendarCheck2, ShieldCheck, Zap } from 'lucide-react';
 
-const TRUST_ITEMS = [
-  {
-    icon: Sparkles,
-    text: 'User-Friendly Experience'
-  },
-  {
-    icon: CheckCircle2,
-    text: 'Transparent Process'
-  },
-  {
-    icon: CalendarCheck2,
-    text: 'Flexible Repayment Options'
-  },
-  {
-    icon: ShieldCheck,
-    text: 'Secure & Reliable Service'
-  },
-  {
-    icon: Zap,
-    text: 'Quick Approval & Disbursal'
-  }
+const TRUST_ITEMS_EN = [
+  { icon: Sparkles, text: 'User-Friendly Experience' },
+  { icon: CheckCircle2, text: 'Transparent Process' },
+  { icon: CalendarCheck2, text: 'Flexible Repayment Options' },
+  { icon: ShieldCheck, text: 'Secure & Reliable Service' },
+  { icon: Zap, text: 'Quick Approval & Disbursal' }
+];
+
+const TRUST_ITEMS_HI = [
+  { icon: Sparkles, text: 'आसान और सरल प्रक्रिया' },
+  { icon: CheckCircle2, text: 'पूरी पारदर्शिता, कोई छिपा शुल्क नहीं' },
+  { icon: CalendarCheck2, text: 'किस्त चुकाने के आसान विकल्प' },
+  { icon: ShieldCheck, text: '100% सुरक्षित और भरोसेमंद सेवा' },
+  { icon: Zap, text: 'तुरंत मंजूरी और खाते में ट्रांसफर' }
+];
+
+const TRUST_ITEMS_PA = [
+  { icon: Sparkles, text: 'ਆਸਾਨ ਅਤੇ ਸਰਲ ਅਨੁਭਵ' },
+  { icon: CheckCircle2, text: 'ਪੂਰੀ ਪਾਰਦਰਸ਼ਤਾ, ਕੋਈ ਲੁਕਿਆ ਖ਼ਰਚ ਨਹੀਂ' },
+  { icon: CalendarCheck2, text: 'ਕਿਸ਼ਤਾਂ ਚੁਕਾਉਣ ਦੇ ਸੌਖੇ ਵਿਕਲਪ' },
+  { icon: ShieldCheck, text: '100% ਸੁਰੱਖਿਅਤ ਅਤੇ ਭਰੋਸੇਯੋਗ ਸੇਵਾ' },
+  { icon: Zap, text: 'ਤੁਰੰਤ ਮਨਜ਼ੂਰੀ ਅਤੇ ਪੈਸੇ ਖਾਤੇ ਵਿੱਚ' }
 ];
 
 export default function TrustMarquee() {
-  // Repeating the 5 items twice per group ensures full coverage even on ultra-wide screens
-  const repeatedItems = [...TRUST_ITEMS, ...TRUST_ITEMS];
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language ? i18n.language.substring(0, 2) : 'en';
+  const isHi = currentLang === 'hi';
+  const isPa = currentLang === 'pa';
+  const items = isPa ? TRUST_ITEMS_PA : (isHi ? TRUST_ITEMS_HI : TRUST_ITEMS_EN);
+
+  const repeatedItems = [...items, ...items];
 
   return (
     <div 
       className="trust-marquee-container" 
       role="region" 
-      aria-label="Finora Key Benefits and Trust Highlights"
+      aria-label="Loan Aasra Key Benefits and Trust Highlights"
     >
       <div className="trust-marquee-fade trust-marquee-fade-left" aria-hidden="true" />
       

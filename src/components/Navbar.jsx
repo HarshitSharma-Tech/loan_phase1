@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 export default function Navbar({ onOpenApplyModal }) {
+  const { t, i18n } = useTranslation();
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const megaRef = useRef(null);
   const navigate = useNavigate();
+
+  const currentLang = i18n.language ? i18n.language.substring(0, 2) : 'en';
+  const getLocalePath = (path) => {
+    if (currentLang === 'en') return path;
+    if (path === '/') return `/${currentLang}`;
+    return `/${currentLang}${path.startsWith('/') ? path : '/' + path}`;
+  };
 
   // Scroll header elevation
   useEffect(() => {
@@ -58,24 +68,24 @@ export default function Navbar({ onOpenApplyModal }) {
         <div className="topbar">
           <div className="container">
             <div className="topbar-left">
-              <span className="topbar-badge">VERIFIED RATES</span>
-              <span>Simple finance. Clear next steps.</span>
+              <span className="topbar-badge">{t('common.verifiedRates', 'VERIFIED RATES')}</span>
+              <span>{t('common.topbarText', 'Simple finance. Clear next steps.')}</span>
             </div>
             <div className="top-secondary">
-              <span>Need help? <a href="/#contact" onClick={closeMenus}>Talk to our support team ↗</a></span>
+              <span>{t('common.talkToSupport', 'Talk to our support team ↗')} <a href="/#contact" onClick={closeMenus}>📞</a></span>
             </div>
           </div>
         </div>
 
         {/* Main Navigation Bar */}
         <div className="container nav-wrap">
-          <Link className="brand" to="/" onClick={closeMenus} aria-label="Finora home">
+          <Link className="brand" to={getLocalePath('/')} onClick={closeMenus} aria-label="Loan Aasra home">
             <img 
-              src="/images/finora-logo-trimmed.png?v=2" 
-              alt="Finora Loan - Financing a Brighter Tomorrow" 
+              src="/images/loan-aasra-logo.png" 
+              alt="Loan Aasra - Your Dreams, Our Support." 
               className="brand-logo" 
-              width="175" 
-              height="50" 
+              width="170" 
+              height="52" 
             />
           </Link>
           
@@ -95,7 +105,7 @@ export default function Navbar({ onOpenApplyModal }) {
                 aria-expanded={isMegaOpen}
                 style={{ background: 'none', border: 'none', font: 'inherit', cursor: 'pointer' }}
               >
-                Loans <span className="nav-arrow">▾</span>
+                {t('nav.loans', 'Loans')} <span className="nav-arrow">▾</span>
               </button>
 
               {/* Mega Menu Dropdown */}
@@ -103,36 +113,36 @@ export default function Navbar({ onOpenApplyModal }) {
                 <div className="mega-container">
                   {/* Col 1: Personal & Consumer */}
                   <div className="mega-col">
-                    <h4 className="mega-col-title">Personal & Consumer</h4>
+                    <h4 className="mega-col-title">{t('nav.categories.personal', 'Personal & Consumer')}</h4>
                     <ul className="mega-list">
                       <li>
-                        <Link to="/personal-loan" onClick={closeMenus}>
-                          <strong>Personal Loan</strong>
-                          <span>Instant funds up to ₹40 Lakhs</span>
+                        <Link to={getLocalePath('/personal-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.personalLoan', 'Personal Loan')}</strong>
+                          <span>{t('nav.items.personalLoanDesc', 'Instant funds up to ₹40 Lakhs')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/insta-personal-loan" onClick={closeMenus}>
-                          <strong>Insta Personal Loan</strong>
-                          <span>100% digital & paperless approval</span>
+                        <Link to={getLocalePath('/insta-personal-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.instaLoan', 'Insta Personal Loan')}</strong>
+                          <span>{t('nav.items.instaLoanDesc', '100% digital & paperless approval')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/medical-loan" onClick={closeMenus}>
-                          <strong>Medical Loan</strong>
-                          <span>Emergency healthcare financing</span>
+                        <Link to={getLocalePath('/medical-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.medicalLoan', 'Medical Loan')}</strong>
+                          <span>{t('nav.items.medicalLoanDesc', 'Emergency healthcare financing')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/debt-consolidation-loan" onClick={closeMenus}>
-                          <strong>Debt Consolidation</strong>
-                          <span>Combine multi-debt into single EMI</span>
+                        <Link to={getLocalePath('/debt-consolidation-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.debtConsolidation', 'Debt Consolidation')}</strong>
+                          <span>{t('nav.items.debtConsolidationDesc', 'Combine multi-debt into single EMI')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/easy-emi-loan" onClick={closeMenus}>
-                          <strong>Easy EMI Loan</strong>
-                          <span>Flexible split payment options</span>
+                        <Link to={getLocalePath('/easy-emi-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.easyEmi', 'Easy EMI Loan')}</strong>
+                          <span>{t('nav.items.easyEmiDesc', 'Flexible split payment options')}</span>
                         </Link>
                       </li>
                     </ul>
@@ -140,34 +150,34 @@ export default function Navbar({ onOpenApplyModal }) {
 
                   {/* Col 2: Home & Property + Vehicle */}
                   <div className="mega-col">
-                    <h4 className="mega-col-title">Home & Property</h4>
+                    <h4 className="mega-col-title">{t('nav.categories.property', 'Home & Property')}</h4>
                     <ul className="mega-list">
                       <li>
-                        <Link to="/home-loan" onClick={closeMenus}>
-                          <strong>Home Loan</strong>
-                          <span>Lowest APR starting 8.40% p.a.</span>
+                        <Link to={getLocalePath('/home-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.homeLoan', 'Home Loan')}</strong>
+                          <span>{t('nav.items.homeLoanDesc', 'Lowest APR starting 8.40% p.a.')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/loan-against-property" onClick={closeMenus}>
-                          <strong>Loan Against Property</strong>
-                          <span>High loan amount up to 70% LTV</span>
+                        <Link to={getLocalePath('/loan-against-property')} onClick={closeMenus}>
+                          <strong>{t('nav.items.lap', 'Loan Against Property')}</strong>
+                          <span>{t('nav.items.lapDesc', 'High loan amount up to 70% LTV')}</span>
                         </Link>
                       </li>
                     </ul>
 
-                    <h4 className="mega-col-title" style={{ marginTop: '20px' }}>Vehicle Financing</h4>
+                    <h4 className="mega-col-title" style={{ marginTop: '20px' }}>{t('nav.categories.vehicle', 'Vehicle Financing')}</h4>
                     <ul className="mega-list">
                       <li>
-                        <Link to="/car-loan" onClick={closeMenus}>
-                          <strong>Car Loan</strong>
-                          <span>Up to 100% on-road financing</span>
+                        <Link to={getLocalePath('/car-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.carLoan', 'Car Loan')}</strong>
+                          <span>{t('nav.items.carLoanDesc', 'Up to 100% on-road financing')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/two-wheeler-loan" onClick={closeMenus}>
-                          <strong>Two-Wheeler Loan</strong>
-                          <span>Instant approval for bikes & EVs</span>
+                        <Link to={getLocalePath('/two-wheeler-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.twoWheeler', 'Two-Wheeler Loan')}</strong>
+                          <span>{t('nav.items.twoWheelerDesc', 'Instant approval for bikes & EVs')}</span>
                         </Link>
                       </li>
                     </ul>
@@ -175,30 +185,30 @@ export default function Navbar({ onOpenApplyModal }) {
 
                   {/* Col 3: Business & Wealth */}
                   <div className="mega-col">
-                    <h4 className="mega-col-title">Business & Wealth</h4>
+                    <h4 className="mega-col-title">{t('nav.categories.business', 'Business & Wealth')}</h4>
                     <ul className="mega-list">
                       <li>
-                        <Link to="/business-loan" onClick={closeMenus}>
-                          <strong>Business Loan</strong>
-                          <span>Collateral-free working capital</span>
+                        <Link to={getLocalePath('/business-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.businessLoan', 'Business Loan')}</strong>
+                          <span>{t('nav.items.businessLoanDesc', 'Collateral-free working capital')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/gold-loan" onClick={closeMenus}>
-                          <strong>Gold Loan</strong>
-                          <span>Instant cash against gold from 0.75%/mo</span>
+                        <Link to={getLocalePath('/gold-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.goldLoan', 'Gold Loan')}</strong>
+                          <span>{t('nav.items.goldLoanDesc', 'Instant cash against gold from 0.75%/mo')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/education-loan" onClick={closeMenus}>
-                          <strong>Education Loan</strong>
-                          <span>Fund studies in India & Abroad</span>
+                        <Link to={getLocalePath('/education-loan')} onClick={closeMenus}>
+                          <strong>{t('nav.items.educationLoan', 'Education Loan')}</strong>
+                          <span>{t('nav.items.educationLoanDesc', 'Fund studies in India & Abroad')}</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/loan-against-securities" onClick={closeMenus}>
-                          <strong>Loan Against Securities</strong>
-                          <span>Overdraft against shares & mutual funds</span>
+                        <Link to={getLocalePath('/loan-against-securities')} onClick={closeMenus}>
+                          <strong>{t('nav.items.securitiesLoan', 'Loan Against Securities')}</strong>
+                          <span>{t('nav.items.securitiesLoanDesc', 'Overdraft against shares & mutual funds')}</span>
                         </Link>
                       </li>
                     </ul>
@@ -207,21 +217,27 @@ export default function Navbar({ onOpenApplyModal }) {
               </div>
             </div>
 
-            <a href="/#investment" onClick={closeMenus}>Investment</a>
-            <a href="/#calculators" onClick={closeMenus}>Calculators</a>
-            <a href="/#rates" onClick={closeMenus}>Interest rates</a>
-            <a href="/#locations" onClick={closeMenus}>Locations</a>
-            <a href="/#guides" onClick={closeMenus}>Guides</a>
-            <Link to="/blog" onClick={closeMenus}>Blog</Link>
+            <a href="/#investment" onClick={closeMenus}>{t('nav.investment', 'Investment')}</a>
+            <a href="/#calculators" onClick={closeMenus}>{t('nav.calculators', 'Calculators')}</a>
+            <a href="/#rates" onClick={closeMenus}>{t('nav.rates', 'Interest rates')}</a>
+            <a href="/#locations" onClick={closeMenus}>{t('nav.locations', 'Locations')}</a>
+            <a href="/#guides" onClick={closeMenus}>{t('nav.guides', 'Guides')}</a>
+            <Link to={getLocalePath('/blog')} onClick={closeMenus}>{t('nav.blog', 'Blog')}</Link>
+
+            {/* Mobile Language Switcher Selector */}
+            <LanguageSwitcher isMobile={true} onSelect={closeMenus} />
           </nav>
 
           <div className="nav-actions">
+            {/* Desktop Language Switcher */}
+            <LanguageSwitcher />
+
             <button 
               type="button"
               className="btn btn-primary btn-small" 
               onClick={() => onOpenApplyModal('General Eligibility')}
             >
-              Check eligibility <span>↗</span>
+              {t('common.checkEligibility', 'Check eligibility')} <span>↗</span>
             </button>
             <button 
               className="menu-toggle" 
