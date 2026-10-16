@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import loanProducts from '../data/loanProducts.json';
 import { loanGalleries } from '../data/loanGalleries';
+import WhyChoosePersonalLoan from '../components/WhyChoosePersonalLoan';
 
 export default function LoanDetail({ onOpenApplyModal }) {
   const { slug } = useParams();
@@ -374,26 +375,30 @@ export default function LoanDetail({ onOpenApplyModal }) {
         </section>
       )}
 
-      {/* Features Section */}
-      <section className="section" id="features">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Product Advantages</span>
-            <h2>Why choose Finora for your <span className="text-gradient-blue">{product.name}?</span></h2>
-            <p>Experience transparent credit designed to empower your financial decisions with zero surprises.</p>
-          </div>
+      {/* Features Section / Why Choose Section */}
+      {product.slug === 'personal-loan' || product.slug === 'insta-personal-loan' ? (
+        <WhyChoosePersonalLoan onOpenApplyModal={onOpenApplyModal} />
+      ) : (
+        <section className="section" id="features">
+          <div className="container">
+            <div className="section-head">
+              <span className="eyebrow">Product Advantages</span>
+              <h2>Why choose Finora for your <span className="text-gradient-blue">{product.name}?</span></h2>
+              <p>Experience transparent credit designed to empower your financial decisions with zero surprises.</p>
+            </div>
 
-          <div className="features-grid">
-            {(product.features || []).map((f, idx) => (
-              <div key={idx} className="feature-box">
-                <div className="feature-box-icon">{f[0]}</div>
-                <h3>{f[1]}</h3>
-                <p>{f[2]}</p>
-              </div>
-            ))}
+            <div className="features-grid">
+              {(product.features || []).map((f, idx) => (
+                <div key={idx} className="feature-box">
+                  <div className="feature-box-icon">{f[0]}</div>
+                  <h3>{f[1]}</h3>
+                  <p>{f[2]}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Eligibility Section */}
       <section className="section soft-section" id="eligibility">

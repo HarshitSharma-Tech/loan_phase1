@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import TrustMarquee from '../components/TrustMarquee';
+import WhyChoosePersonalLoan from '../components/WhyChoosePersonalLoan';
 
 const LOAN_CARDS = [
   { slug: 'personal-loan', name: 'Personal Loan', category: 'personal', badge: 'Instant Disbursal', img: '/images/loan-personal.jpg', desc: 'For planned expenses, unexpected costs or a financial need that calls for flexibility.' },
@@ -15,6 +17,54 @@ const LOAN_CARDS = [
   { slug: 'loan-against-securities', name: 'Loan Against Securities', category: 'business', badge: 'Flexible Overdraft', img: '/images/loan-securities.jpg', desc: 'Instant credit line against shares and mutual funds. Pay interest only on drawn funds.' },
   { slug: 'debt-consolidation-loan', name: 'Debt Consolidation Loan', category: 'personal', badge: 'Save 40% EMI', img: '/images/loan-consolidation.jpg', desc: 'Combine multiple high-cost credit cards and personal loans into one lower monthly EMI.' },
   { slug: 'easy-emi-loan', name: 'Easy EMI Loan', category: 'personal', badge: '0% No-Cost EMI', img: '/images/loan-easyemi.jpg', desc: 'Flexible split payments for electronics, gadgets, appliances, and home shopping.' }
+];
+
+const PRIMARY_CITIES = [
+  'Personal Loan in Mumbai',
+  'Personal Loan in Pune',
+  'Personal Loan in Delhi',
+  'Personal Loan in Noida',
+  'Personal Loan in Hyderabad',
+  'Personal Loan in Bangalore',
+  'Personal Loan in Gurgaon'
+];
+
+const ALL_CITIES = [
+  'Personal Loan in Mumbai',
+  'Personal Loan in Pune',
+  'Personal Loan in Delhi',
+  'Personal Loan in Noida',
+  'Personal Loan in Hyderabad',
+  'Personal Loan in Bangalore',
+  'Personal Loan in Gurgaon',
+  'Personal Loan in Chandigarh',
+  'Personal Loan in Chennai',
+  'Personal Loan in Kolkata',
+  'Personal Loan in Ahmedabad',
+  'Personal Loan in Coimbatore',
+  'Personal Loan in Jaipur',
+  'Personal Loan in Kochi',
+  'Personal Loan in Indore',
+  'Personal Loan in Guwahati',
+  'Personal Loan in Surat',
+  'Personal Loan in Nagpur',
+  'Personal Loan in Rajkot',
+  'Personal Loan in Vadodara'
+];
+
+const RATE_ROWS = [
+  { sno: '1', name: 'Personal Loan', slug: 'personal-loan', rate: '9.00% to 22.00%+ p.a.', note: 'Zero collateral, same-day disbursal, 1-7 yrs flexible tenure' },
+  { sno: '2', name: 'Business Loan', slug: 'business-loan', rate: '9.50% to 36.00% p.a.', note: 'Working capital & machinery, tax-deductible interest' },
+  { sno: '3', name: 'Home Loan', slug: 'home-loan', rate: '7.15% to 8.40%+ p.a.', note: 'RBI repo linked, extended 30-yr tenure, Sec 24/80C tax rebates' },
+  { sno: '4', name: 'Loan Against Property', slug: 'loan-against-property', rate: '8.40% to 12.50% p.a.', note: 'High loan quantum up to ₹10 Cr on residential & commercial assets' },
+  { sno: '5', name: 'Gold Loan', slug: 'gold-loan', rate: '6.90% to 18.00% p.a.', note: 'Instant 30-min sanction, zero income proof needed' },
+  { sno: '6', name: 'Education Loan', slug: 'education-loan', rate: '8.00% to 16.00% p.a.', note: 'India & overseas university programs, moratorium repayment' },
+  { sno: '7', name: 'Car Loan', slug: 'car-loan', rate: '8.50% p.a. onwards', note: 'Up to 100% on-road financing for new & pre-owned vehicles' },
+  { sno: '8', name: 'Two-Wheeler Loan', slug: 'two-wheeler-loan', rate: '7.60% to 28.00% p.a.', note: 'Zero down payment options, special EV subsidies supported' },
+  { sno: '9', name: 'Medical Loan', slug: 'medical-loan', rate: '8.90% to 30.50% p.a.', note: 'Fast 4-hr emergency disbursal, zero prepayment charges' },
+  { sno: '10', name: 'Loan Against Securities', slug: 'loan-against-securities', rate: '7.50% to 15.00% p.a.', note: 'Overdraft on shares & mutual funds without liquidating portfolio' },
+  { sno: '11', name: 'Debt Consolidation Loan', slug: 'debt-consolidation-loan', rate: '9.99% to 30.00% p.a.', note: 'Unify multiple high-interest cards & micro-loans, reduce EMI up to 40%' },
+  { sno: '12', name: 'Easy EMI Loan', slug: 'easy-emi-loan', rate: '8.75% to 36.00% p.a.', note: 'Instant point-of-sale financing, flexible ticket sizes' }
 ];
 
 export default function Home({ onOpenApplyModal }) {
@@ -34,6 +84,12 @@ export default function Home({ onOpenApplyModal }) {
   // 4. Contact Enquiry Form State
   const [contactForm, setContactForm] = useState({ fullName: '', email: '', loanType: 'Personal loan' });
   const [contactSuccess, setContactSuccess] = useState('');
+
+  // 5. Locations Showcase State (Top 7 vs All 20)
+  const [showAllLocations, setShowAllLocations] = useState(false);
+
+  // 6. Interest Rates Showcase State (Top 5 vs All 12)
+  const [showAllRates, setShowAllRates] = useState(false);
 
   // 5. Hero EMI Math
   const heroMRate = heroRate / 1200;
@@ -249,12 +305,15 @@ export default function Home({ onOpenApplyModal }) {
         </div>
       </section>
 
+      {/* Continuously Scrolling Trust-Benefits Marquee */}
+      <TrustMarquee />
+
       {/* 3. Loans Section (Preserved Exactly As-Is with all cards and links) */}
       <section className="section" id="loans">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Borrow with purpose</span>
-            <h2>Find a <span className="text-gradient-blue">loan</span> for what comes next</h2>
+            <h2><span className="text-gradient-blue">Quick loan</span> for immediate financial need</h2>
             <p>Start with the goal you have in mind. Review the loan type, check the details and compare options before making a decision.</p>
           </div>
 
@@ -529,20 +588,7 @@ export default function Home({ onOpenApplyModal }) {
                 </tr>
               </thead>
               <tbody>
-                {[
-                  { sno: '1', name: 'Personal Loan', slug: 'personal-loan', rate: '9.00% to 22.00%+ p.a.', note: 'Zero collateral, same-day disbursal, 1-7 yrs flexible tenure' },
-                  { sno: '2', name: 'Business Loan', slug: 'business-loan', rate: '9.50% to 36.00% p.a.', note: 'Working capital & machinery, tax-deductible interest' },
-                  { sno: '3', name: 'Home Loan', slug: 'home-loan', rate: '7.15% to 8.40%+ p.a.', note: 'RBI repo linked, extended 30-yr tenure, Sec 24/80C tax rebates' },
-                  { sno: '4', name: 'Loan Against Property', slug: 'loan-against-property', rate: '8.40% to 12.50% p.a.', note: 'High loan quantum up to ₹10 Cr on residential & commercial assets' },
-                  { sno: '5', name: 'Gold Loan', slug: 'gold-loan', rate: '6.90% to 18.00% p.a.', note: 'Instant 30-min sanction, zero income proof needed' },
-                  { sno: '6', name: 'Education Loan', slug: 'education-loan', rate: '8.00% to 16.00% p.a.', note: 'India & overseas university programs, moratorium repayment' },
-                  { sno: '7', name: 'Car Loan', slug: 'car-loan', rate: '8.50% p.a. onwards', note: 'Up to 100% on-road financing for new & pre-owned vehicles' },
-                  { sno: '8', name: 'Two-Wheeler Loan', slug: 'two-wheeler-loan', rate: '7.60% to 28.00% p.a.', note: 'Zero down payment options, special EV subsidies supported' },
-                  { sno: '9', name: 'Medical Loan', slug: 'medical-loan', rate: '8.90% to 30.50% p.a.', note: 'Fast 4-hr emergency disbursal, zero prepayment charges' },
-                  { sno: '10', name: 'Loan Against Securities', slug: 'loan-against-securities', rate: '7.50% to 15.00% p.a.', note: 'Overdraft on shares & mutual funds without liquidating portfolio' },
-                  { sno: '11', name: 'Debt Consolidation Loan', slug: 'debt-consolidation-loan', rate: '9.99% to 30.00% p.a.', note: 'Unify multiple high-interest cards & micro-loans, reduce EMI up to 40%' },
-                  { sno: '12', name: 'Easy EMI Loan', slug: 'easy-emi-loan', rate: '8.75% to 36.00% p.a.', note: 'Instant point-of-sale financing, flexible ticket sizes' }
-                ].map((row) => (
+                {(showAllRates ? RATE_ROWS : RATE_ROWS.slice(0, 5)).map((row) => (
                   <tr key={row.sno}>
                     <td style={{ textAlign: 'center', fontWeight: '750', color: '#64748B' }}>{row.sno}</td>
                     <td>
@@ -563,6 +609,31 @@ export default function Home({ onOpenApplyModal }) {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
+            <button 
+              type="button" 
+              onClick={() => setShowAllRates(!showAllRates)}
+              className="btn btn-outline"
+              style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '8px', 
+                padding: '11px 26px', 
+                fontWeight: '700',
+                background: showAllRates ? 'var(--porcelain-surface)' : 'var(--gold-wash-strong)',
+                borderColor: showAllRates ? 'var(--porcelain-border)' : 'var(--gold-primary)',
+                color: showAllRates ? 'var(--slate-800)' : 'var(--gold-deep)',
+                cursor: 'pointer',
+                borderRadius: '9999px',
+                boxShadow: showAllRates ? 'none' : '0 2px 8px rgba(245, 158, 11, 0.15)'
+              }}
+              aria-expanded={showAllRates}
+            >
+              <span>{showAllRates ? 'Show top 5 loan rates only' : 'View all interest rates (12)'}</span>
+              <span>{showAllRates ? '↑' : '↓'}</span>
+            </button>
           </div>
 
           <p className="rate-note">
@@ -715,53 +786,8 @@ export default function Home({ onOpenApplyModal }) {
         </div>
       </section>
 
-      {/* 9. Loans by Applicant Profile Section */}
-      <section className="section" id="applicants">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Loans by applicant profile</span>
-            <h2>Options for different <span className="text-gradient-blue">working lives</span></h2>
-            <p>Documentation and eligibility criteria can vary by applicant and lender.</p>
-          </div>
-
-          <div className="audience-grid">
-            <a className="audience-card" href="#eligibility">
-              <div className="audience-avatar">
-                <img src="/images/profile-salaried.jpg?v=2" alt="Indian salaried corporate professional" loading="lazy" />
-              </div>
-              <strong>Salaried employees</strong>
-            </a>
-
-            <a className="audience-card" href="#eligibility">
-              <div className="audience-avatar">
-                <img src="/images/profile-selfemployed.jpg?v=2" alt="Indian self-employed creative professional" loading="lazy" />
-              </div>
-              <strong>Self-employed</strong>
-            </a>
-
-            <a className="audience-card" href="#eligibility">
-              <div className="audience-avatar">
-                <img src="/images/profile-business.jpg?v=2" alt="Indian business owner executive" loading="lazy" />
-              </div>
-              <strong>Business owners</strong>
-            </a>
-
-            <a className="audience-card" href="#eligibility">
-              <div className="audience-avatar">
-                <img src="/images/profile-doctor.jpg?v=2" alt="Indian medical doctor physician" loading="lazy" />
-              </div>
-              <strong>Doctors</strong>
-            </a>
-
-            <a className="audience-card" href="#eligibility">
-              <div className="audience-avatar">
-                <img src="/images/profile-shop.jpg?v=2" alt="Indian small business store owner" loading="lazy" />
-              </div>
-              <strong>Small businesses</strong>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* 9. Why Choose Finora for a Personal Loan Section (Replaced Options for Different Working Lives) */}
+      <WhyChoosePersonalLoan onOpenApplyModal={onOpenApplyModal} />
 
       {/* 10. Locations Section */}
       <section className="section soft-section" id="locations">
@@ -773,39 +799,63 @@ export default function Home({ onOpenApplyModal }) {
           </div>
 
           <div className="location-grid">
-            <a className="location-link" href="#contact">
-              <span>Personal Loan in Delhi</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact">
-              <span>Personal Loan in Mumbai</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact">
-              <span>Personal Loan in Bangalore</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact">
-              <span>Personal Loan in Hyderabad</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact">
-              <span>Business Loan in Delhi</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact">
-              <span>Business Loan in Mumbai</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact">
-              <span>Home Loan in Delhi</span>
-              <span>↗</span>
-            </a>
-            <a className="location-link" href="#contact" style={{ background: 'var(--gold-wash-strong)', borderColor: 'var(--gold-primary)', color: 'var(--gold-deep)', fontWeight: '700' }}>
-              <span>View all locations</span>
-              <span>→</span>
-            </a>
+            {(showAllLocations ? ALL_CITIES : PRIMARY_CITIES).map((city) => (
+              <a 
+                key={city}
+                className="location-link" 
+                href="#contact"
+                onClick={(e) => {
+                  if (onOpenApplyModal) {
+                    e.preventDefault();
+                    onOpenApplyModal('Personal Loan');
+                  }
+                }}
+              >
+                <span>{city}</span>
+                <span>↗</span>
+              </a>
+            ))}
+
+            {!showAllLocations && (
+              <button 
+                type="button"
+                className="location-link" 
+                onClick={() => setShowAllLocations(true)}
+                style={{ 
+                  background: 'var(--gold-wash-strong)', 
+                  borderColor: 'var(--gold-primary)', 
+                  color: 'var(--gold-deep)', 
+                  fontWeight: '700' 
+                }}
+                aria-label="View all 20 loan locations"
+              >
+                <span>View all locations (20)</span>
+                <span>→</span>
+              </button>
+            )}
           </div>
+
+          {showAllLocations && (
+            <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'center' }}>
+              <button
+                type="button"
+                onClick={() => setShowAllLocations(false)}
+                className="btn btn-outline"
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '8px', 
+                  padding: '10px 24px', 
+                  fontWeight: '650',
+                  cursor: 'pointer'
+                }}
+                aria-label="Show top 7 cities only"
+              >
+                <span>Show top 7 cities only</span>
+                <span>↑</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
