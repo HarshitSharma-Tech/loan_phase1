@@ -1035,14 +1035,14 @@ export default function Home({ onOpenApplyModal }) {
                   type="button"
                   className="btn btn-primary"
                   onClick={() => onOpenApplyModal && onOpenApplyModal('General Inquiry / Advisor')}
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  style={{ width: '100%', justifyContent: 'center', padding: '9px 14px', fontSize: '0.84rem' }}
                 >
                   Ask an Advisor →
                 </button>
                 <a
                   className="btn btn-outline"
                   href="#contact"
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  style={{ width: '100%', justifyContent: 'center', padding: '9px 14px', fontSize: '0.84rem' }}
                 >
                   Send us a Message
                 </a>
@@ -1108,7 +1108,7 @@ export default function Home({ onOpenApplyModal }) {
                       </div>
                     </div>
                     <span className="faq-card-toggle">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                         {activeHomeFaq === idx ? (
                           <line x1="2" y1="7" x2="12" y2="7" />
                         ) : (
