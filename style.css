@@ -1883,6 +1883,117 @@ button.location-link {
   }
 }
 
+/* ==========================================================================
+   Ordered FAQ System: Numbers, Categories & Quick Filters
+   ========================================================================== */
+.faq-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.faq-filter-chip {
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1.5px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #475569;
+  font-family: var(--font-display, 'Manrope', -apple-system, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(10, 28, 62, 0.03);
+}
+
+.faq-filter-chip:hover {
+  border-color: #0052FF;
+  color: #0052FF;
+  background: rgba(0, 82, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+.faq-filter-chip.active {
+  background: #0052FF;
+  color: #FFFFFF;
+  border-color: #0052FF;
+  box-shadow: 0 4px 14px rgba(0, 82, 255, 0.28);
+}
+
+.faq-card-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex: 1 !important;
+  text-align: left !important;
+}
+
+.faq-order-num {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 10px !important;
+  background: rgba(0, 82, 255, 0.08) !important;
+  color: #0052FF !important;
+  font-family: var(--font-display, 'Manrope', -apple-system, sans-serif) !important;
+  font-size: 0.84rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid rgba(0, 82, 255, 0.16) !important;
+}
+
+.faq-card:hover .faq-order-num {
+  background: rgba(0, 82, 255, 0.14) !important;
+  border-color: rgba(0, 82, 255, 0.35) !important;
+  transform: scale(1.05) !important;
+}
+
+.faq-card.active .faq-order-num {
+  background: linear-gradient(135deg, #0052FF 0%, #003ECC 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #0052FF !important;
+  box-shadow: 0 4px 12px rgba(0, 82, 255, 0.28) !important;
+}
+
+.faq-card-heading-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  flex: 1 !important;
+}
+
+.faq-card-category {
+  font-family: var(--font-display, 'Manrope', -apple-system, sans-serif) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  color: #64748B !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  transition: color 0.2s ease !important;
+}
+
+.faq-card.active .faq-card-category {
+  color: #0052FF !important;
+}
+
+@media (max-width: 680px) {
+  .faq-card-left {
+    gap: 12px !important;
+  }
+  .faq-order-num {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    font-size: 0.76rem !important;
+  }
+}
+
 .faq-list {
   display: flex;
   flex-direction: column;

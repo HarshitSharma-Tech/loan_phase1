@@ -69,34 +69,58 @@ const RATE_ROWS = [
 
 const HOME_FAQS = [
   {
+    num: "01",
+    category: "EMI & Planning",
+    group: "planning",
     q: "How do I estimate my monthly EMI?",
     a: "Enter your desired loan amount, annual interest rate, and tenure into our interactive EMI calculator. It calculates your scheduled repayment using standard reducing-balance math, detailing exact monthly payouts and total interest."
   },
   {
+    num: "02",
+    category: "Eligibility & CIBIL",
+    group: "eligibility",
     q: "What affects loan eligibility?",
     a: "Lenders evaluate monthly net take-home salary, employer stability (minimum 6–12 months vintage), credit/CIBIL score (ideally 700+), existing monthly fixed obligations (FOIR), and individual lender underwriting criteria."
   },
   {
+    num: "03",
+    category: "Approval & Sanction",
+    group: "eligibility",
     q: "Does checking eligibility guarantee approval?",
     a: "No. Checking eligibility provides an indicative pre-sanction estimate without harming your credit score. Formal approval, final loan amount, and APR are confirmed after digital document submission and underwriting checks."
   },
   {
+    num: "04",
+    category: "Fees & Charges",
+    group: "charges",
     q: "What charges should I check besides interest?",
     a: "Always review processing fees (typically 0.5% to 2.5% + GST), documentation charges, late payment charges, bounce fees, and prepayment/foreclosure conditions before signing the agreement."
   },
   {
-    q: "Can I repay a loan early?",
-    a: "Yes! Individual floating-rate personal and home loans have 0% foreclosure or part-prepayment penalties per RBI directives. Fixed-rate or business loans may feature nominal prepayment fees after a standard 6-month lock-in."
-  },
-  {
+    num: "05",
+    category: "Disbursal Speed",
+    group: "process",
     q: "How fast can I receive funds after approval?",
     a: "Instant and pre-approved personal loans are typically credited to your bank account within 30 minutes to 24 hours. Secured loans (such as Home Loans or LAP) generally take 3 to 7 working days for legal verification."
   },
   {
+    num: "06",
+    category: "KYC & Documents",
+    group: "process",
     q: "What documents do I need to prepare?",
     a: "Standard requirements include PAN card, Aadhaar / Passport for identity and address proof, latest 3 to 6 months bank statement showing income credits, and recent 3 salary slips or last 2 years ITR."
   },
   {
+    num: "07",
+    category: "Repayment & Closure",
+    group: "charges",
+    q: "Can I repay a loan early?",
+    a: "Yes! Individual floating-rate personal and home loans have 0% foreclosure or part-prepayment penalties per RBI directives. Fixed-rate or business loans may feature nominal prepayment fees after a standard 6-month lock-in."
+  },
+  {
+    num: "08",
+    category: "Disclosures & Risk",
+    group: "planning",
     q: "Are investment returns guaranteed?",
     a: "Not always. Mutual funds, equities, and market-linked products carry market risks. Fixed deposits and sovereign bonds provide assured returns. Always inspect product documents, expense ratios, and risk factors before investing."
   }
@@ -126,8 +150,13 @@ export default function Home({ onOpenApplyModal }) {
   // 6. Interest Rates Showcase State (Top 5 vs All 12)
   const [showAllRates, setShowAllRates] = useState(false);
 
-  // 7. FAQ Active Item State
+  // 7. FAQ Active Item State & Category Filter State
   const [activeHomeFaq, setActiveHomeFaq] = useState(0);
+  const [faqCategory, setFaqCategory] = useState('all');
+
+  const visibleFaqs = faqCategory === 'all' 
+    ? HOME_FAQS 
+    : HOME_FAQS.filter(f => f.group === faqCategory);
 
   // 5. Hero EMI Math
   const heroMRate = heroRate / 1200;
@@ -966,13 +995,13 @@ export default function Home({ onOpenApplyModal }) {
         </div>
       </section>
 
-      {/* 12. FAQs Section */}
+      {/* 12. FAQs Section - Ordered Borrower Journey */}
       <section className="section soft-section" id="faqs">
         <div className="container faq-grid">
           <div className="faq-sidebar">
-            <span className="eyebrow">Common questions</span>
-            <h2>Clear answers, <span className="text-gradient-blue">before you apply</span></h2>
-            <p>Every lender has its own policies. Always review the latest offer documents and ask for clarification on anything you do not understand.</p>
+            <span className="eyebrow">Ordered Borrower Guide • 8 Questions</span>
+            <h2>Clear answers, <span className="text-gradient-blue">in ordered sequence</span></h2>
+            <p>Structured in chronological order from estimating your EMI to eligibility verification, document submission, and early closure.</p>
 
             {/* Advisor Guidance Support Card */}
             <div className="faq-support-card">
@@ -1021,38 +1050,86 @@ export default function Home({ onOpenApplyModal }) {
             </div>
           </div>
 
-          <div className="faq-accordion-list">
-            {HOME_FAQS.map((faq, idx) => (
-              <div key={idx} className={`faq-card ${activeHomeFaq === idx ? 'active' : ''}`}>
-                <button
-                  type="button"
-                  className="faq-card-header"
-                  onClick={() => setActiveHomeFaq(activeHomeFaq === idx ? null : idx)}
-                  aria-expanded={activeHomeFaq === idx}
-                >
-                  <span className="faq-card-title">{faq.q}</span>
-                  <span className="faq-card-toggle">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                      {activeHomeFaq === idx ? (
-                        <line x1="2" y1="7" x2="12" y2="7" />
-                      ) : (
-                        <>
-                          <line x1="7" y1="2" x2="7" y2="12" />
-                          <line x1="2" y1="7" x2="12" y2="7" />
-                        </>
-                      )}
-                    </svg>
-                  </span>
-                </button>
-                {activeHomeFaq === idx && (
-                  <div className="faq-card-body">
-                    <div className="faq-card-text">
-                      <p>{faq.a}</p>
+          <div>
+            {/* Ordered Category Filter Bar */}
+            <div className="faq-filter-bar">
+              <button 
+                type="button" 
+                className={`faq-filter-chip ${faqCategory === 'all' ? 'active' : ''}`}
+                onClick={() => { setFaqCategory('all'); setActiveHomeFaq(0); }}
+              >
+                All (01–08)
+              </button>
+              <button 
+                type="button" 
+                className={`faq-filter-chip ${faqCategory === 'planning' ? 'active' : ''}`}
+                onClick={() => { setFaqCategory('planning'); setActiveHomeFaq(0); }}
+              >
+                01 • EMI & Planning
+              </button>
+              <button 
+                type="button" 
+                className={`faq-filter-chip ${faqCategory === 'eligibility' ? 'active' : ''}`}
+                onClick={() => { setFaqCategory('eligibility'); setActiveHomeFaq(0); }}
+              >
+                02 • Eligibility & Sanction
+              </button>
+              <button 
+                type="button" 
+                className={`faq-filter-chip ${faqCategory === 'process' ? 'active' : ''}`}
+                onClick={() => { setFaqCategory('process'); setActiveHomeFaq(0); }}
+              >
+                03 • Disbursal & KYC
+              </button>
+              <button 
+                type="button" 
+                className={`faq-filter-chip ${faqCategory === 'charges' ? 'active' : ''}`}
+                onClick={() => { setFaqCategory('charges'); setActiveHomeFaq(0); }}
+              >
+                04 • Fees & Repayment
+              </button>
+            </div>
+
+            {/* Ordered FAQ Cards */}
+            <div className="faq-accordion-list">
+              {visibleFaqs.map((faq, idx) => (
+                <div key={faq.num} className={`faq-card ${activeHomeFaq === idx ? 'active' : ''}`}>
+                  <button
+                    type="button"
+                    className="faq-card-header"
+                    onClick={() => setActiveHomeFaq(activeHomeFaq === idx ? null : idx)}
+                    aria-expanded={activeHomeFaq === idx}
+                  >
+                    <div className="faq-card-left">
+                      <span className="faq-order-num">{faq.num}</span>
+                      <div className="faq-card-heading-wrap">
+                        <span className="faq-card-category">{faq.category}</span>
+                        <span className="faq-card-title">{faq.q}</span>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                    <span className="faq-card-toggle">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        {activeHomeFaq === idx ? (
+                          <line x1="2" y1="7" x2="12" y2="7" />
+                        ) : (
+                          <>
+                            <line x1="7" y1="2" x2="7" y2="12" />
+                            <line x1="2" y1="7" x2="12" y2="7" />
+                          </>
+                        )}
+                      </svg>
+                    </span>
+                  </button>
+                  {activeHomeFaq === idx && (
+                    <div className="faq-card-body">
+                      <div className="faq-card-text">
+                        <p>{faq.a}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
