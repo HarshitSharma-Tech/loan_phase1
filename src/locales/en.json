@@ -7,6 +7,8 @@
     "applyNow": "Apply Now",
     "calculateEmi": "Calculate EMI",
     "exploreLoans": "Explore Loans",
+    "exploreLoanOptions": "Explore loan options",
+    "calculateMyEmi": "Calculate my EMI",
     "talkToSupport": "Talk to our support team ↗",
     "verifiedRates": "VERIFIED RATES",
     "topbarText": "Simple finance. Clear next steps.",
@@ -38,10 +40,11 @@
     }
   },
   "hero": {
-    "badge": "OFFICIAL INDIAN BORROWER ADVISORY",
-    "titleLine1": "Your Dreams,",
-    "titleLine2": "Our Support.",
-    "subtitle": "Discover transparent borrowing with zero hidden clauses. Compare verified interest rates from top banks & NBFCs, calculate precise reducing-balance EMIs, and receive institutional-grade loan guidance tailored to your goals.",
+    "badge": "LOAN OPTIONS | EMI CALCULATORS | FINANCIAL GUIDANCE",
+    "titleLine1": "Looking for a Loan?",
+    "titleLine2": "Start With a",
+    "titleLine3": "Clear Plan.",
+    "subtitle": "Compare loan options, estimate your monthly EMI and understand your next steps with clear, straightforward information.",
     "stat1Value": "30+",
     "stat1Label": "RBI-Regulated Lenders",
     "stat2Value": "₹1,200 Cr+",
@@ -73,7 +76,7 @@
   "categories": {
     "eyebrow": "COMPREHENSIVE PORTFOLIO",
     "heading": "Explore loan solutions designed for your every milestone",
-    "subheading": "Compare transparent borrowing terms across 12 distinct categories. Fast digital processing, clear APR disclosures, and tailored tenures.",
+    "subheading": "Pick your reason for borrowing to see personalized options and compare real cost breakdowns before you commit.",
     "filterAll": "All Loans",
     "filterPersonal": "Personal & Consumer",
     "filterBusiness": "Business & Enterprise",

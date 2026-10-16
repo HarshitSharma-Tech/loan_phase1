@@ -170,13 +170,17 @@ export default function Home({ onOpenApplyModal }) {
   // 6. Interest Rates Showcase State (Top 5 vs All 12)
   const [showAllRates, setShowAllRates] = useState(false);
 
-  // 7. FAQ Active Item State & Category Filter State
-  const [activeHomeFaq, setActiveHomeFaq] = useState(0);
-  const [faqCategory, setFaqCategory] = useState('all');
+  // 7. Common Questions State (Matching design reference)
+  const [activeHomeFaq, setActiveHomeFaq] = useState(null);
 
-  const visibleFaqs = faqCategory === 'all' 
-    ? homeFaqs 
-    : homeFaqs.filter(f => f.group === faqCategory);
+  const commonQuestions = [
+    homeFaqs[0], // How do I estimate my monthly EMI?
+    homeFaqs[1], // What affects loan eligibility?
+    homeFaqs[2], // Does checking eligibility guarantee approval?
+    homeFaqs[3], // What charges should I check besides interest?
+    homeFaqs[6], // Can I repay a loan early?
+    homeFaqs[7]  // Are investment returns guaranteed?
+  ].filter(Boolean);
 
   // 5. Hero EMI Math
   const heroMRate = heroRate / 1200;
@@ -233,20 +237,21 @@ export default function Home({ onOpenApplyModal }) {
           <div className="hero-copy">
             <div className="hero-eyebrow">
               <span className="eyebrow-dash"></span>
-              <span className="eyebrow-text">{t('hero.badge', 'OFFICIAL INDIAN BORROWER ADVISORY')}</span>
+              <span className="eyebrow-text">{t('hero.badge', 'LOAN OPTIONS | EMI CALCULATORS | FINANCIAL GUIDANCE')}</span>
             </div>
             <h1>
-              {t('hero.titleLine1', 'Your Dreams,')}<br />
-              <span className="hero-blue text-gradient-blue">{t('hero.titleLine2', 'Our Support.')}</span>
+              {t('hero.titleLine1', 'Looking for a Loan?')}<br />
+              {t('hero.titleLine2', 'Start With a')}<br />
+              <span className="hero-blue text-gradient-blue">{t('hero.titleLine3', 'Clear Plan.')}</span>
             </h1>
-            <p>{t('hero.subtitle', 'Discover transparent borrowing with zero hidden clauses. Compare verified interest rates from top banks & NBFCs, calculate precise reducing-balance EMIs, and receive institutional-grade loan guidance tailored to your goals.')}</p>
+            <p>{t('hero.subtitle', 'Compare loan options, estimate your monthly EMI and understand your next steps with clear, straightforward information.')}</p>
             
             <div className="hero-actions">
               <a className="btn btn-primary" href="#loans">
-                {t('common.exploreLoans', 'Explore Loans')} <span>→</span>
+                {t('common.exploreLoanOptions', 'Explore loan options')} <span>→</span>
               </a>
               <a className="btn btn-outline" href="#calculators">
-                {t('common.calculateEmi', 'Calculate EMI')}
+                {t('common.calculateMyEmi', 'Calculate my EMI')}
               </a>
             </div>
 
@@ -413,8 +418,8 @@ export default function Home({ onOpenApplyModal }) {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">{t('categories.eyebrow', 'Borrow with purpose')}</span>
-            <h2>{isHi ? <>अपनी जरूरत के अनुसार <span className="text-gradient-blue">सही लोन चुनें</span></> : isPa ? <>ਆਪਣੀ ਲੋੜ ਅਨੁਸਾਰ <span className="text-gradient-blue">ਸਹੀ ਲੋਨ ਚੁਣੋ</span></> : <><span className="text-gradient-blue">{t('categories.heading', 'Quick loan')}</span> for immediate financial need</>}</h2>
-            <p>{t('categories.subheading', 'Start with the goal you have in mind. Review the loan type, check the details and compare options before making a decision.')}</p>
+            <h2>{isHi ? <>तुरंत वित्तीय जरूरत के लिए <span className="text-gradient-blue">क्विक लोन</span></> : isPa ? <>ਤੁਰੰਤ ਵਿੱਤੀ ਲੋੜ ਲਈ <span className="text-gradient-blue">ਕਵਿੱਕ ਲੋਨ</span></> : <>Quick loan for <span className="text-gradient-blue">immediate financial need</span></>}</h2>
+            <p>{t('categories.subheading', 'Pick your reason for borrowing to see personalized options and compare real cost breakdowns before you commit.')}</p>
           </div>
 
           {/* Interactive Category Filter */}
@@ -1044,63 +1049,82 @@ export default function Home({ onOpenApplyModal }) {
         </div>
       </section>
 
-      {/* 12. Frequently Asked Questions */}
-      <section className="section" id="faqs">
+      {/* 12. Common Questions Section (As per design reference) */}
+      <section className="home-common-questions-section" id="faqs">
         <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">{isHi ? 'सीधे और स्पष्ट जवाब' : isPa ? 'ਸਿੱਧੇ ਅਤੇ ਸਪਸ਼ਟ ਜਵਾਬ' : 'Clear Answers'}</span>
-            <h2>{isHi ? <>अक्सर पूछे जाने वाले <span className="text-gradient-blue">सवाल</span></> : isPa ? <>ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ <span className="text-gradient-blue">ਸਵਾਲ</span></> : <>Frequently Asked <span className="text-gradient-blue">Questions</span></>}</h2>
-            <p>{isHi ? 'लोन आवेदन, ब्याज दर, अवधि और प्रक्रिया से जुड़े सामान्य सवालों के सीधे जवाब।' : isPa ? 'ਲੋਨ ਅਰਜ਼ੀ, ਵਿਆਜ ਦਰ, ਸਮੇਂ ਅਤੇ ਪ੍ਰਕਿਰਿਆ ਨਾਲ ਜੁੜੇ ਆਮ ਸਵਾਲਾਂ ਦੇ ਸਿੱਧੇ ਜਵਾਬ।' : 'Get answers to common queries about loan processing, tenures, rates and terms.'}</p>
-          </div>
-
-          <div className="faq-accordion-container">
-            <div className="faq-accordion-list">
-              {visibleFaqs.map((faq, idx) => (
-                <div key={idx} className={`faq-card ${activeHomeFaq === idx ? 'active' : ''}`}>
-                  <button 
-                    type="button" 
-                    className="faq-card-header"
-                    onClick={() => setActiveHomeFaq(activeHomeFaq === idx ? null : idx)}
-                    aria-expanded={activeHomeFaq === idx}
-                  >
-                    <span className="faq-card-title">{faq.q}</span>
-                    <span className="faq-card-toggle">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        {activeHomeFaq === idx ? (
-                          <line x1="2" y1="7" x2="12" y2="7" />
-                        ) : (
-                          <>
-                            <line x1="7" y1="2" x2="7" y2="12" />
-                            <line x1="2" y1="7" x2="12" y2="7" />
-                          </>
-                        )}
-                      </svg>
-                    </span>
-                  </button>
-                  {activeHomeFaq === idx && (
-                    <div className="faq-card-body">
-                      <div className="faq-card-text">
-                        <p>{faq.a}</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+          <div className="home-cq-grid">
+            {/* Left Column */}
+            <div className="home-cq-left">
+              <div className="home-cq-badge">
+                <span className="home-cq-dash" aria-hidden="true" />
+                <span className="home-cq-badge-text">
+                  {isHi ? 'अक्सर पूछे जाने वाले सवाल' : isPa ? 'ਆਮ ਸਵਾਲ' : 'COMMON QUESTIONS'}
+                </span>
+              </div>
+              <h2 className="home-cq-heading">
+                {isHi ? (
+                  <>
+                    सीधे और स्पष्ट जवाब,<br />
+                    <span className="home-cq-highlight">आवेदन करने से पहले</span>
+                  </>
+                ) : isPa ? (
+                  <>
+                    ਸਿੱਧੇ ਤੇ ਸਪਸ਼ਟ ਜਵਾਬ,<br />
+                    <span className="home-cq-highlight">ਅਰਜ਼ੀ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ</span>
+                  </>
+                ) : (
+                  <>
+                    Clear answers,<br />
+                    <span className="home-cq-highlight">before you apply</span>
+                  </>
+                )}
+              </h2>
+              <p className="home-cq-desc">
+                {isHi 
+                  ? 'हर बैंक और लेंडर के अपने नियम होते हैं। हमेशा नवीनतम ऑफर दस्तावेज देखें और जो समझ न आए उसकी स्पष्ट जानकारी लें।'
+                  : isPa
+                  ? 'ਹਰ ਬੈਂਕ ਤੇ ਲੈਂਡਰ ਦੇ ਆਪਣੇ ਨਿਯਮ ਹੁੰਦੇ ਹਨ। ਹਮੇਸ਼ਾ ਤਾਜ਼ਾ ਆਫਰ ਦਸਤਾਵੇਜ਼ ਪੜ੍ਹੋ ਅਤੇ ਜੋ ਸਮਝ ਨਾ ਆਵੇ ਉਸਦੀ ਸਪਸ਼ਟ ਜਾਣਕਾਰੀ ਲਵੋ।'
+                  : 'Every lender has its own policies. Always review the latest offer documents and ask for clarification on anything you do not understand.'}
+              </p>
+              <a 
+                href="#contact" 
+                className="home-cq-cta-btn"
+              >
+                {isHi ? 'कोई और सवाल? संपर्क करें' : isPa ? 'ਹੋਰ ਸਵਾਲ ਹਨ? ਰਾਬਤਾ ਕਰੋ' : 'More questions? Contact us'}
+              </a>
             </div>
 
-            <div className="faq-help-box">
-              <div className="faq-help-content">
-                <h4>{isHi ? 'क्या आपके मन में अभी भी कोई सवाल है?' : isPa ? 'ਕੀ ਤੁਹਾਡੇ ਮਨ ਵਿੱਚ ਹਾਲੇ ਵੀ ਕੋਈ ਸਵਾਲ ਹੈ?' : 'Still have questions regarding your application?'}</h4>
-                <p>{isHi ? 'हमारे समर्पित लोन सलाहकार बिना किसी शुल्क के आपको सही जानकारी और मार्गदर्शन देंगे।' : isPa ? 'ਸਾਡੇ ਲੋਨ ਸਲਾਹਕਾਰ ਬਿਨਾਂ ਕਿਸੇ ਫੀਸ ਦੇ ਤੁਹਾਨੂੰ ਸਹੀ ਜਾਣਕਾਰੀ ਅਤੇ ਮਦਦ ਦੇਣਗੇ।' : 'Our dedicated loan advisors can walk you through personalized documentation and instant approval.'}</p>
-              </div>
-              <button 
-                type="button" 
-                className="btn btn-primary"
-                onClick={() => onOpenApplyModal && onOpenApplyModal(isHi ? 'सामान्य पूछताछ (सहायता)' : isPa ? 'ਆਮ ਪੁੱਛਗਿੱਛ (ਸਹਾਇਤਾ)' : 'General Inquiry (FAQ Assistance)')}
-                style={{ whiteSpace: 'nowrap' }}
-              >
-                {isHi ? 'सलाहकार से बात करें →' : isPa ? 'ਸਲਾਹਕਾਰ ਨਾਲ ਗੱਲ ਕਰੋ →' : 'Ask an Advisor →'}
-              </button>
+            {/* Right Column */}
+            <div className="home-cq-right">
+              {commonQuestions.map((faq, idx) => {
+                const isOpen = activeHomeFaq === idx;
+                return (
+                  <div 
+                    key={idx} 
+                    className={`home-cq-card ${isOpen ? 'active' : ''}`}
+                  >
+                    <button 
+                      type="button" 
+                      className="home-cq-trigger"
+                      onClick={() => setActiveHomeFaq(isOpen ? null : idx)}
+                      aria-expanded={isOpen}
+                    >
+                      <span className="home-cq-question">{faq.q}</span>
+                      <span className="home-cq-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="12" y1="5" x2="12" y2="19" />
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                      </span>
+                    </button>
+                    {isOpen && (
+                      <div className="home-cq-body">
+                        <p className="home-cq-answer">{faq.a}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

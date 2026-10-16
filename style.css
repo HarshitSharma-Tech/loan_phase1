@@ -4849,4 +4849,310 @@ body.cyber-night-mode td {
   font-weight: 700;
 }
 
+/* ==========================================================================
+   HOME PAGE — COMMON QUESTIONS SECTION (As per Design Reference)
+   ========================================================================== */
+.home-common-questions-section {
+  position: relative;
+  background-color: #F8FAFC;
+  padding: 85px 0;
+  overflow: hidden;
+}
+
+.home-cq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* Left Column */
+.home-cq-left {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-cq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 14px;
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  border-radius: 9999px;
+  margin-bottom: 20px;
+}
+
+.home-cq-dash {
+  width: 14px;
+  height: 3px;
+  background: #F59E0B;
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.home-cq-badge-text {
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #2563EB;
+  text-transform: uppercase;
+}
+
+.home-cq-heading {
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #0A1C3E;
+  margin: 0 0 18px 0;
+}
+
+.home-cq-highlight {
+  color: #2563EB;
+  display: inline-block;
+}
+
+.home-cq-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.98rem;
+  line-height: 1.62;
+  color: #64748B;
+  margin: 0 0 28px 0;
+  max-width: 440px;
+}
+
+.home-cq-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #0A1C3E;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(10, 28, 62, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.home-cq-cta-btn:hover {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  color: #2563EB;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(10, 28, 62, 0.08);
+}
+
+/* Right Column */
+.home-cq-right {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+}
+
+.home-cq-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(10, 28, 62, 0.02);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.home-cq-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 14px rgba(10, 28, 62, 0.05);
+}
+
+.home-cq-card.active {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.09), 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+.home-cq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 22px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 20px;
+  outline: none;
+  transition: background 0.15s ease;
+}
+
+.home-cq-trigger:hover {
+  background: rgba(248, 250, 252, 0.6);
+}
+
+.home-cq-question {
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 1.08rem;
+  font-weight: 750;
+  color: #0A1C3E;
+  line-height: 1.35;
+  margin: 0;
+  letter-spacing: -0.01em;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.home-cq-card.active .home-cq-question {
+  color: #0A1C3E;
+}
+
+.home-cq-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  color: #F59E0B;
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.home-cq-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #F59E0B;
+  stroke-width: 2.6;
+}
+
+.home-cq-card.active .home-cq-icon {
+  transform: rotate(45deg);
+}
+
+.home-cq-body {
+  padding: 0 28px 22px 28px;
+  animation: cqFadeSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cqFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-cq-answer {
+  border-top: 1px solid #F1F5F9;
+  padding-top: 14px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 992px) {
+  .home-common-questions-section {
+    padding: 60px 0;
+  }
+  .home-cq-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .home-cq-left {
+    position: static;
+  }
+  .home-cq-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-common-questions-section {
+    padding: 44px 0;
+  }
+  .home-cq-trigger {
+    padding: 18px 20px;
+    gap: 14px;
+  }
+  .home-cq-question {
+    font-size: 0.98rem;
+  }
+  .home-cq-body {
+    padding: 0 20px 18px 20px;
+  }
+  .home-cq-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Cyber Night Mode Support */
+body.cyber-night-mode .home-common-questions-section {
+  background-color: #060B18;
+}
+
+body.cyber-night-mode .home-cq-badge {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+body.cyber-night-mode .home-cq-heading {
+  color: #F8FAFC;
+}
+
+body.cyber-night-mode .home-cq-desc {
+  color: #94A3B8;
+}
+
+body.cyber-night-mode .home-cq-cta-btn {
+  background: #0E172E;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}
+
+body.cyber-night-mode .home-cq-cta-btn:hover {
+  background: #152243;
+  border-color: #3B82F6;
+  color: #60A5FA;
+}
+
+body.cyber-night-mode .home-cq-card {
+  background: #0E172E;
+  border-color: #1E293B;
+}
+
+body.cyber-night-mode .home-cq-card.active {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+body.cyber-night-mode .home-cq-trigger:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body.cyber-night-mode .home-cq-question {
+  color: #F8FAFC;
+}
+
+body.cyber-night-mode .home-cq-answer {
+  border-top-color: #1E293B;
+  color: #94A3B8;
+}
+
+
 
