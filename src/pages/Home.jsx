@@ -789,7 +789,7 @@ export default function Home({ onOpenApplyModal }) {
           <div className="section-head">
             <span className="eyebrow">Loans by purpose</span>
             <h2>What are you <span className="text-gradient-blue">planning for?</span></h2>
-            <p>Browse common reasons people consider borrowing and review the total cost before choosing a loan.</p>
+            <p>Pick your reason for borrowing to see personalized options and compare real cost breakdowns before you commit.</p>
           </div>
 
           <div className="purpose-grid">
