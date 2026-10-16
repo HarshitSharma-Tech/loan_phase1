@@ -1991,7 +1991,7 @@
 /* ==========================================================================
    14. FINORA FAQ & ACCORDION SYSTEM - Premium Banking Editorial Style
    ========================================================================== */
-.faq-grid {
+.faq-editorial-stack {
   display: flex;
   flex-direction: column;
   gap: 16px;

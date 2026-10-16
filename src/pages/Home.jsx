@@ -67,6 +67,41 @@ const RATE_ROWS = [
   { sno: '12', name: 'Easy EMI Loan', slug: 'easy-emi-loan', rate: '8.75% to 36.00% p.a.', note: 'Instant point-of-sale financing, flexible ticket sizes' }
 ];
 
+const HOME_FAQS = [
+  {
+    q: "How do I estimate my monthly EMI?",
+    a: "Enter your desired loan amount, annual interest rate, and tenure into our interactive EMI calculator. It calculates your scheduled repayment using standard reducing-balance math, detailing exact monthly payouts and total interest."
+  },
+  {
+    q: "What affects loan eligibility?",
+    a: "Lenders evaluate monthly net take-home salary, employer stability (minimum 6–12 months vintage), credit/CIBIL score (ideally 700+), existing monthly fixed obligations (FOIR), and individual lender underwriting criteria."
+  },
+  {
+    q: "Does checking eligibility guarantee approval?",
+    a: "No. Checking eligibility provides an indicative pre-sanction estimate without harming your credit score. Formal approval, final loan amount, and APR are confirmed after digital document submission and underwriting checks."
+  },
+  {
+    q: "What charges should I check besides interest?",
+    a: "Always review processing fees (typically 0.5% to 2.5% + GST), documentation charges, late payment charges, bounce fees, and prepayment/foreclosure conditions before signing the agreement."
+  },
+  {
+    q: "Can I repay a loan early?",
+    a: "Yes! Individual floating-rate personal and home loans have 0% foreclosure or part-prepayment penalties per RBI directives. Fixed-rate or business loans may feature nominal prepayment fees after a standard 6-month lock-in."
+  },
+  {
+    q: "How fast can I receive funds after approval?",
+    a: "Instant and pre-approved personal loans are typically credited to your bank account within 30 minutes to 24 hours. Secured loans (such as Home Loans or LAP) generally take 3 to 7 working days for legal verification."
+  },
+  {
+    q: "What documents do I need to prepare?",
+    a: "Standard requirements include PAN card, Aadhaar / Passport for identity and address proof, latest 3 to 6 months bank statement showing income credits, and recent 3 salary slips or last 2 years ITR."
+  },
+  {
+    q: "Are investment returns guaranteed?",
+    a: "Not always. Mutual funds, equities, and market-linked products carry market risks. Fixed deposits and sovereign bonds provide assured returns. Always inspect product documents, expense ratios, and risk factors before investing."
+  }
+];
+
 export default function Home({ onOpenApplyModal }) {
   // 1. Hero Calculator State
   const [heroAmount, setHeroAmount] = useState(500000);
@@ -90,6 +125,9 @@ export default function Home({ onOpenApplyModal }) {
 
   // 6. Interest Rates Showcase State (Top 5 vs All 12)
   const [showAllRates, setShowAllRates] = useState(false);
+
+  // 7. FAQ Active Item State
+  const [activeHomeFaq, setActiveHomeFaq] = useState(0);
 
   // 5. Hero EMI Math
   const heroMRate = heroRate / 1200;
@@ -931,43 +969,90 @@ export default function Home({ onOpenApplyModal }) {
       {/* 12. FAQs Section */}
       <section className="section soft-section" id="faqs">
         <div className="container faq-grid">
-          <div>
+          <div className="faq-sidebar">
             <span className="eyebrow">Common questions</span>
             <h2>Clear answers, <span className="text-gradient-blue">before you apply</span></h2>
             <p>Every lender has its own policies. Always review the latest offer documents and ask for clarification on anything you do not understand.</p>
-            <a className="btn btn-outline" href="#contact">More questions? Contact us</a>
+
+            {/* Advisor Guidance Support Card */}
+            <div className="faq-support-card">
+              <span className="faq-support-badge">Personalized Support</span>
+              <h3 className="faq-support-title">Still have questions?</h3>
+              <p className="faq-support-desc">Can't find the answers you're looking for? Speak directly with our verified financial advisors for tailored rate advice.</p>
+              
+              <div className="faq-support-features">
+                <div className="faq-support-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Fast callback within 5 minutes</span>
+                </div>
+                <div className="faq-support-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>100% Free, zero obligation guidance</span>
+                </div>
+                <div className="faq-support-feature-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Zero negative impact on CIBIL score</span>
+                </div>
+              </div>
+
+              <div className="faq-support-actions">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => onOpenApplyModal && onOpenApplyModal('General Inquiry / Advisor')}
+                  style={{ width: '100%', justifyContent: 'center' }}
+                >
+                  Ask an Advisor →
+                </button>
+                <a
+                  className="btn btn-outline"
+                  href="#contact"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                >
+                  Send us a Message
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="faq-list">
-            <details>
-              <summary>How do I estimate my monthly EMI?</summary>
-              <p>Enter a loan amount, annual interest rate and tenure in the EMI calculator. The result is an estimate based on a standard reducing-balance calculation and may differ from a lender's final schedule.</p>
-            </details>
-
-            <details>
-              <summary>What affects loan eligibility?</summary>
-              <p>Lenders may assess income, employment or business stability, credit history, existing monthly obligations, requested amount, tenure and their own lending policies.</p>
-            </details>
-
-            <details>
-              <summary>Does checking eligibility guarantee approval?</summary>
-              <p>No. An eligibility check is only an initial indication, if offered. Final approval, interest rate and terms depend on lender verification and underwriting.</p>
-            </details>
-
-            <details>
-              <summary>What charges should I check besides interest?</summary>
-              <p>Review processing fees, applicable taxes, late-payment charges, prepayment or foreclosure terms, insurance if applicable, and the total annualised cost of borrowing.</p>
-            </details>
-
-            <details>
-              <summary>Can I repay a loan early?</summary>
-              <p>It depends on the lender, loan type and agreement. Check whether part-prepayment or foreclosure is permitted and whether any charges or conditions apply.</p>
-            </details>
-
-            <details>
-              <summary>Are investment returns guaranteed?</summary>
-              <p>Not always. Mutual funds and many other investments carry market risk. Read the product documents and understand the risks, fees and withdrawal conditions before investing.</p>
-            </details>
+          <div className="faq-accordion-list">
+            {HOME_FAQS.map((faq, idx) => (
+              <div key={idx} className={`faq-card ${activeHomeFaq === idx ? 'active' : ''}`}>
+                <button
+                  type="button"
+                  className="faq-card-header"
+                  onClick={() => setActiveHomeFaq(activeHomeFaq === idx ? null : idx)}
+                  aria-expanded={activeHomeFaq === idx}
+                >
+                  <span className="faq-card-title">{faq.q}</span>
+                  <span className="faq-card-toggle">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      {activeHomeFaq === idx ? (
+                        <line x1="2" y1="7" x2="12" y2="7" />
+                      ) : (
+                        <>
+                          <line x1="7" y1="2" x2="7" y2="12" />
+                          <line x1="2" y1="7" x2="12" y2="7" />
+                        </>
+                      )}
+                    </svg>
+                  </span>
+                </button>
+                {activeHomeFaq === idx && (
+                  <div className="faq-card-body">
+                    <div className="faq-card-text">
+                      <p>{faq.a}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>

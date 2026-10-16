@@ -1788,13 +1788,99 @@ button.location-link {
 }
 
 /* ==========================================================================
-   FAQs: Modern Accordion
+   FAQs: Modern Two-Column Grid System
    ========================================================================== */
 .faq-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 0.88fr 1.12fr;
   gap: 56px;
   align-items: flex-start;
+  width: 100%;
+}
+
+.faq-sidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.faq-support-card {
+  margin-top: 28px;
+  padding: 28px 26px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1.5px solid rgba(0, 82, 255, 0.16);
+  box-shadow: 0 10px 30px -4px rgba(8, 40, 95, 0.06);
+}
+
+.faq-support-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #0052FF;
+  background: rgba(0, 82, 255, 0.08);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.faq-support-title {
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0A1C3E;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.015em;
+}
+
+.faq-support-desc {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 18px 0;
+}
+
+.faq-support-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.faq-support-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.faq-support-feature-item svg {
+  color: #0052FF;
+  flex-shrink: 0;
+}
+
+.faq-support-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 991px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .faq-sidebar {
+    position: static;
+  }
 }
 
 .faq-list {
@@ -3754,7 +3840,7 @@ body.cyber-night-mode td {
 /* ==========================================================================
    FINORA FAQ & ACCORDION SYSTEM - Premium Banking Editorial Style
    ========================================================================== */
-.faq-grid {
+.faq-editorial-stack {
   display: flex;
   flex-direction: column;
   gap: 16px;
