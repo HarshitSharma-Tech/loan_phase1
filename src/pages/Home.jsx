@@ -15,7 +15,7 @@ const LOAN_CARDS = [
   { slug: 'two-wheeler-loan', name: 'Two-Wheeler Loan', category: 'personal', badge: 'Zero Down Payment', img: '/images/loan-twowheeler.jpg', desc: 'Instant digital approval for commuter motorcycles, scooters, and electric bikes.' },
   { slug: 'medical-loan', name: 'Medical Loan', category: 'personal', badge: '4-Hr Emergency', img: '/images/loan-medical.jpg', desc: 'Emergency medical credit for unexpected hospitalisation, surgeries, and therapies.' },
   { slug: 'loan-against-securities', name: 'Loan Against Securities', category: 'business', badge: 'Flexible Overdraft', img: '/images/loan-securities.jpg', desc: 'Instant credit line against shares and mutual funds. Pay interest only on drawn funds.' },
-  { slug: 'debt-consolidation-loan', name: 'Debt Consolidation Loan', category: 'personal', badge: 'Save 40% EMI', img: '/images/loan-consolidation.jpg', desc: 'Combine multiple high-cost credit cards and personal loans into one lower monthly EMI.' },
+  { slug: 'debt-consolidation-loan', name: 'Debt Consolidation Loan', category: 'personal', badge: 'Save 40% EMI', img: '/images/loan-consolidation.jpg?v=3', desc: 'Combine multiple high-cost credit cards and personal loans into one lower monthly EMI.' },
   { slug: 'easy-emi-loan', name: 'Easy EMI Loan', category: 'personal', badge: '0% No-Cost EMI', img: '/images/loan-easyemi.jpg', desc: 'Flexible split payments for electronics, gadgets, appliances, and home shopping.' }
 ];
 

@@ -348,7 +348,7 @@ export default function LoanDetail({ onOpenApplyModal }) {
                 { title: 'Home Makeover & Interiors', badge: 'Instant Transfer', img: '/images/purpose-renovation.jpg?v=2', desc: 'Redesign your modular kitchen, upgrade luxury living room furniture, install smart electronics, or fund home expansion projects with ease.' },
                 { title: 'Dream Vacations & Travel', badge: 'Flexible EMIs', img: '/images/purpose-travel.jpg?v=2', desc: 'Explore international travel destinations in Europe or Southeast Asia, book luxury flights and hotels with pocket-friendly repayment schedules.' },
                 { title: 'Medical & Family Health', badge: '2-Hour Disbursal', img: '/images/purpose-medical.jpg?v=2', desc: 'Handle unexpected surgeries, specialized therapies, and family hospital bills immediately with fast-track digital approval.' },
-                { title: 'Debt & Card Consolidation', badge: 'Save up to 40% EMI', img: '/images/loan-consolidation.jpg?v=2', desc: 'Merge multiple high-interest credit card balances and scattered micro-loans into one consolidated low-rate monthly installment.' },
+                { title: 'Debt & Card Consolidation', badge: 'Save up to 40% EMI', img: '/images/loan-consolidation.jpg?v=3', desc: 'Merge multiple high-interest credit card balances and scattered micro-loans into one consolidated low-rate monthly installment.' },
                 { title: 'Higher Education & Upskilling', badge: 'Zero Collateral', img: '/images/loan-education.jpg?v=2', desc: 'Finance executive MBA programs, international certifications, technical bootcamps, and professional career transitions.' }
               ].map((p, idx) => (
                 <div key={idx} className="purpose-card">
