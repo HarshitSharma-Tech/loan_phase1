@@ -10,7 +10,7 @@ import { LOAN_CARDS_PA, PRIMARY_CITIES_PA, ALL_CITIES_PA, RATE_ROWS_PA, HOME_FAQ
 const LOAN_CARDS = [
   { slug: 'personal-loan', name: 'Personal Loan', category: 'personal', badge: 'Instant Disbursal', img: '/images/loan-personal.jpg', desc: 'For planned expenses, unexpected costs or a financial need that calls for flexibility.' },
   { slug: 'business-loan', name: 'Business Loan', category: 'business', badge: 'Collateral Free', img: '/images/loan-business.jpg', desc: 'Working capital, inventory expansion, machinery purchase and business scaling.' },
-  { slug: 'home-loan', name: 'Home Loan', category: 'property', badge: 'From 8.40% p.a.', img: '/images/loan-home.jpg', desc: 'Turn home ownership into reality with lowest APRs and Sec 24(b) tax advantages.' },
+  { slug: 'home-loan', name: 'Home Loan', category: 'property', badge: 'From 7.55% p.a.', img: '/images/loan-home.jpg', desc: 'Turn home ownership into reality with lowest APRs and Sec 24(b) tax advantages.' },
   { slug: 'loan-against-property', name: 'Loan Against Property', category: 'property', badge: 'Up to 70% LTV', img: '/images/loan-property.jpg', desc: 'Unlock high loan limits against your residential or commercial real estate equity.' },
   { slug: 'gold-loan', name: 'Gold Loan', category: 'business', badge: 'From 0.75%/mo', img: '/images/loan-gold.jpg', desc: 'Instant cash liquidity against hallmarked gold jewellery with RBI 75% valuation.' },
   { slug: 'education-loan', name: 'Education Loan', category: 'business', badge: 'India & Abroad', img: '/images/loan-education.jpg', desc: 'Fund tuition fees and living costs with convenient 1-year post-study moratorium.' },
@@ -24,31 +24,36 @@ const LOAN_CARDS = [
 
 const PRIMARY_CITIES = [
   'Personal Loan in Mumbai',
-  'Personal Loan in Pune',
   'Personal Loan in Delhi',
-  'Personal Loan in Noida',
   'Personal Loan in Hyderabad',
   'Personal Loan in Bangalore',
-  'Personal Loan in Gurgaon'
-];
-
-const ALL_CITIES = [
-  'Personal Loan in Mumbai',
-  'Personal Loan in Pune',
-  'Personal Loan in Delhi',
-  'Personal Loan in Noida',
-  'Personal Loan in Hyderabad',
-  'Personal Loan in Bangalore',
-  'Personal Loan in Gurgaon',
+  'Personal Loan in Bhopal',
   'Personal Loan in Chandigarh',
   'Personal Loan in Chennai',
   'Personal Loan in Kolkata',
   'Personal Loan in Ahmedabad',
-  'Personal Loan in Coimbatore',
   'Personal Loan in Jaipur',
+  'Personal Loan in Guwahati'
+];
+
+const ALL_CITIES = [
+  'Personal Loan in Mumbai',
+  'Personal Loan in Delhi',
+  'Personal Loan in Hyderabad',
+  'Personal Loan in Bangalore',
+  'Personal Loan in Bhopal',
+  'Personal Loan in Chandigarh',
+  'Personal Loan in Chennai',
+  'Personal Loan in Kolkata',
+  'Personal Loan in Ahmedabad',
+  'Personal Loan in Jaipur',
+  'Personal Loan in Guwahati',
+  'Personal Loan in Pune',
+  'Personal Loan in Noida',
+  'Personal Loan in Gurgaon',
+  'Personal Loan in Coimbatore',
   'Personal Loan in Kochi',
   'Personal Loan in Indore',
-  'Personal Loan in Guwahati',
   'Personal Loan in Surat',
   'Personal Loan in Nagpur',
   'Personal Loan in Rajkot',
@@ -56,16 +61,16 @@ const ALL_CITIES = [
 ];
 
 const RATE_ROWS = [
-  { sno: '1', name: 'Personal Loan', slug: 'personal-loan', rate: '9.00% to 22.00%+ p.a.', note: 'Zero collateral, same-day disbursal, 1-7 yrs flexible tenure' },
-  { sno: '2', name: 'Business Loan', slug: 'business-loan', rate: '9.50% to 36.00% p.a.', note: 'Working capital & machinery, tax-deductible interest' },
-  { sno: '3', name: 'Home Loan', slug: 'home-loan', rate: '7.15% to 8.40%+ p.a.', note: 'RBI repo linked, extended 30-yr tenure, Sec 24/80C tax rebates' },
-  { sno: '4', name: 'Loan Against Property', slug: 'loan-against-property', rate: '8.40% to 12.50% p.a.', note: 'High loan quantum up to ₹10 Cr on residential & commercial assets' },
-  { sno: '5', name: 'Gold Loan', slug: 'gold-loan', rate: '6.90% to 18.00% p.a.', note: 'Instant 30-min sanction, zero income proof needed' },
-  { sno: '6', name: 'Education Loan', slug: 'education-loan', rate: '8.00% to 16.00% p.a.', note: 'India & overseas university programs, moratorium repayment' },
-  { sno: '7', name: 'Car Loan', slug: 'car-loan', rate: '8.50% p.a. onwards', note: 'Up to 100% on-road financing for new & pre-owned vehicles' },
-  { sno: '8', name: 'Two-Wheeler Loan', slug: 'two-wheeler-loan', rate: '7.60% to 28.00% p.a.', note: 'Zero down payment options, special EV subsidies supported' },
-  { sno: '9', name: 'Medical Loan', slug: 'medical-loan', rate: '8.90% to 30.50% p.a.', note: 'Fast 4-hr emergency disbursal, zero prepayment charges' },
-  { sno: '10', name: 'Loan Against Securities', slug: 'loan-against-securities', rate: '7.50% to 15.00% p.a.', note: 'Overdraft on shares & mutual funds without liquidating portfolio' },
+  { sno: '1', name: 'Personal Loan', slug: 'personal-loan', rate: '9.99% to 22.00%+ p.a.', note: 'Zero collateral, same-day disbursal, 1-7 yrs flexible tenure' },
+  { sno: '2', name: 'Business Loan', slug: 'business-loan', rate: '10% to 36.00% p.a.', note: 'Working capital & machinery, tax-deductible interest' },
+  { sno: '3', name: 'Home Loan', slug: 'home-loan', rate: '7.55% to 8.40%+ p.a.', note: 'RBI repo linked, extended 30-yr tenure, Sec 24/80C tax rebates' },
+  { sno: '4', name: 'Loan Against Property', slug: 'loan-against-property', rate: '9.50% to 12.50% p.a.', note: 'High loan quantum up to ₹10 Cr on residential & commercial assets' },
+  { sno: '5', name: 'Gold Loan', slug: 'gold-loan', rate: '8.50% to 18.00% p.a.', note: 'Instant 30-min sanction, zero income proof needed' },
+  { sno: '6', name: 'Education Loan', slug: 'education-loan', rate: '7.85% to 16.00% p.a.', note: 'India & overseas university programs, moratorium repayment' },
+  { sno: '7', name: 'Car Loan', slug: 'car-loan', rate: '8% p.a. onwards', note: 'Up to 100% on-road financing for new & pre-owned vehicles' },
+  { sno: '8', name: 'Two-Wheeler Loan', slug: 'two-wheeler-loan', rate: '9.60% to 28.00% p.a.', note: 'Zero down payment options, special EV subsidies supported' },
+  { sno: '9', name: 'Medical Loan', slug: 'medical-loan', rate: '9.90% to 30.50% p.a.', note: 'Fast 4-hr emergency disbursal, zero prepayment charges' },
+  { sno: '10', name: 'Loan Against Securities', slug: 'loan-against-securities', rate: '8.50% to 15.00% p.a.', note: 'Overdraft on shares & mutual funds without liquidating portfolio' },
   { sno: '11', name: 'Debt Consolidation Loan', slug: 'debt-consolidation-loan', rate: '9.99% to 30.00% p.a.', note: 'Unify multiple high-interest cards & micro-loans, reduce EMI up to 40%' },
   { sno: '12', name: 'Easy EMI Loan', slug: 'easy-emi-loan', rate: '8.75% to 36.00% p.a.', note: 'Instant point-of-sale financing, flexible ticket sizes' }
 ];
@@ -946,9 +951,9 @@ export default function Home({ onOpenApplyModal }) {
                   color: 'var(--gold-deep)', 
                   fontWeight: '700' 
                 }}
-                aria-label={isHi ? 'सभी 20 शहर देखें' : isPa ? 'ਸਾਰੇ 20 ਸ਼ਹਿਰ ਦੇਖੋ' : 'View all 20 loan locations'}
+                aria-label={isHi ? `सभी ${allCities.length} शहर देखें` : isPa ? `ਸਾਰੇ ${allCities.length} ਸ਼ਹਿਰ ਦੇਖੋ` : `View all ${allCities.length} loan locations`}
               >
-                <span>{isHi ? 'सभी 20 शहर देखें' : isPa ? 'ਸਾਰੇ 20 ਸ਼ਹਿਰ ਦੇਖੋ' : 'View all locations (20)'}</span>
+                <span>{isHi ? `सभी ${allCities.length} शहर देखें` : isPa ? `ਸਾਰੇ ${allCities.length} ਸ਼ਹਿਰ ਦੇਖੋ` : `View all locations (${allCities.length})`}</span>
                 <span>→</span>
               </button>
             )}
@@ -968,9 +973,9 @@ export default function Home({ onOpenApplyModal }) {
                   fontWeight: '650',
                   cursor: 'pointer'
                 }}
-                aria-label={isHi ? 'केवल मुख्य 7 शहर देखें' : isPa ? 'ਸਿਰਫ਼ ਮੁੱਖ 7 ਸ਼ਹਿਰ ਦੇਖੋ' : 'Show top 7 cities only'}
+                aria-label={isHi ? `केवल मुख्य ${primaryCities.length} शहर देखें` : isPa ? `ਸਿਰਫ਼ ਮੁੱਖ ${primaryCities.length} ਸ਼ਹਿਰ ਦੇਖੋ` : `Show top ${primaryCities.length} cities only`}
               >
-                <span>{isHi ? 'केवल मुख्य 7 शहर देखें' : isPa ? 'ਸਿਰਫ਼ ਮੁੱਖ 7 ਸ਼ਹਿਰ ਦੇਖੋ' : 'Show top 7 cities only'}</span>
+                <span>{isHi ? `केवल मुख्य ${primaryCities.length} शहर देखें` : isPa ? `ਸਿਰਫ਼ ਮੁੱਖ ${primaryCities.length} ਸ਼ਹਿਰ ਦੇਖੋ` : `Show top ${primaryCities.length} cities only`}</span>
                 <span>↑</span>
               </button>
             </div>

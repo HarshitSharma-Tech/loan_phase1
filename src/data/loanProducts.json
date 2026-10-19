@@ -5,9 +5,9 @@
     "name": "Personal Loan",
     "category": "Unsecured Personal Financing",
     "headline": "Make Every Life Plan Possible with Instant Disbursal up to ₹40 Lakhs",
-    "description": "Borrow up to ₹40 Lakhs with attractive interest rates starting at 9.0% p.a., flexible repayment tenures up to 7 years, zero collateral, and same-day fund transfer.",
+    "description": "Borrow up to ₹40 Lakhs with attractive interest rates starting at 9.99% p.a., flexible repayment tenures up to 7 years, zero collateral, and same-day fund transfer.",
     "pills": [
-      "Interest from 9.00% p.a.",
+      "Interest from 9.99% p.a.",
       "Up to ₹40 Lakhs",
       "Tenure 1 to 7 Yrs",
       "Zero Collateral"
@@ -91,7 +91,7 @@
       "Business Vintage: Minimum 2 consecutive years in current business/profession",
       "CIBIL Score: 700 and above with clean repayment track record"
     ],
-    "rate_range": "9.00% to 22.00%+ p.a.",
+    "rate_range": "9.99% to 22.00%+ p.a.",
     "proc_fee": "1.00% – 2.50% of loan amount + GST",
     "foreclosure_fee": "Zero for floating rate; 2% to 4% after 12 months for fixed",
     "faqs": [
@@ -142,7 +142,7 @@
     "headline": "Get Funds Disbursed to Your Account in Under 15 Minutes",
     "description": "Pre-approved digital loan offers up to ₹10 Lakhs with instant video KYC, zero physical documentation, and 24x7 immediate disbursal into your bank account.",
     "pills": [
-      "Interest from 9.00% p.a.",
+      "Interest from 9.99% p.a.",
       "Up to ₹10 Lakhs",
       "100% Paperless",
       "24x7 Digital Access"
@@ -226,7 +226,7 @@
       "Bank statements of latest 6 months",
       "CIBIL Score: 690+"
     ],
-    "rate_range": "9.00% to 22.00%+ p.a.",
+    "rate_range": "9.99% to 22.00%+ p.a.",
     "proc_fee": "1.50% – 2.00% of loan amount",
     "foreclosure_fee": "Standard 2% to 3% after 6 completed installments",
     "faqs": [
@@ -269,7 +269,7 @@
     "headline": "Fuel Enterprise Growth with Collateral-Free Capital up to ₹75 Lakhs",
     "description": "Empower your business with unsecured working capital and machinery loans up to ₹75 Lakhs, competitive interest rates, tax-deductible interest, and rapid 48-hour sanction.",
     "pills": [
-      "Interest from 9.50% p.a.",
+      "Interest from 10% p.a.",
       "Zero Collateral",
       "Tenure 1 to 5 Yrs",
       "Tax-Deductible Interest"
@@ -350,7 +350,7 @@
       "GST Returns: Filed regularly for at least 12 months",
       "CIBIL / Commercial Credit Score: 680+"
     ],
-    "rate_range": "9.50% to 36.00% p.a.",
+    "rate_range": "10% to 36.00% p.a.",
     "proc_fee": "1.50% – 2.50% of sanctioned amount",
     "foreclosure_fee": "2% to 4% after 6 months; NIL for Micro-enterprises as per RBI norms",
     "faqs": [
@@ -390,17 +390,17 @@
     "slug": "home-loan",
     "name": "Home Loan",
     "category": "Residential Housing Credit",
-    "headline": "Turn the Key to Your Dream Home with Rates Starting from 8.40% p.a.",
+    "headline": "Turn the Key to Your Dream Home with Rates Starting from 7.55% p.a.",
     "description": "Affordable home loans up to ₹5 Crore with long repayment tenures up to 30 years, zero prepayment penalties for floating rate borrowers, and tax savings under Section 24(b) & 80C.",
     "pills": [
-      "Rates from 7.15% p.a.",
+      "Rates from 7.55% p.a.",
       "Tenure up to 30 Yrs",
       "Up to 90% Property Value",
       "Tax Benefits up to ₹3.5L"
     ],
     "hero_img": "images/loan-home.jpg",
     "badge1_icon": "🏡",
-    "badge1_title": "Lowest 8.40% p.a.",
+    "badge1_title": "Lowest 7.55% p.a.",
     "badge1_sub": "Save up to ₹5L in interest",
     "badge2_icon": "🔑",
     "badge2_title": "Up to 90% LTV",
@@ -414,7 +414,7 @@
     "benefits": [
       [
         "🏡",
-        "Lowest Rates from 8.40%",
+        "Lowest Rates from 7.55%",
         "Avail the most competitive housing interest rates linked directly to RBI Repo Rate."
       ],
       [
@@ -477,7 +477,7 @@
       "Audited Financials / ITR with positive operational profit",
       "CIBIL Score: 720+"
     ],
-    "rate_range": "7.15% to 8.40%+ p.a.",
+    "rate_range": "7.55% to 8.40%+ p.a.",
     "proc_fee": "0.25% – 0.50% (Max ₹10,000 - ₹15,000 + GST)",
     "foreclosure_fee": "NIL for floating rate individual borrowers",
     "faqs": [
@@ -520,7 +520,7 @@
     "headline": "Unlock High-Value Capital up to ₹10 Crore by Pledging Real Estate",
     "description": "Monetize your residential, commercial or industrial property to raise large-ticket funding up to ₹10 Crore with extended 15-year tenures and much lower interest rates than unsecured credit.",
     "pills": [
-      "Interest from 8.40% p.a.",
+      "Interest from 9.50% p.a.",
       "Up to 70% Property Value",
       "Tenure up to 15 Yrs",
       "Lower Interest Rate"
@@ -604,7 +604,7 @@
       "ITR records showing steady net profit",
       "Property in applicant/co-applicant name"
     ],
-    "rate_range": "8.40% to 12.50% p.a.",
+    "rate_range": "9.50% to 12.50% p.a.",
     "proc_fee": "0.50% – 1.00% + legal/technical valuation costs",
     "foreclosure_fee": "NIL for individual borrowers on floating rates",
     "faqs": [
@@ -647,7 +647,7 @@
     "headline": "Instant Liquidity Against Gold Jewellery from 0.75% per Month",
     "description": "Unlock instant funds against gold jewellery in just 30 minutes with maximum RBI-mandated 75% LTV, certified weighing, bank vault safety, and zero income proof requirements.",
     "pills": [
-      "Rates from 6.90% p.a.",
+      "Rates from 8.50% p.a.",
       "30-Min Disbursal",
       "Up to 75% Gold Value",
       "No Income Proof Needed"
@@ -731,7 +731,7 @@
       "Valid KYC documents",
       "No ITR or Balance sheet needed"
     ],
-    "rate_range": "6.90% to 18.00% p.a.",
+    "rate_range": "8.50% to 18.00% p.a.",
     "proc_fee": "0.25% – 0.50% (often waived for digital bookings)",
     "foreclosure_fee": "NIL at any time during the tenure",
     "faqs": [
@@ -774,7 +774,7 @@
     "headline": "Invest in Global Ambitions with Study Loans up to ₹1 Crore & Moratorium",
     "description": "Comprehensive student loans up to ₹1 Crore covering 100% tuition, travel, and accommodation for premier universities in India and overseas with repayment starting post-study.",
     "pills": [
-      "Rates from 8.00% p.a.",
+      "Rates from 7.85% p.a.",
       "Study in India & Abroad",
       "Moratorium Repayment",
       "Tax Deduction Sec 80E"
@@ -855,7 +855,7 @@
       "Co-applicant with stable business vintage and regular ITR filings",
       "Clean CIBIL repayment history for co-signer (680+)"
     ],
-    "rate_range": "8.00% to 16.00% p.a.",
+    "rate_range": "7.85% to 16.00% p.a.",
     "proc_fee": "NIL for Indian studies; up to ₹10,000 for overseas processing",
     "foreclosure_fee": "NIL anytime during tenure",
     "faqs": [
@@ -895,10 +895,10 @@
     "slug": "car-loan",
     "name": "Car Loan",
     "category": "Four-Wheeler Automotive Credit",
-    "headline": "Drive Your Dream Car with up to 100% On-Road Financing from 8.75% p.a.",
+    "headline": "Drive Your Dream Car with up to 100% On-Road Financing from 8% p.a.",
     "description": "Flexible new and pre-owned car financing with zero or minimal down payment, customized tenures up to 7 years, instant digital approvals, and partnerships with leading automakers across India.",
     "pills": [
-      "Rates from 8.50% p.a.",
+      "Rates from 8% p.a.",
       "Up to 100% On-Road",
       "Tenure up to 7 Yrs",
       "Instant Dealership Sanction"
@@ -924,7 +924,7 @@
       ],
       [
         "📉",
-        "Attractive Rates from 8.75%",
+        "Attractive Rates from 8%",
         "Fixed interest rate options guarantee unvarying monthly payments throughout."
       ],
       [
@@ -982,7 +982,7 @@
       "Net Annual Income: ₹2.5 Lakhs+",
       "CIBIL Score: 700+"
     ],
-    "rate_range": "8.50% p.a. onwards",
+    "rate_range": "8% p.a. onwards",
     "proc_fee": "0.50% – 1.00% (or flat ₹3,000 - ₹5,000 + GST)",
     "foreclosure_fee": "2% to 4% after 6 to 12 months",
     "faqs": [
@@ -1025,7 +1025,7 @@
     "headline": "Ride Away on Your Dream Bike or EV with Instant Approvals & Easy EMIs",
     "description": "Fast two-wheeler financing up to ₹3.5 Lakhs for commuter bikes, performance motorcycles, and electric scooters with zero down payment options, paperless KYC, and low EMIs.",
     "pills": [
-      "Rates from 7.60% p.a.",
+      "Rates from 9.60% p.a.",
       "Up to ₹3.5 Lakhs",
       "Zero Down Payment",
       "EV Subsidy Supported"
@@ -1109,7 +1109,7 @@
       "Bank statement of last 3 months",
       "CIBIL Score: 660+"
     ],
-    "rate_range": "7.60% to 28.00% p.a.",
+    "rate_range": "9.60% to 28.00% p.a.",
     "proc_fee": "Flat ₹1,000 – ₹2,500 + GST",
     "foreclosure_fee": "2% after 6 months",
     "faqs": [
@@ -1152,7 +1152,7 @@
     "headline": "Immediate Medical Emergency Financing up to ₹25 Lakhs with Zero Prepayment Fees",
     "description": "Urgent healthcare loans with immediate hospital/bank disbursal, zero prepayment penalties, minimal documentation, and flexible repayment tenures for surgeries, treatments, and procedures.",
     "pills": [
-      "Rates from 8.90% p.a.",
+      "Rates from 9.90% p.a.",
       "Up to ₹25 Lakhs",
       "Zero Prepayment Fees",
       "Covers Non-Insured Costs"
@@ -1236,7 +1236,7 @@
       "Hospital estimate document",
       "CIBIL Score: 660+"
     ],
-    "rate_range": "8.90% to 30.50% p.a.",
+    "rate_range": "9.90% to 30.50% p.a.",
     "proc_fee": "1.00% (discounted for emergency healthcare)",
     "foreclosure_fee": "ZERO foreclosure charge after 30 days",
     "faqs": [
@@ -1279,7 +1279,7 @@
     "headline": "Instant Overdraft Credit Line Without Selling Your Stocks or Mutual Funds",
     "description": "Unlock immediate liquidity up to ₹2 Crore by creating a digital lien on your equity shares, mutual funds, and bonds. Retain 100% of dividends and pay interest only on what you withdraw.",
     "pills": [
-      "Rates from 7.50% p.a.",
+      "Rates from 8.50% p.a.",
       "Overdraft Facility",
       "Retain Capital Growth",
       "Pay Interest on Used Funds"
@@ -1332,7 +1332,7 @@
       ],
       [
         "📉",
-        "Attractive Interest Rates from 9.00% p.a.",
+        "Attractive Interest Rates from 8.50% p.a.",
         "Lower borrowing cost than unsecured credit cards and personal loans."
       ],
       [
@@ -1361,7 +1361,7 @@
       "Resident Indian, HUF, or Corporate holding eligible equity/mutual fund investments",
       "Valid PAN card linked to Demat portfolio"
     ],
-    "rate_range": "7.50% to 15.00% p.a.",
+    "rate_range": "8.50% to 15.00% p.a.",
     "proc_fee": "Flat ₹1,500 – ₹3,500 + Demat pledge creation charges",
     "foreclosure_fee": "NIL at any time",
     "faqs": [

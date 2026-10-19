@@ -110,7 +110,7 @@ export const loanGalleries = {
   'home-loan': {
     eyebrow: 'Homeownership & Sanctuaries',
     heading: 'Step into the home you’ve always envisioned for your family',
-    description: 'Low interest rates starting from 7.15% to 8.40%+ p.a., extended 30-year tenures, and end-to-end legal title verification for residential properties across India.',
+    description: 'Low interest rates starting from 7.55% to 8.40%+ p.a., extended 30-year tenures, and end-to-end legal title verification for residential properties across India.',
     featured: {
       img: '/images/story-home-loan.jpg',
       tag: 'FAMILY MILESTONE',
